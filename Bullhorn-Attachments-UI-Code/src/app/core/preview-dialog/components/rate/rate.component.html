@@ -1,0 +1,37 @@
+<div class="grid">
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('discountedOtBillRate')">
+        <label for="_discOT">{{ 'payBillLabel.discountedOTBillRate' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.assignment?.discountedOtBillRate}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('isPerDiemBillable')">
+        <label for="_isbill">{{ 'payBillLabel.Isperdiembillable' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.isPerDiemBillable}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('perDiemStartDate')">
+        <label for="_pdsdate">{{ 'payBillLabel.perdiemstartdate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.perDiemStartDate}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('perDiemEndDate')">
+        <label for="_pdsdate">{{ 'payBillLabel.perdiemenddate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.perDiemEndDate}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('perDiemRate')">
+        <label for="_pdrate">{{ 'payBillLabel.perdiemrate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.perDiemRate}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('perDiemBillableDailyPay')">
+        <label for="_perDiemBillableDailyPay">{{ 'timeElementsAndRatesLabels.perDiemBillableDailyPay' | translate }}</label
+        >
+        <span class="disabledFields">{{allReviewData?.timeSetup?.perDiemBillableDailyPay}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('perDiemDailyBill')">
+        <label for="_perDiemDailyBill">{{ 'timeElementsAndRatesLabels.perDiemDailyBill' | translate }}</label
+        >
+        <span class="disabledFields">{{allReviewData?.timeSetup?.perDiemDailyBill}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('perDiemNonBillDailyPay')">
+        <label for="_perDiemNonBillDailyPay">{{ 'timeElementsAndRatesLabels.perDiemNonBillDailyPay' | translate }}</label
+        >  
+        <span class="disabledFields">{{allReviewData?.timeSetup?.perDiemNonBillDailyPay}}</span>
+    </div>
+</div>

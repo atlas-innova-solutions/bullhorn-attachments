@@ -1,0 +1,13 @@
+<form [formGroup]="ExtendChangeGroup">
+  <div class="grid">
+    <div class="form-group col-12 md:col-6 lg:col-4">
+      <label for="extend">{{'assignmentLabel.asgmtEndDate' | translate}}</label><span class="text-danger">*</span>
+      <p-calendar formControlName="extend" [showIcon]="true" appendTo="body"></p-calendar>
+      <div *ngIf="ExtendChangeGroup.get('extend')!.invalid && (ExtendChangeGroup.get('extend')!.dirty || ExtendChangeGroup.get('extend')!.touched )">
+        <small class="text-danger">{{error.mandatory}}</small>
+      </div>
+      <small class="p-error block"  *ngIf="dateValidation">{{ error.EndDateError }}</small>
+    </div>
+    <div class="col-12 md:col-6 lg:col-6"></div>
+  </div>
+</form>

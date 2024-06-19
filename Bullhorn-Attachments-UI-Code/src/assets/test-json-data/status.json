@@ -1,0 +1,16 @@
+{
+    "Statuses": [
+        {
+            "name": "Open",
+            "placementStatusId": 1
+        },
+        {
+            "name": "In Review",
+            "placementStatusId": 2
+        },
+        {
+            "name": "Completed",
+            "placementStatusId": 3
+        }
+    ]
+}

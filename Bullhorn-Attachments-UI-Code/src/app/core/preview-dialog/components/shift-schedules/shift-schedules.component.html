@@ -1,0 +1,6 @@
+<div class="grid">
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('workSchedule')">
+        <label  for="_workschedule">{{ 'assignmentLabel.alternativeWorkerSchedule' | translate }} </label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.workSchedule}}</span>
+    </div>
+</div> 

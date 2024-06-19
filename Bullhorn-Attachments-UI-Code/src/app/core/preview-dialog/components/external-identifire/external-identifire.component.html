@@ -1,0 +1,50 @@
+<div class="grid">
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('candidateId')">
+        <label for="_cId">{{ 'workerInfoLabel.candidateId' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.candidateId}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('placementId')">
+        <label for="_pId">{{ 'workerInfoLabel.placementId' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.assignment?.placementId}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('placementSource')">
+        <label for="_psource">{{ 'workerInfoLabel.placementSource' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.placementSource}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('placementStatus')">
+        <label for="_pstatus">{{ 'workerInfoLabel.placementStatus' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.assignment?.placementStatus}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('onboardingId')">
+        <label for="_onbId">{{ 'workerInfoLabel.onboardingId' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.onboardingId}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('onboardingStatus')">
+        <label for="_onbstatus">{{ 'workerInfoLabel.onboardingStatus' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.onboardingStatus}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('onboardingCancellationReason')">
+        <label for="_onbcan">{{ 'workerInfoLabel.onboardingCancellationReason' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.assignment?.onboardingCancellationReason}}</span>
+    </div>
+    <!-- <div class="col-12 md:col-6 lg:col-4">
+        <label for="_matcanid">{{ 'workerInfoLabel.matchedCandidatedID' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.candidateDuplicateCheckIndicator}}</span>
+    </div> -->
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('matchedEmployeeId')">
+        <label for="_matempid">{{ 'workerInfoLabel.matchedEmployeeID' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.assignment?.matchedEmployeeId}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('hireType')">
+        <label for="_hitype">{{ 'workerInfoLabel.hireType' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.hireType}}</span>
+    </div>
+    <!-- <div class="col-12 md:col-6 lg:col-4">
+        <label for="_lempId">{{ 'workerInfoLabel.legacyEmployeeID' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.assignment?.legacyEmployeeId}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4">
+        <label for="_lassId">{{ 'workerInfoLabel.legacyAssignmentID' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.asgmtId}}</span>
+    </div> -->
+</div>

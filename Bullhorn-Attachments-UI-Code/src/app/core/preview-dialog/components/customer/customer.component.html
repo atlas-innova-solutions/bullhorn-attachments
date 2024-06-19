@@ -1,0 +1,38 @@
+    <div class="grid ">
+      <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('atsCustomerParentId')">
+        <label for="_atscIdp">{{ 'customerLabels.atsCustomerId(p)' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.atsCustomerParentId}}</span>
+        </div>
+      <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('atsCustomerParentName')">
+        <label for="_atscnamep">{{ 'customerLabels.atsCustomerName(p)' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.atsCustomerParentName}}</span>
+      </div>
+      <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('atsCustomerAccountId')">
+        <label for="_atscIdpa">{{ 'customerLabels.atsCustomerId(acc)' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.atsCustomerAccountId}}</span>
+      </div>
+      <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('atsCustomerAccountName')">
+        <label for="_atscnamea">{{ 'customerLabels.atsCustomerName(acc)' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.atsCustomerAccountName}}</span>
+      </div>
+      <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('fusionCustomerAccountId')">
+        <label for="_fusIda">{{ 'customerLabels.fusionCustomerId(acc)' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.fusionCustomerAccountId}}</span>
+        </div>
+      <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('fusionCustomerAccountName')">
+        <label for="_fusnamea">{{ 'customerLabels.fusionCustomerName(acc)' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.fusionCustomerAccountName}}</span>
+      </div>
+      <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('fusionCustomerParentId')">
+        <label for="_fusIdp">{{ 'customerLabels.fusionCustomerId(p)' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.fusionCustomerParentId}}</span>
+      </div>
+      <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('fusionCustomerParentName')">
+        <label for="_fusnamep">{{ 'customerLabels.fusionCustomerName(p)' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.fusionCustomerParentName}}</span>
+      </div>
+      <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('customerSite')">
+        <label for="_csite">{{ 'customerLabels.customerSite(billingloc)' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.customerSite}}</span>
+      </div>
+    </div>

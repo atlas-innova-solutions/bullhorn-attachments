@@ -1,0 +1,50 @@
+<div class="grid">
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('payGroup')">
+        <label for="_cpaygroup">{{ 'payBillLabel.payGroup' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.ceridianPayGroup}}</span>
+    </div>
+    <!-- <div class="col-12 md:col-6 lg:col-4">
+        <label for="_checkLoaction">{{ 'payBillLabel.checkLoaction' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.assignment?.checkLocation}}</span>
+    </div> -->
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('payFrequency')">
+        <label for="_payfreq">{{ 'payBillLabel.payFrequency' | translate }} </label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.payFrequency}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('payCycle')">
+        <label for="_pcycle">{{ 'payBillLabel.payCycle' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.payCycle}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('payWeekendingDay')">
+        <label for="_pweekday">{{ 'payBillLabel.payWeekendingDay' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.payWeekendingDay}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('standardPayRate')">
+        <label for="_spayrate">{{ 'payBillLabel.standardPayRate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.standardPayRate}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('payType')">
+        <label for="_pper">{{ 'payBillLabel.payType' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.payType}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('payCurrency')">
+        <label for="_pcurrency">{{ 'payBillLabel.payCurrency' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.payCurrency}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('overTimePayRate')">
+        <label for="_oprate">{{ 'payBillLabel.overTimePayRate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.overTimePayRate}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('doubleTimePayRate')">
+        <label for="_dprate">{{ 'payBillLabel.doubleTimePayRate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.doubleTimePayRate}}</span>  
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('OTRuleOverride')">
+        <label for="_otrule">{{ 'payBillLabel.OTRuleOverride' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.otRuleOverride}}</span>
+    </div>
+    <!-- <div class="col-12 md:col-6 lg:col-4">
+        <label for="_mtype">{{ 'payBillLabel.methodType' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.usW2ElectronicConsent}}</span>
+    </div> -->
+</div>

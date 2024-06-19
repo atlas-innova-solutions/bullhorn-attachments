@@ -1,0 +1,10 @@
+<p-card *ngIf="isAuthenticated">
+    <p class="m-2 card-content">
+        <app-custom-field-value [placementId]="entityId"></app-custom-field-value>
+    </p>
+</p-card>
+<p-card *ngIf="!isAuthenticated">
+    <p class="m-2 card-content">
+        <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+    </p>
+</p-card>

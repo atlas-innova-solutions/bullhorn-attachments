@@ -1,0 +1,75 @@
+@import 'all';
+.nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #343A40;
+    color: #fff;
+    display: flex;
+    padding: 0 16px;
+    align-items: center;
+    height: 56px;
+    font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  }
+  .pm-00 {
+    padding: 0;
+    margin: 0;
+}
+
+.fw-055 {
+    font-weight: $fw500;
+}
+
+  :host::ng-deep {
+
+    .p-datatable .p-datatable-thead > tr > th {
+        text-align: center;
+        height: 40px !important;
+    }
+
+    .p-datatable .p-datatable-tbody > tr > td {
+        text-align: center;
+        height: 40px !important;
+    }
+
+    .p-datatable-scrollable > .p-datatable-wrapper {
+        min-height: 28rem !important;
+        max-height: 28rem !important;
+    }
+
+  .p-button.p-button-link {
+    color: #1D4ED8;
+    background: transparent;
+    border: transparent;
+    height: 1rem;
+    font-weight: 400;
+    font-size: small;
+  }
+
+  .p-datatable .p-datatable-header {
+    background: #f9fafb;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+    border-width: 1px 0 1px 0;
+    padding: 0rem 1rem;
+    font-weight: 700;
+}
+
+.p-tabview .p-tabview-panels {
+  background: #ffffff;
+  padding: 0.25rem;
+  border: 0 none;
+  color: #4b5563;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.ml-1{
+  margin-left: 1rem;
+}
+
+.button
+  {float: right}
+
+
+}

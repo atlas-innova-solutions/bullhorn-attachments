@@ -1,0 +1,56 @@
+
+<div class="inline-flex align-items-center col-12 repoHeader">
+    <p class="fw-055 pm-00 primarycolor">Candidates - Innova Bullhorn</p>
+</div>
+
+<div class="card">  
+    <p-table #dt [columns]="cols" [value]="candidateList" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5, 10, 20]" responsiveLayout="scroll" [style]="{'height': '100%'}"
+    [breakpoint]="'960px'" [tableStyle]="" [scrollable]="true" dataKey="bhCandidateId"
+    scrollHeight="35rem"  [globalFilterFields]="['bhFirstName', 'bhCandidateId', 'bhLastName', 'bhEmail', 'bhMobile', 'bhEmployeeType']">
+    <ng-template pTemplate="caption">
+        <div class="flex">
+            <p-iconField iconPosition="left" class="ml-auto">
+                <p-inputIcon>
+                    <i class="pi pi-search"></i>
+                </p-inputIcon>
+                <input 
+                    pInputText 
+                    type="text" 
+                    (input)="dt.filterGlobal($any($event.target).value, 'contains')" 
+                    placeholder="Search keyword" />
+            </p-iconField>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns >
+            <tr>
+                <th id="history_header" *ngFor="let col of columns" [pSortableColumn]="col.field" [pSortableColumnDisabled]="col.field == 'attachment'">
+                    {{ col.header }}
+                    <p-sortIcon *ngIf="col.field != 'attachment'" [field]="col.field"
+                                [ngClass]="'right'"></p-sortIcon>
+                </th>
+            </tr>
+            <tr>
+                <th id="filter_header" *ngFor="let col of columns">
+                    <span class="p-input-icon-right ml-auto" *ngIf="col.field !== 'attachment'">
+                        <i class="pi pi-search"></i>
+                        <input pInputText *ngIf="col.field !== 'attachment'"
+                            (input)="$any(dt).filter($any($event.target).value, col.field, 'contains');"
+                            [value]="$any(dt).filters[col.key]?.value" />
+                    </span>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-list>
+            <tr>
+                <td>{{ list.bhCandidateId}}</td>
+                <td>{{ list.bhFirstName}}</td>
+                <td>{{ list.bhLastName}}</td>
+                <td>{{ list.bhEmployeeType}}</td>
+                <td>{{ list.bhEmail}}</td>
+                <td>{{ list.bhMobile}}</td>
+                <td> <p-button label="Attachment" (click)="candidateAttachment(list)" [link]="true" /></td>
+               
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

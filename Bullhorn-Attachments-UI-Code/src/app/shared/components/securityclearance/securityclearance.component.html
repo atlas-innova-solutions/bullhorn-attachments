@@ -1,0 +1,16 @@
+<form [formGroup]="SecurityclearnceFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_sctype">{{ 'workerInfoLabel.securityClearanceType' | translate }}</label><br>
+                <p-dropdown id="_sctype" [options]="" formControlName="securityclearancetype" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_sclevel">{{ 'workerInfoLabel.securityClearanceLevel' | translate }}</label><br>
+                <p-dropdown id="_sclevel" [options]="" formControlName="securityclearancelevel" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_scdate">{{ 'workerInfoLabel.securityClearanceExpiryDate' | translate }}</label><br>
+            <p-calendar [iconDisplay]="'input'" [showIcon]="true" id="_scdate" formControlName="scexpdate"></p-calendar>
+        </div>
+    </div>
+</form>

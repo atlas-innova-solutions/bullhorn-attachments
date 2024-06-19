@@ -1,0 +1,22 @@
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('jobTitle')">
+            <label  for="_jobtitle">{{ 'assignmentLabel.jobTitle' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.jobTitle}}</span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('internalJobTittle')">
+            <label  for="_internalJobTitle">{{ 'assignmentLabel.internalJobTitle' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.internalJobTittle}}</span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('internalJobCode')">
+            <label  for="_internalJobCode">{{ 'assignmentLabel.internalJobCode' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.internalJobCodeName}}</span>
+        </div>
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label  for="_industry">{{ 'assignmentLabel.industry' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.industry}}</span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4 ">
+            <label  for="_workercomp">{{ 'assignmentLabel.workerCompCode' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.workersCompCode}}</span>
+        </div> -->
+    </div>        

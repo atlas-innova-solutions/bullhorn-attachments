@@ -1,0 +1,58 @@
+<form [formGroup]="externaldetailsFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('candidateId')">
+            <label for="_cId">{{ 'workerInfoLabel.candidateId' | translate }}<span *ngIf="isFormControlRequired('candidateId')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ candidateIdFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('candidateId')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('placementId')">
+            <label for="_pId">{{ 'workerInfoLabel.placementId' | translate }}<span *ngIf="isFormControlRequired('placementId')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ placementIdFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('placementId')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('placementSource')">
+            <label for="_psource">{{ 'workerInfoLabel.placementSource' | translate }}<span *ngIf="isFormControlRequired('placementSource')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ placementSourceFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('placementSource')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('placementStatus')">
+            <label for="_pstatus">{{ 'workerInfoLabel.placementStatus' | translate }}<span *ngIf="isFormControlRequired('placementStatus')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ placementStatusFromControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('placementStatus')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('onboardingId')">
+            <label for="_onbId">{{ 'workerInfoLabel.onboardingId' | translate }}<span *ngIf="isFormControlRequired('onboardingId')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ onboardingIdFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('onboardingId')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('onboardingStatus')">
+            <label for="_onbstatus">{{ 'workerInfoLabel.onboardingStatus' | translate }}<span *ngIf="isFormControlRequired('onboardingStatus')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ onboardingStatusFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('onboardingStatus')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('onboardingCancellationReason')">
+            <label for="_onbcan">{{ 'workerInfoLabel.onboardingCancellationReason' | translate }}<span *ngIf="isFormControlRequired('onboardingCancellationReason')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ onboardingCancellationReasonFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('onboardingCancellationReason')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('matchedEmployeeId')">
+            <label for="_matempid">{{ 'workerInfoLabel.matchedEmployeeID' | translate }}<span *ngIf="isFormControlRequired('matchedEmployeeId')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ matchedEmployeeIDFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('matchedEmployeeId')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('hireType')">
+            <label for="_hitype">{{ 'workerInfoLabel.hireType' | translate }}<span *ngIf="isFormControlRequired('hireType')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ hireTypeFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('hireType')">{{ errorMessages.mandatory }}</small>
+        </div>
+    </div>
+</form>

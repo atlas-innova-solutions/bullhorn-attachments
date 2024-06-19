@@ -1,0 +1,330 @@
+<div class="card-container">
+<div class="card">
+    <p-card header="{{ 'workerInfoLabel.personal' | translate }}"  [style]="{ height: '350px' }">
+       <p-table [value]="employeeInfoData" >
+            <ng-template pTemplate="body" let-empinfo>
+                <tr>
+                    <th>{{ 'workerInfoLabel.firstName' | translate }} :</th>
+                    <td>{{EmploymentInfo?.firstName}}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'workerInfoLabel.middleName' | translate }} :</th>
+                    <td>{{EmploymentInfo?.middleName}}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'workerInfoLabel.lastName' | translate }} :</th>
+                    <td>{{EmploymentInfo?.lastName}}</td>
+                </tr> 
+                <tr>
+                    <th>{{ 'workerInfoLabel.preferredName' | translate }} :</th>
+                    <td>{{EmploymentInfo?.preferredName}}</td>
+                </tr> 
+                <tr>
+                    <th>{{ 'workerInfoLabel.gender' | translate }} :</th>
+                    <td>{{EmploymentInfo?.gender}}</td>
+                </tr> 
+                <tr>
+                    <th>{{ 'workerInfoLabel.birthDate' | translate }} :</th>
+                    <td>{{formatDate(EmploymentInfo?.birthDate)}}</td>
+                </tr> 
+                <tr>
+                    <th>{{ 'workerInfoLabel.taxId' | translate }} :</th>
+                    <td>{{EmploymentInfo?.taxId}}</td>
+                </tr> 
+            </ng-template>
+            
+       </p-table>
+    </p-card>
+</div>
+<div class="card">
+    <p-card header="{{ 'workerInfoLabels.employment' | translate }}"   [style]="{ height: '350px' }">
+        <p-table [value]="employeeInfoData" >
+            <ng-template pTemplate="body" let-empinfo>
+                <tr>
+                    <th>{{ 'hcmIdentifierLabels.fusionEmpID' | translate }} :</th>
+                    <td>{{EmploymentInfo?.fusionEmployeeId}}</td>
+                </tr>
+                <tr>
+                    <th>{{'empDashboardLabels.emplstatus' | translate}} :</th>
+                    <td>{{this.titlecase.transform(EmploymentInfo?.employmentStatus)}}</td>
+                </tr>
+                <tr>
+                    <th>{{'hcmIdentifierLabels.personType' | translate}} :</th>
+                    <td>{{EmploymentInfo?.personType}}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'assignmentLabel.partTime' | translate }} :</th>
+                    <td>{{EmploymentInfo?.partTimeOrFullTime}}</td>
+                </tr> 
+                <tr>
+                    <th>{{ 'assignmentLabel.fusionSupplierName' | translate }} :</th>
+                    <td>{{EmploymentInfo?.fusionSupplierName}}</td>
+                </tr> 
+                <tr>
+                    <th>{{ 'assignmentLabel.supplierPayGroup' | translate }} :</th>
+                    <td>{{EmploymentInfo?.supplierPayGroup}}</td>
+                </tr>  
+                <!-- <tr>
+                    <th>{{ 'assignmentLabel.overallTenure' | translate }}:</th>
+                    <td>{{EmploymentInfo?.overallTenure}}</td>
+                </tr> 
+                <tr>
+                    <th>{{ 'assignmentLabel.currentTenure' | translate }}:</th>
+                    <td>{{EmploymentInfo?.currentTenure}}</td>
+                </tr>  
+                <tr>
+                    <th>{{ 'assignmentLabel.originalStartDate' | translate }}:</th>
+                    <td>{{EmploymentInfo?.originalStartDate}}</td>
+                </tr> 
+                <tr>
+                    <th>{{ 'assignmentLabel.mstTerminationDate' | translate }}:</th>
+                    <td>{{EmploymentInfo?.mostRecentTerminationDate}}</td>
+                </tr> -->
+                <tr>
+                    <th>{{ 'assignmentLabel.startDateEmp' | translate }} :</th>
+                    <td>{{formatDate(EmploymentInfo?.startDateEmployment)}}</td>
+                </tr> 
+                <tr>
+                    <th>{{ 'assignmentLabel.endDateEmp' | translate }} :</th>
+                    <td>{{formatDate(EmploymentInfo?.endDateEmployment)}}</td>
+                </tr> 
+            </ng-template>
+            
+       </p-table>
+    </p-card>
+</div>
+<div class="card">
+    <p-card header="{{ 'workerInfoLabels.externalSystemIdentifiers' | translate }}"   [style]="{ height: '350px' }">
+        <p-table [value]="employeeInfoData" >
+            <ng-template pTemplate="body" let-empinfo>
+                <tr>
+                    <th>{{ 'workerInfoLabel.legacyEmployeeID' | translate }} :</th>
+                    <td>{{EmploymentInfo?.legacyEmployeeId}}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'workerInfoLabel.legacyAssignmentID' | translate }} :</th>
+                    <td>{{EmploymentInfo?.legacyAssignmentId}}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'workerInfoLabel.candidateId' | translate }} :</th>
+                    <td>{{EmploymentInfo?.candidateId}}</td>
+                </tr> 
+                <tr>
+                    <th>{{ 'workerInfoLabel.placementId' | translate }} :</th>
+                    <td>{{EmploymentInfo?.placementId}}</td>
+                </tr> 
+
+            </ng-template>
+            
+       </p-table>
+    </p-card>
+</div>
+<div class="card">
+    <p-card header="{{ 'workerInfoLabels.immigration' | translate }}"   [style]="{ height: '350px' }">
+        <p-table [value]="employeeInfoData" >
+            <ng-template pTemplate="body" let-empinfo>
+                <tr>
+                    <th>{{ 'immigrationLabels.visaType' | translate }} :</th>
+                    <td>{{EmploymentInfo?.visaType}}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'immigrationLabels.visaPermitNumber' | translate }} :</th>
+                    <td>{{EmploymentInfo?.visaNumber}}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'immigrationLabels.visaStartDate' | translate }} :</th>
+                    <td>{{formatDate(EmploymentInfo?.visaStartDate)}}</td>
+                </tr> 
+                <tr>
+                    <th>{{ 'immigrationLabels.visaEndDate' | translate }} :</th>
+                    <td>{{formatDate(EmploymentInfo?.visaEndDate)}}</td>
+                </tr> 
+                <tr>
+                    <th>{{ 'immigrationLabels.immigrationStatus' | translate }} :</th>
+                    <td>{{EmploymentInfo?.immigrationStatus}}</td>
+                </tr> 
+                <tr>
+                    <th>{{ 'immigrationLabels.immigrationNotes' | translate }} :</th>
+                    <td>{{EmploymentInfo?.immigrationNotes}}</td>
+                </tr> 
+            </ng-template>
+            
+       </p-table>
+    </p-card>
+</div>
+<div class="card">
+    <p-card header="{{ 'payBillLabels.payRoll' | translate }}"   [style]="{ height: '350px' }">
+        <p-table [value]="employeeInfoData" >
+            <ng-template pTemplate="body" let-empinfo>
+                <tr>
+                    <th>{{ 'payBillLabel.payFrequency' | translate }} :</th>
+                    <td>{{EmploymentInfo?.payFrequency}}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'payBillLabel.payWeekendingDay' | translate }} :</th>
+                    <td>{{EmploymentInfo?.payWeekendingDay}}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'payBillLabel.payCycle' | translate }} :</th>
+                    <td>{{EmploymentInfo?.payCycle}}</td>
+                </tr> 
+                <tr>
+                    <th>{{ 'payBillLabel.payGroup' | translate }} :</th>
+                    <td>{{EmploymentInfo?.payGroup}}</td>
+                </tr> 
+
+            </ng-template>
+            
+       </p-table>
+    </p-card>
+</div>
+<div class="card">
+    <p-card header="{{ 'assignmentLabel.empOrganization' | translate }}"   [style]="{ height: '350px' }">
+        <p-table [value]="employeeInfoData" >
+            <ng-template pTemplate="body" let-empinfo>
+                <tr>
+                    <th>{{ 'workerRelationshipLabels.legalEmployer' | translate }} :</th>
+                    <td>{{EmploymentInfo?.legalEmployer}}</td>
+                </tr>
+                <tr>
+                    <th>{{ 'assignmentLabel.reportingBU' | translate }} :</th>
+                    <td>{{EmploymentInfo?.reportingBusinessUnit}}</td>
+                </tr>
+                <!-- <tr>
+                    <th>{{ 'assignmentLabel.brandOffering' | translate }}:</th>
+                    <td>{{EmploymentInfo?.brandOffering}}</td>
+                </tr>  -->
+                <tr>
+                    <th>{{ 'innovaTeamLabel.lineOfBusiness' | translate }} :</th>
+                    <td>{{EmploymentInfo?.lineOfBusiness}}</td>
+                </tr> 
+                <tr>
+                    <th>{{ 'innovaTeamLabel.financeLocation' | translate }} :</th>
+                    <td>{{EmploymentInfo?.financeLocation}}</td>
+                </tr> 
+                <!-- <tr>
+                    <th>{{ 'assignmentLabel.jobTitle' | translate }}:</th>
+                    <td>{{EmploymentInfo?.jobTitle}}</td>
+                </tr> 
+                <tr>
+                    <th>{{ 'assignmentLabel.jobClass' | translate }}:</th>
+                    <td>{{EmploymentInfo?.jobClass}}</td>
+                </tr> -->
+                <tr>
+                    <th>{{ 'assignmentLabel.exemptionStatus' | translate }} :</th>
+                    <td>{{EmploymentInfo?.exemptionStatus}}</td>
+                </tr> 
+            </ng-template>
+            
+       </p-table>
+    </p-card>
+</div>
+<!-- <div class="card">
+    <p-card header="Benefits"   [style]="{ height: '400px' }">
+        <p-table [value]="employeeInfoData" >
+            <ng-template pTemplate="body" let-empinfo>
+                <tr>
+                    <th>PTO Rule :</th>
+                    <td>{{ empinfo?.person?.ptoPlan }}</td>
+                </tr>
+                <tr>
+                    <th>Sick Rule :</th>
+                    <td>{{ empinfo?.person?.sickPlan }}</td>
+                </tr>
+                <tr>
+                    <th>Holiday Rule:</th>
+                    <td>{{ empinfo?.person?.holidayPlan }}</td>
+                </tr> 
+                <tr>
+                    <th>Medical Benefits Eligibility :</th>
+                    <td>{{(empinfo?.person?.isEligibleMedicalEligibility==='Y')?'Yes':'No'}}</td>
+                </tr> 
+               
+            </ng-template>
+            
+       </p-table>
+    </p-card>
+</div>  -->
+
+<div class="card">
+    <p-card header="{{ 'workerInfoLabel.contact' | translate }}" class="title"   [style]="{ height: '350px' }">
+        <p-table [value]="employeeInfoData" >
+            <ng-template pTemplate="body" let-empinfo>
+                <tr>
+                    <th width="40%">{{'workerInfoLabels.homeAddress' | translate }} :</th>
+                    <td class="homeAdd"> {{EmploymentInfo?.homeAddress}}
+                    </td>
+                </tr>
+                <tr>
+                    <th>{{'workerInfoLabel.primaryEmail' | translate}} :</th>
+                    <td>{{EmploymentInfo?.primaryEmail}}</td>
+                </tr>
+                <tr>
+                    <th>{{'workerInfoLabel.businessEmail' | translate}} :</th>
+                    <td>{{EmploymentInfo?.businessEmail}}</td>
+                </tr> 
+                <tr>
+                    <th>{{'workerInfoLabel.mobilePhone' | translate}} :</th>
+                    <td>{{EmploymentInfo?.mobilePhone}}</td>
+                </tr> 
+                <tr>
+                    <th>{{'workerInfoLabel.homePhone' | translate}} :</th>
+                    <td>{{EmploymentInfo?.homePhone}}</td>
+                </tr> 
+              
+            </ng-template>
+            
+       </p-table> 
+    </p-card>
+</div>
+<div class="asgntext">
+    {{'empDashboardLabels.assignmentInfo' | translate }}
+<div class="pt-2">
+<p-table
+        #dt
+        [value]="assignmentInfo"
+        [paginator]="true"
+        [rows]="5"
+        [rowsPerPageOptions]="[5,10,20]"
+        responsiveLayout="scroll"
+        >
+        <ng-template pTemplate="header">
+            <tr>
+                <th>{{'hcmIdentifierLabels.fusionAssignID' | translate}}</th>
+                <th>{{'workerInfoLabel.placementId' | translate}}</th>
+                <th>{{'customerLabels.fusionCustomerName(acc)' | translate}}</th>
+                <th>{{'projectDeliveryLabels.project' | translate}}</th>
+                <th>{{'assignmentLabel.jobTitle' | translate}}</th>
+                <th>{{'assignmentLabel.targetStartDate' | translate}}</th>
+                <th>{{'assignmentLabel.asnmTargetEndDate' | translate}}</th>
+                <th>{{'assignmentLabel.actualStartDateAsnm' | translate}}</th>
+                <th>{{'assignmentLabel.actualEndDateAsnm' | translate}}</th>
+                <th>{{'empDashboardLabels.assignmentStatus' | translate}}</th>
+                <th>{{'payBillLabel.standardPayRate' | translate}}</th>
+                <th>{{'payBillLabel.standardbillrate' | translate}}</th>
+                <th>{{'benefitLabel.workState' | translate}}</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-assignment >
+            <tr>
+                 <td>{{assignment?.hcmAssignmentId}}</td>
+                 <td>{{assignment?.placementId}}</td>
+                 <td>{{assignment?.fusionCustomerName}}</td>
+                 <td>{{assignment?.project}}</td>
+                 <td>{{assignment?.jobTitle}}</td>
+                 <td>{{assignment?.targetStartDate}}</td>
+                 <td>{{assignment?.targetEndDate}}</td>
+                 <td>{{assignment?.actualStartDate}}</td>
+                 <td>{{assignment?.actualEndDate}}</td>
+                 <td>{{assignment?.assignmentStatus}}</td>
+                 <td>{{assignment?.standardPayRate}}</td>
+                 <td>{{assignment?.standardBillRate}}</td>
+                 <td>{{assignment?.workState}}</td>
+
+            </tr>
+        </ng-template>
+        
+</p-table>
+</div>
+</div>
+</div>

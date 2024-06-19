@@ -1,0 +1,44 @@
+<form [formGroup]="immigrationFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('immigrationStatus')">
+            <label for="_Istatus">{{ 'immigrationLabels.immigrationStatus' | translate }}<span *ngIf="isFormControlRequired('immigrationStatus')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_Istatus" [options]="immigrationStatusList" optionLabel="name" optionValue="id" [formControl]="immigrationStatusFormControl" (onChange)="onFormChange('immigrationStatus')"  placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('immigrationStatus')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('visaType')">
+            <label for="_vtype">{{ 'immigrationLabels.visaType' | translate }}<span *ngIf="isFormControlRequired('visaType')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_vtype" [options]="visaTypeList" optionLabel="name" optionValue="id" [formControl]="visaTypeFormControl" (onChange)="onFormChange('visaType')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('visaType')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('visaStartDate')">
+            <label for="_vsdate">{{ 'immigrationLabels.visaStartDate' | translate }}<span *ngIf="isFormControlRequired('visaStartDate')" class="text-danger">*</span></label
+            ><br />
+            <p-calendar [iconDisplay]="'input'" appendTo="body" [showIcon]="true" id="_vsdate" [formControl]="visaStartDateFormControl" (onSelect)="onFormChange('visaStartDate')"></p-calendar>
+            <small class="p-error block" *ngIf="isValid('visaStartDate')">{{ errorMessages.mandatory }}</small>
+            <small class="p-error block"  *ngIf="startDateValidationFlag">{{ errorMessages.dateMessage }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('visaEndDate')">
+            <label for="_vedate">{{ 'immigrationLabels.visaEndDate' | translate }}<span *ngIf="isFormControlRequired('visaEndDate')" class="text-danger">*</span></label><br />
+            <p-calendar [iconDisplay]="'input'" appendTo="body" [showIcon]="true" id="_vedate" [formControl]="visaEndDateFormControl" (onSelect)="onFormChange('visaEndDate')"></p-calendar>
+            <small class="p-error block" *ngIf="isValid('visaEndDate')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('visaPermitNumber')">
+            <label for="_vnum">{{ 'immigrationLabels.visaPermit' | translate }}<span *ngIf="isFormControlRequired('visaPermitNumber')" class="text-danger">*</span></label><br />
+            <input type="text" id="_vnum" [formControl]="visaPermitNumberFormControl" maxlength="70" class="inputMargin" pInputText (change)="onFormChange('visaPermitNumber')"/>
+            <small class="p-error block" *ngIf="isValid('visaPermitNumber')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_lamount">{{ 'immigrationLabels.lcaAmount' | translate }}</label
+            ><br />
+            <input type="number" id="_lamount" [formControl]="lcaAmountFormControl" maxlength="70" class="inputMargin" pInputText  (change)="onFormChange('lcaAmount')"/>
+        </div> -->
+        <div class="col-12 md:col-6 lg:col-4 immigrationNotesTextAreaDiv"  *ngIf="isFormControlFieldDisplay('immigrationNotes')">
+            <label for="_Inotes">{{ 'immigrationLabels.immigrationNotes' | translate }}<span *ngIf="isFormControlRequired('immigrationNotes')" class="text-danger">*</span></label
+            ><br />
+            <textarea rows="10" cols="50" id="_Inotes" maxlength="250" class="inputMargin" pInputTextarea [formControl]="immigrationNotesFormControl" (change)="onFormChange('immigrationNotes')"></textarea>
+            <small class="p-error block" *ngIf="isValid('immigrationNotes')">{{ errorMessages.mandatory }}</small>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,377 @@
+<div class="inline-flex align-items-center col-12 repoHeader">
+    <p class="fw-055 pm-00 primarycolor">{{ 'menuItem.placement_repo' | translate }}</p>
+</div>
+<div class="flex flex-column pt-4">
+    <div class="surface-section flex-auto">
+        <p-panel class="panel-styling" header="{{ 'SearchLabels.advanceSearch' | translate }}"
+            [style]="{ background: 'white' }" [toggleable]="true" [collapsed]="collapse"
+            (collapsedChange)="collapseAdvanceSearch()">
+            <ng-template pTemplate="icons">
+                <div class="search mr-2 pd-00">
+                    <p-button icon="pi pi-table" severity="info" [autoHide]="false" tooltipPosition="bottom"
+                        pTooltip="{{ 'placementRepoComponentLevel.tooltips.defalutView' | translate }}"
+                        (onClick)="getAllOpenandReviewPlacements(true)"></p-button>
+                </div>
+                <div class="search mr-2 pd-00">
+                    <p-button icon="pi pi-refresh" severity="info" [disabled]="isAdvanceSearchBtnEnabled()"
+                        [autoHide]="false" tooltipPosition="bottom"
+                        pTooltip="{{ 'placementRepoComponentLevel.tooltips.refreshGrid' | translate }}"
+                        (onClick)="getPlacements(placementDataTable, true)">
+                    </p-button>
+                </div>
+                <div class="search mr-2 pd-00">
+                    <p-button icon="pi pi-file-excel" severity="info" class="ml-auto"
+                        [disabled]="!(dataTable && dataTable.length > 0)" [autoHide]="false" tooltipPosition="bottom"
+                        pTooltip="{{ 'placementRepoComponentLevel.tooltips.downloadSearchResult' | translate }}"
+                        (click)="exportToCSV()"></p-button>
+                </div>
+                <div class="search mr-2 pd-00">
+                    <p-button icon="pi pi-sliders-h" (onClick)="showColumns()" severity="info" tooltipPosition="bottom"
+                        [autoHide]="false" pTooltip="{{ 'workerSearchComponent.tooltips.selectColumns' | translate }}"
+                        [disabled]="!(dataTable && dataTable.length > 0)"> </p-button>
+                    <p-dialog header="{{'placementRepoComponentLevel.tooltips.customSelectColumns' | translate }}"
+                        [(visible)]="searchColumns" [style]="{ width: '70vw' }" (onHide)="onHide(); pl.resetFilter()">
+                        <p class="customMsgHeader">{{'placementRepoComponentLevel.tooltips.customeSelectMessage' |
+                            translate }}</p>
+                        <p-pickList #pl [source]="sourceTable" [target]="targetTable"
+                            sourceHeader="{{'placementRepoComponentLevel.tooltips.availableFields' | translate }}"
+                            targetHeader="{{'placementRepoComponentLevel.tooltips.selectedFields' | translate }}"
+                            [dragdrop]="true" [responsive]="true" (onMoveToTarget)="moveToTarget()"
+                            (onMoveToSource)="moveToSource()" (onMoveAllToTarget)="moveToTarget()"
+                            (onMoveAllToSource)="moveToSource()" [sourceStyle]="{ height: '20rem' }"
+                            [targetStyle]="{ height: '20rem' }" filterBy="field"
+                            sourceFilterPlaceholder="Search by name" targetFilterPlaceholder="Search by name">
+                            <ng-template let-sourceTable pTemplate="selectedCols">
+                                <div class="flex flex-wrap align-items-center">
+                                    <span>{{ sourceTable.header | translate }}</span>
+                                </div>
+                            </ng-template>
+                        </p-pickList>
+                        <ng-template pTemplate="footer">
+                            <button pButton pRipple type="button" label="Reset"
+                                (click)="columnSelection(); pl.resetFilter()"
+                                class="p-button-danger column-sel-bt"></button>
+                            <p-button severity="info" [disabled]="searchColsApply"
+                                (click)="columnSelection(true); pl.resetFilter()" label="Apply"></p-button>
+                        </ng-template>
+                    </p-dialog>
+                </div>
+            </ng-template>
+            <div class="grid">
+                <div class="col-12 md:col-6 lg:col-3">
+                    <p class="mr">{{ 'workerSearchComponent.advanceSearch.legalEmployer' | translate }}</p>
+                    <p-multiSelect [options]="RegisteredBUList" [(ngModel)]="registeredBUStatus" [showClear]="true"
+                        [resetFilterOnHide]="true" [filter]="true" optionLabel="name"
+                        placeholder="{{ 'placementRepoComponentLevel.placeHoldings.legalEmployerDropdownPlaceholder' | translate }}"></p-multiSelect>
+                    <span class="pi pi-info-circle icon-circle" [autoHide]="false" tooltipPosition="top"
+                        pTooltip="{{ 'placementRepoComponentLevel.tooltips.selectedInfo' | translate }}"
+                        (click)="showPRBUInfo.toggle($event)"></span>
+                    <p-overlayPanel #showPRBUInfo>
+                        <ng-template pTemplate="content">
+                            <li class="overlaycontent-p" *ngFor="let value of registeredBUStatus">{{ value.name }}</li>
+                        </ng-template>
+                    </p-overlayPanel>
+                </div>
+                <div class="col-12 md:col-6 lg:col-1"></div>
+                <div class="col-12 md:col-6 lg:col-3">
+                    <div class="border-round-sm">
+                        <p class="mr">{{ 'placementRepoComponentLevel.advanceSearch.customerNameAccountDropdownLabel' |
+                            translate }}</p>
+                        <p-multiSelect [options]="ClientaccountList" class="pl-02 dropdown"
+                            [(ngModel)]="clientaccountStatus" [showClear]="true" [resetFilterOnHide]="true"
+                            [filter]="true" optionLabel="name"
+                            placeholder="{{ 'placementRepoComponentLevel.placeHoldings.customerNameAccountDropdownPlaceholder' | translate }}"></p-multiSelect>
+                        <span class="pi pi-info-circle icon-circle" [autoHide]="false" tooltipPosition="top"
+                            pTooltip="{{ 'placementRepoComponentLevel.tooltips.selectedInfo' | translate }}"
+                            (click)="showPRCAInfo.toggle($event)"></span>
+                        <p-overlayPanel #showPRCAInfo>
+                            <ng-template pTemplate="content">
+                                <li class="overlaycontent-p" *ngFor="let value of clientaccountStatus">{{ value.name }}</li>
+                            </ng-template>
+                        </p-overlayPanel>
+                    </div>
+                </div>
+                <div class="col-12 md:col-6 lg:col-1"></div>
+                <div class="col-12 md:col-6 lg:col-3">
+                    <div class="border-round-sm">
+                        <p class="mr">{{ 'placementRepoComponentLevel.advanceSearch.supplierNameDropdownLabel' |
+                            translate }}</p>
+                        <p-multiSelect [options]="SupplierList" class="pl-02 dropdown" [(ngModel)]="supplierStatus"
+                            optionLabel="name" [showClear]="true" [resetFilterOnHide]="true" [filter]="true"
+                            placeholder="{{ 'placementRepoComponentLevel.placeHoldings.supplierNameDropdownPlaceholder' | translate }}"></p-multiSelect>
+                        <span class="pi pi-info-circle icon-circle" [autoHide]="false" tooltipPosition="top"
+                            pTooltip="{{ 'placementRepoComponentLevel.tooltips.selectedInfo' | translate }}"
+                            (click)="showPRSInfo.toggle($event)"></span>
+                        <p-overlayPanel #showPRSInfo>
+                            <ng-template pTemplate="content">
+                                <li class="overlaycontent-p" *ngFor="let value of supplierStatus">{{ value.name }}</li>
+                            </ng-template>
+                        </p-overlayPanel>
+                    </div>
+                </div>
+                <div class="col-12 md:col-6 lg:col-3">
+                    <div class="border-round-sm">
+                        <p class="mr">{{ 'placementRepoComponentLevel.advanceSearch.lineOfBusinessDropdownLabel' |
+                            translate }}</p>
+                        <p-multiSelect [options]="ServiceLineList" class="pl-02 dropdown"
+                            [(ngModel)]="serviceLineStatus" optionLabel="name" [showClear]="true"
+                            [resetFilterOnHide]="true" [filter]="true"
+                            placeholder="{{ 'placementRepoComponentLevel.placeHoldings.lineOfBusinessDropdownPlaceholder' | translate }}"></p-multiSelect>
+                        <span class="pi pi-info-circle icon-circle" [autoHide]="false" tooltipPosition="top"
+                            pTooltip="{{ 'placementRepoComponentLevel.tooltips.selectedInfo' | translate }}"
+                            (click)="showPRSLInfo.toggle($event)"></span>
+                        <p-overlayPanel #showPRSLInfo>
+                            <ng-template pTemplate="content">
+                                <li class="overlaycontent-p" *ngFor="let value of serviceLineStatus">{{ value.name }}</li>
+                            </ng-template>
+                        </p-overlayPanel>
+                    </div>
+                </div>
+                <div class="col-12 md:col-6 lg:col-1"></div>
+                <div class="col-12 md:col-6 lg:col-3">
+                    <div class="border-round-sm">
+                        <p class="mr">{{ 'placementRepoComponentLevel.advanceSearch.placementStatusDropdownLabel' |
+                            translate }}</p>
+                        <p-multiSelect [options]="StatusList" class="pl-02 dropdown" [(ngModel)]="selectedStatus"
+                            optionLabel="name" [showClear]="true" [resetFilterOnHide]="true" [filter]="true"
+                            placeholder="{{ 'placementRepoComponentLevel.placeHoldings.placementStatusDropdownPlaceholder' | translate }}"></p-multiSelect>
+                        <span class="pi pi-info-circle icon-circle" [autoHide]="false" tooltipPosition="top"
+                            pTooltip="{{ 'placementRepoComponentLevel.tooltips.selectedInfo' | translate }}"
+                            (click)="showPRSAInfo.toggle($event)"></span>
+                        <p-overlayPanel #showPRSAInfo>
+                            <ng-template pTemplate="content">
+                                <li class="overlaycontent-p" *ngFor="let value of selectedStatus">{{ value.name }}</li>
+                            </ng-template>
+                        </p-overlayPanel>
+                    </div>
+                </div>
+                <div class="col-12 md:col-6 lg:col-1"></div>
+                <div class="col-12 md:col-6 lg:col-3">
+                    <p class="mr">{{ 'placementRepoComponentLevel.advanceSearch.financeReviewStatusDropdownLabel' |
+                        translate }}</p>
+                    <p-multiSelect [options]="financialReviewStatusList" [(ngModel)]="financialReviewStatus"
+                        [showClear]="true" [resetFilterOnHide]="true" [filter]="true" optionLabel="name"
+                        placeholder="{{ 'placementRepoComponentLevel.placeHoldings.financeReviewStatusDropdownPlaceholder' | translate }}"></p-multiSelect>
+                    <span class="pi pi-info-circle icon-circle" [autoHide]="false" tooltipPosition="top"
+                        pTooltip="{{ 'placementRepoComponentLevel.tooltips.selectedInfo' | translate }}"
+                        (click)="showFinanceInfo.toggle($event)"></span>
+                    <p-overlayPanel #showFinanceInfo>
+                        <ng-template pTemplate="content">
+                            <li class="overlaycontent-p" *ngFor="let value of financialReviewStatus; let i = index">{{ value.name }}</li>
+                        </ng-template>
+                    </p-overlayPanel>
+                </div>
+                <div class="col-6 md:col-6 lg:col-1 search-icon">
+                    <div class="search">
+                        <p-button icon="pi pi-search" severity="info" [disabled]="isAdvanceSearchBtnEnabled()"
+                            [autoHide]="false" tooltipPosition="bottom"
+                            pTooltip="{{ 'placementRepoComponentLevel.tooltips.search' | translate }}"
+                            (onClick)="fetchSearchFilterData(false); collapseAdvanceSearch()">
+                        </p-button>
+                    </div>
+                </div>
+            </div>
+        </p-panel>
+    </div>
+</div>
+
+<!----------------------Search List Area--------------------->
+<div class="grid">
+    <div class="col-12" *ngIf="!hideGrid" >
+        <div class="pt-2">
+            <p-table #dt [class.tableView]="collapse === true" [columns]="cols" [value]="dataTable" [paginator]="true"
+                (onLazyLoad)="getPlacements($event, false)" [lazy]="true" [resetPageOnSort]="true"
+                [showCurrentPageReport]="true" [totalRecords]="dataTableCount" [loading]="loading" [rows]="25"
+                currentPageReportTemplate="{first} to {last} of {totalRecords}" responsiveLayout="scroll" [breakpoint]="'960px'"
+                [tableStyle]="" [rowsPerPageOptions]="[25, 50, 100]" [scrollable]="true" selectionMode="single">
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th id="repo_header" *ngFor="let cols of columns"
+                            [alignFrozen]="cols.field == 'actions' ? 'right' : 'left'" pFrozenColumn
+                            [frozen]="cols.field == 'actions' || cols.field == 'atsPlacementId' || cols.field == 'workerName'"
+                            [pSortableColumn]="cols.field" [pSortableColumnDisabled]="cols.field == 'actions'"
+                            [ngStyle]="{'min-width': cols.width}">
+                            {{ cols.header | translate }}<p-sortIcon *ngIf="cols.field != 'actions'" [field]="cols.field"
+                                [ngClass]="'right'"></p-sortIcon>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="repo_filter_header" *ngFor="let col of columns"
+                            [alignFrozen]="col.field == 'actions' ? 'right' : 'left'" pFrozenColumn
+                            [frozen]="col.field == 'actions' || col.field == 'atsPlacementId' || col.field == 'workerName'">
+                            <span class="p-input-icon-right ml-auto" *ngIf="col.field !== 'actions'">
+                                <i class="pi pi-search"></i>
+                                <input pInputText *ngIf="col.field !== 'actions'"
+                                    (input)="$any(dt).filter($any($event.target).value, col.field, 'contains'); onFilterInputEnabled(true);"
+                                    [value]="$any(dt).filters[col.key]?.value" />
+                            </span>
+                        </th>
+                    </tr>
+                </ng-template>
+        
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr [pSelectableRow]="rowData">
+                        <td *ngFor="let col of columns" [alignFrozen]="col.field == 'actions' ? 'right' : 'left'" pFrozenColumn
+                        [frozen]="col.field == 'actions' || col.field == 'atsPlacementId' || col.field == 'workerName'"
+                            (click)="openPreviewOnPlacementId(col.field == 'atsPlacementId', rowData.caseId)">
+                            <ng-container *ngIf="col.field !== 'actions'; else actionColumn">
+                                {{ rowData[col.field] }}
+                            </ng-container>
+                            <ng-template #actionColumn>
+                                <span>
+                                    <!----Rview button code-->
+                                    <span *ngIf="isActionAvailable('Review') && isIconVisibleByStatus(rowData.placementReviewStatus, statusIconLabels.Review, rowData.financeReviewStatus)"
+                                        class="pi pi-file-edit icon-circle pd-00" (click)="openPlacementReview(rowData.caseId)"
+                                        [autoHide]="false" tooltipPosition="top"
+                                        pTooltip="{{ 'iconLabels.review' | translate }}"></span>
+                                    <span
+                                        *ngIf="isActionAvailable('Initiate-Review') && isIconVisibleByStatus(rowData.placementReviewStatus, statusIconLabels.InitiateReview)"
+                                        class="pi pi-file-edit icon-circle pd-00"
+                                        (click)="initiatePlacementReview(rowData.caseId, rowData.atsPlacementId, rowData.placementReviewStatus)"
+                                        [autoHide]="false" tooltipPosition="top"
+                                        pTooltip="{{ 'iconLabels.initiateReview' | translate }}"></span>
+                                    <span
+                                        *ngIf="isActionAvailable('Status-History') && isIconVisibleByStatus(rowData.placementReviewStatus, statusIconLabels.StatusHistory)"
+                                        (click)="openStatusHistoryDialog(rowData.caseId)"
+                                        class="pi pi-history icon-circle pd-00" [autoHide]="false" tooltipPosition="top"
+                                        pTooltip="{{ 'iconLabels.statusHistory' | translate }}"></span>
+                                    <span class="pi pi-ellipsis-v icon-circle icon-circle-blue"
+                                        (click)="showOpIcons.toggle($event)"></span>
+                                    <p-overlayPanel #showOpIcons styleClass="iconOverlayPanelMore">
+                                        <div>
+                                            <div *ngIf="isActionAvailable('Preview') && isIconVisibleByStatus(rowData.placementReviewStatus, statusIconLabels.Preview)"
+                                                class="flex align-items-center iconsOverlayPanel"
+                                                (click)="openPreviewDialog(rowData.caseId)">
+                                                <i class="pi pi-eye tootip-icons-size">
+                                                    <span class="ml-2 fontStyle">{{ 'iconLabels.preview' | translate }}</span>
+                                                </i>
+                                            </div>
+                                            <br
+                                                *ngIf="isActionAvailable('Preview') && isIconVisibleByStatus(rowData.placementReviewStatus, statusIconLabels.Preview)" />
+                                            <div *ngIf="isActionAvailable('On-Hold') && isIconVisibleByStatus(rowData.placementReviewStatus, statusIconLabels.OnHold)"
+                                                class="flex align-items-center iconsOverlayPanel"
+                                                (click)="showOnHoldDialog(rowData.caseId, rowData.atsPlacementId)">
+                                                <i class="pi pi-pause tootip-icons-size">
+                                                    <span class="ml-2 fontStyle">{{ 'iconLabels.onHold' | translate }}</span>
+                                                </i>
+                                            </div>
+                                            <br
+                                                *ngIf="isActionAvailable('On-Hold') && isIconVisibleByStatus(rowData.placementReviewStatus, statusIconLabels.OnHold)" />
+                                            <div *ngIf="isActionAvailable('Change-History') && isIconVisibleByStatus(rowData.placementReviewStatus, statusIconLabels.ChangeHistory)"
+                                                class="flex align-items-center iconsOverlayPanel"
+                                                (click)="openChangeHistoryDialog(rowData.caseId, rowData.atsPlacementId)">
+                                                <i class="pi pi-sync tootip-icons-size">
+                                                    <span class="ml-2 fontStyle">{{ 'iconLabels.changeHistory' | translate
+                                                        }}</span>
+                                                </i>
+                                            </div>
+                                            <!-- <br
+                                            *ngIf="isActionAvailable('Change-History') && isIconVisibleByStatus(rowData.placementReviewStatus, statusIconLabels.CancelPlacement)" />
+                                            <div *ngIf="isActionAvailable('cancel-placement') && isIconVisibleByStatus(rowData.placementReviewStatus, statusIconLabels.CancelPlacement)"
+                                                class="flex align-items-center iconsOverlayPanel" (click)="showCancelPlacementDialog(rowData.caseId, rowData.atsPlacementId)"
+                                                >
+                                                <i class="pi pi-times tootip-icons-size">
+                                                    <span class="ml-2 fontStyle">{{ 'iconLabels.cancelPlacement' | translate
+                                                        }}</span>
+                                                </i>
+                                            </div> -->
+                                        </div>
+                                    </p-overlayPanel>
+                                </span>
+                            </ng-template>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td class="emptyMsg">{{ 'placementRepoComponentLevel.advanceSearch.noResultsFound' | translate }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <router-outlet></router-outlet>
+        <p-dialog [(visible)]="onHoldDialogVisible" [style]="{ width: '35vw' }" [modal]="true" [draggable]="false"
+            [resizable]="false" header="{{ 'changeStatusLabels.updateStatus' | translate }}" appendTo="body"
+            (onHide)="closeOnHoldDialog()">
+            <form [formGroup]="onChangeHoldForm" *ngIf="onChangeHoldForm">
+                <div class="card">
+                    <p-fieldset legend="{{ 'changeStatusLabels.holdReason' | translate }}" styleClass="pb-1">
+                        <div class="grid p-fluid">
+                            <div class="field col-12 md:col-12 lg:col-12 mb-0" [ngClass]="displayFieldCss('reason')">
+                                <p class="reason-hold">{{ 'changeStatusLabels.reason' | translate }}<span
+                                        class="text-danger">*</span></p>
+                                <p-dropdown [style]="{ height: '2.4rem', width: '100%' }" formControlName="reason" type="text"
+                                    [options]="onHoldReasonList" [showClear]="true"
+                                    placeholder="{{ 'changeStatusLabels.reasonDropdownPlaceholder' | translate }}"
+                                    optionLabel="reason" [filter]="true" filterBy="reason">
+                                </p-dropdown>
+                                <small class="p-error block" *ngIf="isFieldValid('reason')">{{ errorMessages.mandatory
+                                    }}</small>
+                            </div>
+                            <div class="field col-12 md:col-12 lg:col-12 mb-0 commentsTextAreaDiv">
+                                <p class="reason-hold">{{ 'changeStatusLabels.comments' | translate }} </p>
+                                <textarea rows="5" cols="80" pInputTextarea formControlName="comments"
+                                    [maxlength]="250"></textarea>
+                                <!-- <small class="p-error block" *ngIf="isFieldValid('comments')">{{ errorMessages.mandatory
+                                    }}</small> -->
+                            </div>
+                        </div>
+                    </p-fieldset>
+                </div>
+            </form>
+            <ng-template pTemplate="footer">
+                <button pButton type="button" class="p-button-info" style="float: right;
+                font-size: 14px;    
+                padding: 0.45rem 0.8rem;
+                background: #11479f;
+                border-color: #11479f;
+                width: 7rem;
+                font-weight: 700;
+                justify-content: center;" (click)="onHoldPlacementSave()">{{ 'changeStatusLabels.save' | translate }}</button>
+            </ng-template>
+        </p-dialog>
+        <p-dialog [(visible)]="cancelPlacementVisible" [style]="{ width: '40vw' }" [modal]="true" [draggable]="false"
+        [resizable]="false" header="{{ 'iconLabels.cancelPlacement' | translate }}" appendTo="body"
+        (onHide)="closeCancelPlacementDialog()">
+        <form [formGroup]="cancelPlacementForm" *ngIf="cancelPlacementForm">
+            <div class="card">
+                <!-- <p-fieldset legend="{{ 'changeStatusLabels.cancelReason' | translate }}" styleClass="pb-1"> -->
+                    <p class="p1">{{ 'iconLabels.cancelPlacementMsg' | translate }}</p>
+                    <div class="grid p-fluid">
+                        <div class="field col-12 md:col-10 lg:col-10 mb-0" >
+                            <p class="reason-hold">{{ 'changeStatusLabels.cancellationReason' | translate }} <span
+                                    class="text-danger">*</span></p>
+                            <p-dropdown [style]="{ height: '2.4rem', width: '100%' }" formControlName="cancelReason" type="text"
+                                [options]="cancelReasonList" [showClear]="true"
+                                placeholder="{{ 'changeStatusLabels.reasonDropdownPlaceholder' | translate }}"
+                                optionLabel="reason" [filter]="true" filterBy="reason">
+                            </p-dropdown>
+                            <small class="p-error block" *ngIf="isValid('cancelReason')">{{ errorMessages.mandatory
+                                }}</small>
+                        </div>
+                        <div class="field col-12 md:col-12 lg:col-12 mb-0 commentsTextAreaDiv"
+                            >
+                            <p class="reason-hold">{{ 'changeStatusLabels.comments' | translate }} </p>
+                            <textarea rows="5" cols="80" pInputTextarea formControlName="comments"
+                                [maxlength]="250"></textarea>
+                            <!-- <small class="p-error block" *ngIf="isValid('comments')">{{ errorMessages.mandatory
+                                }}</small> -->
+                        </div>
+                    </div>
+                <!-- </p-fieldset> -->
+            </div>
+        </form>
+        <ng-template pTemplate="footer">
+            <button pButton type="button" class="p-button-info" style="float: right;
+            font-size: 14px;    
+            padding: 0.45rem 0.8rem;
+            background: #11479f;
+            border-color: #11479f;
+            width: 7rem;
+            font-weight: 700;
+            justify-content: center;" (click)="cancelPlacementSave()">{{ 'changeStatusLabels.save' | translate }}</button>
+        </ng-template>
+    </p-dialog>
+    </div>
+    <!-- <div class="col-12" [hidden]="!hideGrid"></div> -->
+</div>

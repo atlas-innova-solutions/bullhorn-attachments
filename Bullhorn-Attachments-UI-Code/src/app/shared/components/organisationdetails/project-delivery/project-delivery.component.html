@@ -1,0 +1,30 @@
+<form [formGroup]="projectdeliveryFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('project')">
+            <label for="_proj">{{ 'projectDeliveryLabels.project' | translate }}<span *ngIf="isFormControlRequired('project')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_proj" [formControl]="projectFormControl" optionLabel="projectName" [options]="projectList" optionValue="projectId" (onChange)="onFormChange('project')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('project')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('projectType')">
+            <label for="_ptype">{{ 'projectDeliveryLabels.projectType' | translate }}<span *ngIf="isFormControlRequired('projectType')" class="text-danger">*</span></label
+            ><br />
+            <!-- <p-dropdown id="_ptype" [formControl]="projectTypeFormControl" optionLabel="projectTypeName" [options]="projectTypeList" (onChange)="onFormChange('projectType')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown> -->
+            <span class="disabledFields">{{ projectTypeFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('projectType')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('projectBusinessUnit')">
+            <label for="_pbu">{{ 'projectDeliveryLabels.projectBUunit' | translate }}<span *ngIf="isFormControlRequired('projectBusinessUnit')" class="text-danger">*</span></label
+            ><br />
+            <!-- <input type="text" id="_pbu" [formControl]="projectBusinessUnitFormControl" class="inputMargin" pInputText /> -->
+            <span class="disabledFields">{{ projectBusinessUnitFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('projectBusinessUnit')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('deliveryOwner')">
+            <label for="_delowner">{{ 'projectDeliveryLabels.deliveryOwner' | translate }}<span *ngIf="isFormControlRequired('deliveryOwner')" class="text-danger">*</span> </label><br />
+            <!-- <input type="text" id="_delowner" [formControl]="deliveryOwnerFormControl" class="inputMargin" pInputText /> -->
+            <span class="disabledFields">{{ deliveryOwnerFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('deliveryOwner')">{{ errorMessages.mandatory }}</small>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,93 @@
+<form [formGroup]="supplierFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('atsSupplierId')">
+            <label for="_atsvId">{{ 'organisationalLabel.aTSSupplierID' | translate }}<span *ngIf="isFormControlRequired('atsSupplierId')" class="text-danger">*</span></label
+            ><br />
+            <!-- <input type="text" id="_atssuId" [formControl]="atsSupplierIdFormControl" class="inputMargin" pInputText /> -->
+            <span class="disabledFields">{{ atsSupplierIdFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('atsSupplierId')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('atsSupplierName')">
+            <label for="_atssupname">{{ 'organisationalLabel.ATSsupplierName' | translate }}<span *ngIf="isFormControlRequired('atsSupplierName')" class="text-danger">*</span></label
+            ><br />
+            <!-- <input type="text" id="_atssupname" formControlName="atsSupplierNameFormControl"  class="inputMargin" pInputText /> -->
+            <span class="disabledFields">{{ atsSupplierNameFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('atsSupplierName')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('fusionSupplierId')">
+            <label for="_fussupId">{{ 'organisationalLabel.fussupplierID' | translate }}<span *ngIf="isPersonTypeContingentWorker || isFormControlRequired('fusionSupplierId')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown
+                id="_fussupId"
+                [formControl]="fusionSupplierIdFormControl"
+                [options]="fusionSupplierIdList"
+                optionLabel="id"
+                optionValue="id"
+                (onChange)="onFormChange('fusionSupplierId')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown>
+            <!-- <span class="disabledFields">{{ fusionSupplierIdFormControl.value }}</span> -->
+            <small class="p-error block" *ngIf="isPersonTypeContingentWorker && isValid('fusionSupplierId')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('fusionSupplierName')">
+            <label for="_fussupname">{{ 'organisationalLabel.fusSuppname' | translate }}<span *ngIf="isPersonTypeContingentWorker || isFormControlRequired('fusionSupplierName')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown
+                id="_fussupname"
+                [formControl]="fusionSupplierNameFormControl"
+                [options]="fusionSupplierNameList"
+                optionLabel="name"
+                optionValue="name"
+                (onChange)="onFormChange('fusionSupplierName')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown>
+            <!-- <span class="disabledFields">{{ fusionSupplierNameFormControl.value }}</span> -->
+            <small  class="p-error block" *ngIf="isPersonTypeContingentWorker && isValid('fusionSupplierName')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+        <label for="_atsvId">{{ 'organisationalLabel.ATSreferallvendorID' | translate }}<span class="text-danger">*</span></label><br>
+        <input type="text" id="_atsvId" formControlName="ATSreferallvendorID" class="inputMargin" pInputText />
+        <small class="p-error block" *ngIf="isValid('ATSreferallvendorID')">{{ errorMessages.mandatory }}</small>
+      </div>
+      <div class="col-12 md:col-6 lg:col-4">
+        <label for="_atsvname">{{ 'organisationalLabel.aTSReferralVendorName' | translate }}<span class="text-danger">*</span></label><br>
+          <input type="text" id="_atsvname" formControlName="ATSreferralvendorname"  class="inputMargin" pInputText />
+          <small class="p-error block" *ngIf="isValid('ATSreferralvendorname')">{{ errorMessages.mandatory }}</small>
+      </div>
+      <div class="col-12 md:col-6 lg:col-4">
+        <label for="_refvenId">{{ 'organisationalLabel.fusionReferallVendorID' | translate }}<span class="text-danger">*</span></label><br>
+          <input type="text" id="_refvenId" formControlName="referallvendorId" class="inputMargin" pInputText />
+          <small class="p-error block" *ngIf="isValid('referallvendorId')">{{ errorMessages.mandatory }}</small>
+      </div>
+      <div class="col-12 md:col-6 lg:col-4">
+        <label for="_refvenname">{{ 'organisationalLabel.fusionReferralVendorName' | translate }}<span class="text-danger">*</span></label><br>
+          <input type="text" id="_refvenname" formControlName="referralvendorname"class="inputMargin" pInputText />
+          <small class="p-error block" *ngIf="isValid('referralvendorname')">{{ errorMessages.mandatory }}</small>
+      </div>
+      <div class="col-12 md:col-6 lg:col-4">
+        <label for="_refratetype">{{ 'organisationalLabel.referralRateType' | translate }}<span class="text-danger">*</span></label><br>
+        <input type="text" id="_refratetype" formControlName="referralratetype" class="inputMargin" pInputText />
+        <small class="p-error block" *ngIf="isValid('referralratetype')">{{ errorMessages.mandatory }}</small>
+      </div>
+      <div class="col-12 md:col-6 lg:col-4">
+        <label for="_refrate">{{ 'organisationalLabel.referralRate' | translate }}<span class="text-danger">*</span></label><br>
+          <input type="text" id="_refrate" formControlName="referralrate"  class="inputMargin" pInputText />
+          <small class="p-error block" *ngIf="isValid('referralrate')">{{ errorMessages.mandatory }}</small>
+      </div>
+      <div class="col-12 md:col-6 lg:col-4">
+        <label for="_refstdate">{{ 'organisationalLabel.referralStartDate' | translate }}<span class="text-danger">*</span></label><br>
+          <p-calendar class="iconshow" [iconDisplay]="'input'" [showIcon]="true" id="_refstdate" formControlName="referralstartdate"></p-calendar>
+          <small class="p-error block" *ngIf="isValid('referralstartdate')">{{ errorMessages.mandatory }}</small>
+      </div>
+      <div class="col-12 md:col-6 lg:col-4">
+        <label for="_refenddate">{{ 'organisationalLabel.referralEndDate' | translate }}<span class="text-danger">*</span></label><br>
+          <p-calendar class="iconshow" [iconDisplay]="'input'" [showIcon]="true" id="_refenddate" formControlName="referralenddate"></p-calendar>
+          <small class="p-error block" *ngIf="isValid('referralenddate')">{{ errorMessages.mandatory }}</small>
+      </div>
+      <div class="col-12 md:col-6 lg:col-4">
+        <label for="_refterm">Referral Get Paid Terms (Days)<span class="text-danger">*</span></label><br>
+        <input type="text" id="_refterm" formControlName="referralterms"  class="inputMargin" pInputText />
+          <small class="p-error block" *ngIf="isValid('referralterms')">{{ errorMessages.mandatory }}</small>
+      </div> -->
+    </div>
+</form>

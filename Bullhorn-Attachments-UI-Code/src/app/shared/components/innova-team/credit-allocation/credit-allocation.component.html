@@ -1,0 +1,276 @@
+<form [formGroup]="creditFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('clientServiceManager')">
+            <label for="_csman">{{ 'innovaTeamLabel.clientSerManager' | translate }}<span *ngIf="isFormControlRequired('clientServiceManager')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown
+                id="_csman"
+                [formControl]="clientServiceManagerFormControl"
+                [options]="clientServiceManagerList"
+                optionLabel="name"
+                optionValue="id"
+                (onChange)="onFormChange('clientServiceManager')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('clientServiceManager')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('lineOfBusiness')">
+            <label for="_credlob">{{ 'innovaTeamLabel.lineOfBusiness' | translate }}<span *ngIf="isFormControlRequired('lineOfBusiness')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ lineOfBusinessFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('lineOfBusiness')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('location')">
+            <label for="_creloc">{{ 'innovaTeamLabel.financeLocation' | translate }}<span *ngIf="isFormControlRequired('location')" class="text-danger">*</span></label
+            ><br />
+            <!-- <p-dropdown id="_creloc" [formControl]="locationFormControl" [options]="locationList" optionLabel="locationName" optionValue="id" (onChange)="onFormChange('location')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+             -->
+            <span class="disabledFields">{{ locationFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('location')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('recruiter')">
+            <label for="_crerec">{{ 'innovaTeamLabel.recruiter' | translate }}<span *ngIf="isFormControlRequired('recruiter')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_crerec" [formControl]="recruiterFormControl" [options]="recruiterList" optionLabel="name" optionValue="id" (onChange)="onFormChange('recruiter')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('recruiter')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('recruiterPercentage')">
+            <label for="_recper">{{ 'innovaTeamLabel.recruiterPercentage' | translate }}<span *ngIf="isFormControlRequired('recruiterPercentage')" class="text-danger">*</span></label
+            ><br />
+            <!-- <p-dropdown
+                id="_recper"
+                [formControl]="recruiterPercentageFormControl"
+                [options]="recruiterPercentageList"
+                optionLabel="name"
+                optionValue="id"
+                (onChange)="onFormChange('recruiterPercentage')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown> -->
+            <input type="text" id="_recterper" [formControl]="recruiterPercentageFormControl" class="inputMargin" pInputText (change)="onFormChange('recruiterPercentage')" />
+            <small class="p-error block" *ngIf="isValid('recruiterPercentage')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('recruiterSecondary')">
+            <label for="_recsec">{{ 'innovaTeamLabel.recruiterSecondary' | translate }}<span *ngIf="isFormControlRequired('recruiterSecondary')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown
+                id="_recsec"
+                [formControl]="recruiterSecondaryFormControl"
+                [options]="recruiterSecondaryList"
+                optionLabel="name"
+                optionValue="id"
+                (onChange)="onFormChange('recruiterSecondary')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('recruiterSecondary')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('recruiterSecondaryPercentage')">
+            <label for="_recseper">{{ 'innovaTeamLabel.recruiterSecPercentage' | translate }}<span *ngIf="isFormControlRequired('recruiterSecondaryPercentage')" class="text-danger">*</span></label
+            ><br />
+            <!-- <p-dropdown
+                id="_recseper"
+                [formControl]="recruiterSecondaryPercentageFormControl"
+                [options]="recruiterSecondaryPercentageList"
+                optionLabel="name"
+                optionValue="id"
+                (onChange)="onFormChange('recruiterSecondaryPercentage')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown> -->
+            <input type="text" id="_recseper" [formControl]="recruiterSecondaryPercentageFormControl" class="inputMargin" pInputText (change)="onFormChange('recruiterSecondaryPercentage')" />
+
+            <small class="p-error block" *ngIf="isValid('recruiterSecondaryPercentage')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_recter">{{ 'innovaTeamLabel.recruiterTertIary' | translate }}<span
+                    class="text-danger">*</span></label><br>
+            <input type="text" id="_recter" formControlName="recruitertertIary" class="inputMargin" pInputText />
+            <small class="p-error block" *ngIf="isValid('recruitertertIary')">{{ errorMessages.mandatory }}</small>
+        </div> -->
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_recterper">{{ 'innovaTeamLabel.recruiterTerPercentage' | translate }}<span
+                    class="text-danger">*</span></label><br>
+            <input type="text" id="_recterper" formControlName="recruiterterpercentage" class="inputMargin" pInputText />
+            <small class="p-error block" *ngIf="isValid('recruiterterpercentage')">{{ errorMessages.mandatory }}</small>
+        </div> -->
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+             <label for="_recride">{{ 'innovaTeamLabel.recuiterOverride' | translate }}<span
+                    class="text-danger">*</span></label><br>
+            <input type="text" id="_recride" formControlName="recuiteroverride" class="inputMargin" pInputText />
+            <small class="p-error block" *ngIf="isValid('recuiteroverride')">{{ errorMessages.mandatory }}</small>
+        </div>  -->
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('recruiterTeam')" >
+            <label for="_recteam">{{ 'innovaTeamLabel.recruiterTeam' | translate }}<span *ngIf="isFormControlRequired('recruiterTeam')" class="text-danger">*</span></label
+                ><br />
+            <p-dropdown
+                id="_recteam"
+                [formControl]="recruiterTeamFormControl"
+                [options]="recruiterTeamList"
+                optionLabel="name"
+                optionValue="id"
+                (onChange)="onFormChange('recruiterTeam')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('recruiterTeam')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('recruiterOverride')">
+            <label for="_recoverride">{{ 'innovaTeamLabel.recuiterOverride' | translate }}<span *ngIf="isFormControlRequired('recruiterOverride')" class="text-danger">*</span></label
+                ><br />
+            <p-dropdown
+                id="_recoverride"
+                [formControl]="recruiterOverrideFormControl"
+                [options]="recruiterOverrideList"
+                optionLabel="name"
+                optionValue="id"
+                (onChange)="onFormChange('recruiterOverride')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('recruiterOverride')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('nonCommissionableRecruiter')">
+            <label for="_nonCommRecruiter">{{ 'innovaTeamLabel.nonCommRecruiter' | translate }}<span *ngIf="isFormControlRequired('nonCommissionableRecruiter')" class="text-danger">*</span></label
+                ><br />
+            <p-dropdown
+                id="_nonCommRecruiter"
+                [formControl]="nonCommissionableRecruiterFormControl"
+                [options]="noncommissionableRecList"
+                optionLabel="name"
+                optionValue="id"
+                (onChange)="onFormChange('nonCommissionableRecruiter')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('nonCommissionableRecruiter')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('salesPerson')">
+            <label for="_sperson">{{ 'innovaTeamLabel.salesPerson' | translate }}<span *ngIf="isFormControlRequired('salesPerson')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_sperson" [formControl]="salesPersonFormControl" [options]="salesPersonList" optionLabel="name" optionValue="id" (onChange)="onFormChange('salesPerson')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('salesPerson')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('salesPersonPercentage')">
+            <label for="_spersonper">{{ 'innovaTeamLabel.salesPersonPer' | translate }}<span *ngIf="isFormControlRequired('salesPersonPercentage')" class="text-danger">*</span></label
+            ><br />
+            <!-- <p-dropdown
+                id="_spersonper"
+                [formControl]="salesPersonPercentageFormControl"
+                [options]="salesPersonPercentageList"
+                optionLabel="name"
+                optionValue="id"
+                (onChange)="onFormChange('salesPersonPercentage')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown> -->
+            <input type="text" id="_spersonper" [formControl]="salesPersonPercentageFormControl" class="inputMargin" pInputText (change)="onFormChange('salesPersonPercentage')" />
+
+            <small class="p-error block" *ngIf="isValid('salesPersonPercentage')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('salesPersonSecondary')">
+            <label for="_spersec">{{ 'innovaTeamLabel.salesPersonSec' | translate }}<span *ngIf="isFormControlRequired('salesPersonSecondary')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown
+                id="_spersec"
+                [formControl]="salesPersonSecondaryFormControl"
+                [options]="salesPersonSecondaryList"
+                optionLabel="name"
+                optionValue="id"
+                (onChange)="onFormChange('salesPersonSecondary')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('salesPersonSecondary')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('salesPersonSecondaryPercentage')">
+            <label for="_spersonsecper">{{ 'innovaTeamLabel.salesPersonSecPer' | translate }}<span *ngIf="isFormControlRequired('salesPersonSecondaryPercentage')" class="text-danger">*</span></label
+            ><br />
+            <!-- <p-dropdown
+                id="_spersonsecper"
+                [formControl]="salesPersonSecondaryPercentageFormControl"
+                [options]="salesPersonSecondaryPercentageList"
+                optionLabel="name"
+                optionValue="id"
+                (onChange)="onFormChange('salesPersonSecondaryPercentage')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown> -->
+            <input type="text" id="_spersonsecper" [formControl]="salesPersonSecondaryPercentageFormControl" class="inputMargin" pInputText (change)="onFormChange('salesPersonSecondaryPercentage')" />
+
+            <small class="p-error block" *ngIf="isValid('salesPersonSecondaryPercentage')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_sperter">{{ 'innovaTeamLabel.salesPersonTert' | translate }}<span
+                    class="text-danger">*</span></label><br>
+            <input type="text" id="_sperter" formControlName="salespersonTert" class="inputMargin" pInputText />
+            <small class="p-error block" *ngIf="isValid('salespersonTert')">{{ errorMessages.mandatory }}</small>
+        </div> -->
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_sperterper">{{ 'innovaTeamLabel.SalesPersonTerPer' | translate }}<span
+                    class="text-danger">*</span></label><br>
+            <input type="text" id="_sperterper" formControlName="Salespersonterper" class="inputMargin" pInputText />
+            <small class="p-error block" *ngIf="isValid('Salespersonterper')">{{ errorMessages.mandatory }}</small>
+        </div> -->
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('salesTeam')">
+            <label for="_steam">{{ 'innovaTeamLabel.salesTeam' | translate }}<span *ngIf="isFormControlRequired('salesTeam')" class="text-danger">*</span></label
+                ><br />
+            <p-dropdown id="_steam" [formControl]="salesTeamFormControl" [options]="salesTeamList" optionLabel="name" optionValue="id" (onChange)="onFormChange('salesTeam')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('salesTeam')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('salesTeamOverride')">
+            <label for="_steamover">{{ 'innovaTeamLabel.salesTeamOverride' | translate }}<span *ngIf="isFormControlRequired('salesTeamOverride')" class="text-danger">*</span></label
+                ><br />
+            <p-dropdown
+                id="_steamover"
+                [formControl]="salesTeamOverrideFormControl"
+                [options]="salesTeamOverrideList"
+                optionLabel="name"
+                optionValue="id"
+                (onChange)="onFormChange('salesTeamOverride')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('salesTeamOverride')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('salesPersonOverride')">
+            <label for="_spersonoverride">{{ 'innovaTeamLabel.salesPersonOverride' | translate }}<span *ngIf="isFormControlRequired('salesPersonOverride')" class="text-danger">*</span></label
+                ><br />
+            <p-dropdown
+                id="_spersonoverride"
+                [formControl]="salesPersonOverrideFormControl"
+                [options]="salesPersonOverrideList"
+                optionLabel="name"
+                optionValue="id"
+                (onChange)="onFormChange('salesPersonOverride')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('salesPersonOverride')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('nonCommissionableSalesPerson')">
+            <label for="_nonCom">{{ 'innovaTeamLabel.nonCommissionableSalesPerson' | translate }}<span *ngIf="isFormControlRequired('nonCommissionableSalesPerson')" class="text-danger">*</span></label><br />
+            <p-dropdown
+                id="_nonCom"
+                [formControl]="nonCommissionableSalesPersonFormControl"
+                [options]="nonCommissionableSalesPersonList"
+                optionLabel="name"
+                optionValue="id"
+                (onChange)="onFormChange('nonCommissionableSalesPerson')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('nonCommissionableSalesPerson')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('strategicBusinessUnit')">
+            <label for="_strabusi">{{ 'innovaTeamLabel.strategicBusinessUnit' | translate }}<span *ngIf="isFormControlRequired('strategicBusinessUnit')" class="text-danger">*</span></label><br />
+            <span class="disabledFields">{{ strategicBusinessUnitFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('strategicBusinessUnit')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('shadowStrategicBusinessUnit')">
+            <label for="_shadowstrabusi">{{ 'innovaTeamLabel.shadowStrategic' | translate }}<span *ngIf="isFormControlRequired('shadowStrategicBusinessUnit')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ shadowStrategicBusinessUnitFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('shadowStrategicBusinessUnit')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_sssv">{{ 'innovaTeamLabel.subsegver' | translate }}<span class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ subSegmentFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('subSegment')">{{ errorMessages.mandatory }}</small>
+        </div>  -->
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_sssver">{{ 'innovaTeamLabel.subsegvertical' | translate }}</label
+            ><br />
+            <span class="disabledFields">{{ subSubSegmentFormControl.value }}</span>
+        </div> -->
+    </div>
+</form>

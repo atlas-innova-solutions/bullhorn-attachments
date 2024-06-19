@@ -1,0 +1,24 @@
+@import 'all';
+
+.text-danger {
+    color: red;
+    // margin-left: 5px;
+    display: contents;
+}
+.grid {
+    align-items: center;
+}
+
+.google-button {
+    margin-top: 1.5rem;
+    float: none;
+    color: #ffffff;
+    background: #00ae7c;
+    border: 1px solid #00ae7c;
+    width: auto;
+    font-size: 13px;
+}
+.google-button-notValidated {
+    background: #e7c50e;
+    border: 1px solid #e7c50e;    
+}

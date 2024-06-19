@@ -1,0 +1,22 @@
+<div style="height: 15rem;">
+    <p-table [columns]="cols" [value]="data.statusData" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5, 10, 20]" responsiveLayout="scroll" [style]="{'height': '100%'}"
+    [breakpoint]="'960px'" [tableStyle]="" [scrollable]="true"
+    scrollHeight="35rem">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th id="history_header" *ngFor="let col of columns">
+                {{ col.header | translate }}
+            </th>
+        </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData">
+                <td *ngFor="let col of columns">
+                    <ng-container>
+                        {{ rowData[col.field] }}
+                    </ng-container>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

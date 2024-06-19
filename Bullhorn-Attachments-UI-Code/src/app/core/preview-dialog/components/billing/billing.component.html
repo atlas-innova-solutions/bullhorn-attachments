@@ -1,0 +1,62 @@
+<div class="grid">
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('clientBillableOt')">
+        <label for="_billcurr">{{ 'payBillLabel.clientBillableOT' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.clientBillableOt}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('billCurrency')">
+        <label for="_billcurr">{{ 'payBillLabel.billcurrency' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.assignment?.billCurrency}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('standardBillRate')">
+        <label for="_stbillrate">{{ 'payBillLabel.standardbillrate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.standardBillRate}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('billPer')">
+        <label for="_bper">{{ 'payBillLabel.billper' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.billPer}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('overTimeBillRate')">
+        <label for="_otbrate">{{ 'payBillLabel.overtimebillrate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.overTimeBillRate}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('doubleTimeBillRate')">
+        <label for="_dotbrate">{{ 'payBillLabel.doubleovertimebillrate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.doubleTimeBillRate}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('portalFeePercentage')">
+        <label for="_pfper">{{ 'payBillLabel.portalfeepercentage' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.portalFeePercentage}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('portalRate')">
+        <label for="_prate">{{ 'payBillLabel.portalrate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.portalRate}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('markup')">
+        <label for="_mup">{{ 'payBillLabel.markup' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.markup}}</span>
+    </div>
+    <!-- <div class="col-12 md:col-6 lg:col-4">
+        <label for="_pdsdate">{{ 'payBillLabel.perdiemstartdate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.perDiemStartDate}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4">
+        <label for="_pdrate">{{ 'payBillLabel.perdiemrate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.perDiemRate}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4">
+        <label for="_pdper">{{ 'payBillLabel.perdiemper' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.perDiemPer}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4">
+        <label for="_pdbill">{{ 'payBillLabel.perdiembill' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.perDiemBillPayTax}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4">
+        <label for="_pdhour">{{ 'payBillLabel.perdiemhourlimit' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.perDiemHourLimit}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4">
+        <label for="_isbill">{{ 'payBillLabel.Isperdiembillable' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.isPerDiemBillable}}</span>
+    </div> -->
+</div>

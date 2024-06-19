@@ -1,0 +1,10 @@
+@import 'all';
+
+:host ::ng-deep .iconshow .p-icon-wrapper{
+    padding:5px;
+}
+
+.text-danger {
+    color: red;
+    display: contents;
+}

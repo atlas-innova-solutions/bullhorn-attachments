@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="header">{{'empDashboardLabels.empInformation' | translate}}</div>
+    <div class="box">
+        <div class="field emp-info">
+            <div class="empInfo">{{'empDashboardLabels.basicInfo' | translate}}</div>
+        </div>
+        <div class="field">
+            <div class="field-name">{{'hcmIdentifierLabels.fusionEmpID' | translate}} :</div>
+            <div class="field-value">{{reviewData?.employmentInfo?.fusionEmployeeId}}</div>
+        </div>
+        <!-- <div class="field">
+            <div class="field-name">{{'hcmIdentifierLabels.fusionPersonID' | translate}}:</div>
+            <div class="field-value">{{reviewData?.employmentInfo?.fusionPersonId}}</div>
+        </div> -->
+        <div class="field">
+            <div class="field-name">{{'empDashboardLabels.name' | translate}} :</div>
+            <div class="field-value">{{reviewData?.employmentInfo?.name}}</div>
+        </div>
+        <div class="field">
+            <div class="field-name">{{'empDashboardLabels.emplstatus' | translate}} :</div>
+            <div class="field-value">{{this.titlecase.transform(reviewData?.employmentInfo?.employmentStatus)}}</div>
+        </div>
+        <div class="field">
+            <div class="field-name">{{'hcmIdentifierLabels.personType' | translate}} :</div>
+            <div class="field-value">{{reviewData?.employmentInfo?.personType}}</div>
+        </div>
+        <!-- <div class="field end-field">
+            <div class="field-name">{{'organisationalLabel.fusSuppname' | translate}}:</div>
+            <div class="field-value">{{reviewData?.employmentInfo?.fusionSupplierName}}</div>
+        </div> -->
+    </div>
+    <div class="main-content">
+        <!-- <div class="menu-as-divs col-3">
+            <div class="menu ">
+                <div class="menu-item-box" *ngFor="let item of menuItems"[ngClass]="{'active':displayPage===item}" (click)="openMenu(item)">
+                    <div>{{item}}</div>
+                </div>
+            </div>
+        </div> -->
+        <div class="sidebar sidebar-left" [ngClass]="{'sidebar-close': toggleFlag, 'sidebar-open': !toggleFlag, 'expandSidebar' :!toggleFlag}">
+                <div style="border-bottom: 1px solid #ddd;" >
+                    <i class="pi pi-angle-right rightIcon" (click)="sidebaropen()"  *ngIf="toggleFlag"></i>
+                    <i class="pi pi-angle-left leftIcon" (click)="sidebaropen()"  *ngIf="!toggleFlag"></i>
+                </div>
+               
+                <ul>
+                    <li *ngIf="toggleFlag">
+                      <ng-container *ngFor="let i of items" >
+                        <div class="icons" (click)="openMenu(i)" [ngClass]="{'active':displayPage===i.label}"><i [class]="i.icon"></i></div>
+                      </ng-container>
+                    </li>
+                    <li  *ngIf="!toggleFlag">
+                        <ng-container *ngFor="let i of items"  > 
+                          <div (click)="openMenu(i)" class="icons" [ngClass]="{'active':displayPage===i.label}"> <i [class]="i.icon"></i>{{ i.label }}</div>
+                        </ng-container>
+                      </li>
+                </ul>
+              </div>
+        <div [ngClass]="{'cards-menu-close': toggleFlag,'cards': !toggleFlag}">
+            <app-employment-dashboard   *ngIf="displayPage == 'Employee Dashboard'" [employmentInformation]="employmentInformation" [assignmentInformation]="assignmentInformation"></app-employment-dashboard>
+            <app-personal-details *ngIf="displayPage == 'Personal Details'"></app-personal-details>
+            <app-employment-information *ngIf="displayPage == 'Employment'"></app-employment-information>
+            <app-assignmemt *ngIf="displayPage == 'Assignment List'" [assignmentInformation]="assignmentInformation" [employmentInformation]="employmentInformation" [personId]="personId"></app-assignmemt>
+            <app-benefits *ngIf="displayPage == 'Benefits'"></app-benefits>
+        </div>
+    </div>
+      

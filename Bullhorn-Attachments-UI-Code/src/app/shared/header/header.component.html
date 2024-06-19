@@ -1,0 +1,42 @@
+<div class="layout-topbar">
+    <!-- <p-menu #menu [model]="items" [popup]="true"></p-menu> -->
+    <p-menubar>
+        <ng-template pTemplate="start">
+            <!-- <button pButton type="button" (click)="menu.toggle($event);" icon="pi pi-bars"></button> -->
+            <span class="layout-topbar-logo">
+                <img alt="setup portal" [src]="homeLogo" />
+            </span>
+            <span class="app-name">{{ 'headerLabel.appName' | translate }}</span>
+        </ng-template>
+        <ng-template pTemplate="end">
+            <div class="setup-header-menubar-top-right">
+                <div class="style-logout">
+                    <p-avatar shape="circle" styleClass="avatar-name" [autoHide]="false" tooltipPosition="bottom" [pTooltip]="tooltipContent">{{ firstName }}{{ lastName }}</p-avatar>
+                    <ng-template #tooltipContent>
+                        <div class="flex align-items-center">
+                            <i class="pi pi-user tootip-icons-size tooltipContent" >
+                                <span class="ml-2" style="font-family: Inter var, sans-serif;">{{ currentUser.displayName }}</span>
+                            </i>
+                        </div>
+                        <br />
+                        <div class="flex align-items-center" >
+                            <i class="pi pi-envelope tootip-icons-size tooltipContent">
+                                <span class="ml-2" style="font-family: Inter var, sans-serif;">{{ currentUser.userPrincipalName }}</span>
+                            </i>
+                        </div>
+                    </ng-template>
+                    <!-- <i class="pi pi-bell notification-bell mt-2 text-xl" pBadge value="2"></i> -->
+                    <i class="pi pi-sign-out logout-sign cursor-pointer mt-2" (click)="logout()" tooltipPosition="bottom" [pTooltip]="tooltipLogoutContent"></i>
+                    <ng-template #tooltipLogoutContent>
+                        <div class="flex align-items-center">
+                            <span style="font-family: Inter var, sans-serif;">{{ 'headerLabel.logout' | translate }}</span>
+                        </div>
+                    </ng-template>
+                </div>
+                <div>
+                    <p class="last-login-log">{{ 'headerLabel.lastLogin' | translate }}: {{ lastLogin }}</p>
+                </div>
+            </div>
+        </ng-template>
+    </p-menubar>
+</div>

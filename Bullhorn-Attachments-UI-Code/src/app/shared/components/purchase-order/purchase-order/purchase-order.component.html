@@ -1,0 +1,24 @@
+<form [formGroup]="PurchaseOrderForm">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('poNumber')">
+            <label for="_ponumber">{{ 'purchaseOrderLabels.poNumber' | translate }}<span *ngIf="isFormControlRequired('poNumber')" class="text-danger">*</span></label><br>
+            <input type="text" id="_ponumber" [formControl]="poNumberFormControl" maxlength="70" class="inputMargin" pInputText (change)="onFormChange('poNumber')"/>
+            <small class="p-error block" *ngIf="isValid('poNumber')">{{ errorMessages.mandatory }}</small>
+            <!-- <small class="p-error block" *ngIf="poNumberFormControl.errors?.['pattern']">{{ errorMessages.digitNumber }}</small> -->
+        </div>
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label  for="_poeffectivedate">{{ 'purchaseOrderLabels.poEffDate' | translate }}</label><br>
+            <p-calendar class="iconshow" appendTo="body"  [iconDisplay]="'input'" [showIcon]="true" id="_poeffectivedate" [formControl]="poEffectiveFormControl" (onSelect)="onFormChange('poEffective')" ></p-calendar>
+            <small class="p-error block"  *ngIf="startDateValidationFlag">{{ errorMessages.dateMessage }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4 ">
+            <label  for="_poenddate">{{ 'purchaseOrderLabels.poEndDate' | translate }}</label><br>
+            <p-calendar class="iconshow" appendTo="body"  [iconDisplay]="'input'" [showIcon]="true" id="_poenddate" [formControl]="poEndFormControl" (onSelect)="onFormChange('poEnd')" [readonlyInput]="true"></p-calendar>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4 poDescriptionTextAreaDiv">
+            <label  for="_podescription">{{ 'purchaseOrderLabels.poDescription' | translate }}</label><br>
+            <textarea rows="10" cols="50" id="_podescription" maxlength="250"  class="inputMargin" pInputText area [formControl]="poDescriptionFormControl" (change)="onFormChange('poDescription')"></textarea>
+            <small class="p-error block" *ngIf="isValid('poDescription')">{{ errorMessages.maxPoDescriptionChar }}</small>
+        </div> -->
+    </div>
+</form>

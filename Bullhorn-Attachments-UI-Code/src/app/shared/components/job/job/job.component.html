@@ -1,0 +1,44 @@
+<form [formGroup]="JobForm">
+    <div class="grid">
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label  for="_jobtype">{{ 'assignmentLabel.jobType' | translate }}</label><br>
+            <input type="text" id="_jobtitle" [formControl]="jobTypeFormControl" maxlength="70" class="inputMargin" pInputText (change)="onFormChange('jobType')" />
+        </div> -->
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('jobTitle')">
+            <label  for="_jobtitle">{{ 'assignmentLabel.jobTitle' | translate }}<span *ngIf="isFormControlRequired('jobTitle')" class="text-danger">*</span></label><br>
+            <input type="text" id="_jobtitle" [formControl]="jobTitleFormControl" maxlength="70" class="inputMargin" pInputText (change)="onFormChange('jobTitle')" />
+            <small class="p-error block" *ngIf="isValid('jobTitle')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label  for="_industry">{{ 'assignmentLabel.industry' | translate }}<span class="text-danger">*</span></label><br>
+            <span class="disabledFields">{{ industryFormControl.value }}</span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label  for="_jobclass">{{ 'assignmentLabel.jobClass' | translate }}<span class="text-danger">*</span></label><br>
+            <p-dropdown  id="_jobclass" [formControl]="jobClassFormControl" [options]="jobClassList" (onChange)="onFormChange('jobClass')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('jobClass')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4 ">
+            <label  for="_workercomp">{{ 'assignmentLabel.workerCompCode' | translate }}<span class="text-danger">*</span></label><br>
+            <span class="disabledFields">{{ workersCompCodeFormControl.value }}</span>
+        </div> -->
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('internalJobTittle')">
+            <label  for="_internalJobTitle">{{ 'assignmentLabel.internalJobTitle' | translate }}<span *ngIf="isFormControlRequired('internalJobTittle')" class="text-danger">*</span></label><br>
+            <input type="text" id="_internalJobTitle" [formControl]="internalJobTitleFormControl" maxlength="70"  class="inputMargin" pInputText (change)="onFormChange('internalJobTittle')" />
+            <small class="p-error block" *ngIf="isValid('internalJobTittle')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('internalJobCode')">
+            <label  for="_internalJobCode">{{ 'assignmentLabel.internalJobCode' | translate }}<span *ngIf="isFormControlRequired('internalJobCode')" class="text-danger">*</span></label><br>
+            <p-dropdown
+            id="_spersonoverride"
+            [formControl]="internalJobCodeFormControl"
+            [options]="internalJobCodeData"
+            optionLabel="name"
+            optionValue="id"
+            (onChange)="onFormChange('internalJobCode')"
+            placeholder="{{ 'placeholders.select' | translate }}"
+        ></p-dropdown>
+        <small class="p-error block" *ngIf="isValid('internalJobCode')">{{ errorMessages.mandatory }}</small>
+        </div>
+    </div>        
+</form>

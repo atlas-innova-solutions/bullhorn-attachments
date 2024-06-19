@@ -1,0 +1,15 @@
+.has-error .block{
+  color:$danger
+}
+.has-error .p-inputgroup input, .has-error .p-inputgroup-addon, .has-error textarea, .has-error .p-dropdown,.has-error .p-calendar{
+   color: $danger;
+   border-color:$danger !important;
+   box-shadow: 0 0 0 0.02rem $danger !important;
+}
+
+.p-inline-message-icon{
+  display:none !important;
+}
+.p-inline-message-text{
+  font-size: small !important;
+}

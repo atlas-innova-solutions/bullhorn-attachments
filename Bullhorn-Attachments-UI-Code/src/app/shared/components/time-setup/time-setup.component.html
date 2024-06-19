@@ -1,0 +1,111 @@
+<form [formGroup]="timesetupFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('timeEntrySource')">
+            <label for="_timeEntrySource">{{ 'timeSetupLabels.timeEntrySource' | translate }}<span *ngIf="isFormControlRequired('sickPlan')" class="text-danger">*</span></label
+            ><br/>
+            <input type="text" id="_timeEntrySource" maxlength="70" [formControl]="timeEntrySourceFormControl"  class="inputMargin" pInputText (change)="onFormChange('timeEntrySource')"/>
+            <small class="p-error block" *ngIf="isValid('timeEntrySource')">{{ errorMessages.mandatory }}</small>
+        </div>
+            <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('timeEntryMethod')">
+                <label for="_timeEntryMethod">{{ 'timeSetupLabels.timeEntryMethod' | translate }}<span  *ngIf="isFormControlRequired('timeEntryMethod')" class="text-danger">*</span></label
+                ><br />
+                <input type="text" id="_timeEntryMethod" maxlength="70" [formControl]="timeEntryMethodFormControl"  class="inputMargin" pInputText (change)="onFormChange('timeEntryMethod')"/>
+                <small class="p-error block" *ngIf="isValid('timeEntryMethod')">{{ errorMessages.mandatory }}</small>
+            </div>
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_timeCardApprovalMethod">{{ 'timeSetupLabels.timecardApproval' | translate }}<span class="text-danger">*</span></label
+            ><br />
+            <input type="text" id="_timeCardApprovalMethod" maxlength="70" [formControl]="timeCardApprovalMethodFormControl"  class="inputMargin" pInputText />
+            <small class="p-error block" *ngIf="isValid('timeCardApprovalMethod')">{{ errorMessages.mandatory }}</small>
+        </div> -->
+            <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('layout')">
+                <label for="_layout">{{ 'timeSetupLabels.layout' | translate }}<span *ngIf="isFormControlRequired('layout')" class="text-danger">*</span></label
+                ><br />
+                <input type="text" id="_layout" maxlength="70" [formControl]="layoutFormControl"  class="inputMargin" pInputText (change)="onFormChange('layout')" />
+                <small class="p-error block" *ngIf="isValid('layout')">{{ errorMessages.mandatory }}</small>
+            </div>
+            <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('timeCardEndOfWeek')">
+                <label for="_timeCardEndOfWeek">{{ 'timeSetupLabels.timecard-end' | translate }}<span *ngIf="isFormControlRequired('timeCardEndOfWeek')" class="text-danger">*</span></label
+                ><br />
+                <input type="text" maxlength="70" id="_timeCardEndOfWeek" [formControl]="timeCardEndOfWeekFormControl" class="inputMargin" pInputText (change)="onFormChange('timeCardEndOfWeek')"/>
+                <small class="p-error block" *ngIf="isValid('timeCardEndOfWeek')">{{ errorMessages.mandatory }}</small>
+            </div>
+          
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_extractPayRule">{{ 'timeSetupLabels.extractPay' | translate }}</label
+            ><br />
+            <input type="text" maxlength="70" id="_extractPayRule" [formControl]="extractPayRuleFormControl" class="inputMargin" pInputText />
+        </div> -->
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_extractBillRule">{{ 'timeSetupLabels.extractBill' | translate }}</label
+            ><br />
+            <input type="text" maxlength="70" id="_extractBillRule" [formControl]="extractBillRuleFormControl" class="inputMargin" pInputText />
+        </div> -->
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_allowTimeEntry">{{ 'timeSetupLabels.allowTime' | translate }}</label
+            ><br />
+            <input type="text" maxlength="70" id="_allowTimeEntry" [formControl]="allowTimeEntryFormControl" class="inputMargin" pInputText />
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_minumumPerDay">{{ 'timeSetupLabels.minPerDay' | translate }}</label
+            ><br />
+            <input type="text" maxlength="70" id="_minumumPerDay" [formControl]="minumumPerDayFormControl" class="inputMargin" pInputText />
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_otStartPerDay">{{ 'timeSetupLabels.otStartPerDay' | translate }}</label
+            ><br />
+            <input type="text" maxlength="70" id="_otStartPerDay" [formControl]="otStartPerDayFormControl" class="inputMargin" pInputText />
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_maximumPerDay">{{ 'timeSetupLabels.maxPerDay' | translate }}</label
+            ><br />
+            <input type="text" maxlength="70" id="_maximumPerDay" [formControl]="maximumPerDayFormControl" class="inputMargin" pInputText />
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_maximumPeyPeriod">{{ 'timeSetupLabels.minPerPeriod' | translate }}</label
+            ><br />
+            <input type="text" maxlength="70" id="_maximumPeyPeriod" [formControl]="maximumPeyPeriodFormControl" class="inputMargin" pInputText />
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_otStartPerPeriod">{{ 'timeSetupLabels.otStartPerPeriod' | translate }}</label
+            ><br />
+            <input type="text" maxlength="70" id="_otStartPerPeriod" [formControl]="otStartPerPeriodFormControl" class="inputMargin" pInputText />
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_maximumPeyPeriod">{{ 'timeSetupLabels.maxPerPeriod' | translate }}</label
+            ><br />
+            <input type="text" maxlength="70" id="_maximumPeyPeriod" [formControl]="maximumPeyPeriodFormControl" class="inputMargin" pInputText />
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_allowWeekend">{{ 'timeSetupLabels.allowWeekend' | translate }}</label
+            ><br />
+            <input type="text" maxlength="70" id="_allowWeekend" [formControl]="allowWeekendFormControl" class="inputMargin" pInputText />
+        </div> 
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_allowHoliday">{{ 'timeSetupLabels.allowHoliday' | translate }}</label
+            ><br />
+            <input type="text"maxlength="70"  id="_allowHoliday" [formControl]="allowHolidayFormControl" class="inputMargin" pInputText />
+        </div> 
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_useTimeInOrOutEntry">{{ 'timeSetupLabels.userTimeInOut' | translate }}</label
+            ><br />
+            <input type="text" maxlength="70" id="_useTimeInOrOutEntry" [formControl]="useTimeInOrOutEntryFormControl" class="inputMargin" class="inputMargin" pInputText />
+        </div> -->
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_allowWorkerToChangeCalculatedHours">{{ 'timeSetupLabels.allowWorker' | translate }}</label
+            ><br />
+            <input type="text" maxlength="70" id="_allowWorkerToChangeCalculatedHours" [formControl]="allowWorkerToChangeCalculatedHoursFormControl" class="inputMargin" pInputText />
+        </div> -->
+            <div class="col-12 md:col-6 lg:col-4">
+                <label for="_mealBreakTracking">{{ 'timeSetupLabels.mealTracking' | translate }}</label
+                ><br />
+                <input type="text" maxlength="70" id="_mealBreakTracking" [formControl]="mealBreakTrackingFormControl"  class="inputMargin" pInputText (change)="onFormChange('mealBreakTracking')"/>
+            </div>
+            <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('attestationFlag')">
+                <label  for="_attestationFlag">{{ 'timeSetupLabels.attestationFlag' | translate }}<span *ngIf="isFormControlRequired('attestationFlag')" class="text-danger">*</span></label><br>
+                <p-dropdown  id="_attestationFlag" [formControl]="attestationFlagFormControl" [options]="attestationFlagList" optionLabel="name" optionValue="id" (onChange)="onFormChange('attestationFlag')"
+                placeholder="{{ 'placeholders.select' | translate }}" ></p-dropdown>
+                <small class="p-error block" *ngIf="isValid('attestationFlag')">{{ errorMessages.mandatory }}</small>
+            </div>
+    </div>
+</form>

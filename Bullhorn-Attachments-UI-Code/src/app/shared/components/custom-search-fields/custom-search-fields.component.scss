@@ -1,0 +1,19 @@
+@import 'all';
+
+:host ::ng-deep {
+    .p-inputtext {
+        width: $inputWd;
+        border-color: $inputBorderColorlightBlue;
+        // margin-top: 0.5rem;
+        font-size: $fs12;
+        font-weight: $fw500;
+    }
+}
+
+.inputMargin {
+    margin-top: 0.5rem;
+  }
+
+.mt-01 {
+    margin-top: 1rem;
+}

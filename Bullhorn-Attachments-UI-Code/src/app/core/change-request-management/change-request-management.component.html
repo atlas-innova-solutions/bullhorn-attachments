@@ -1,0 +1,174 @@
+<p-toast position="top-right" [ngStyle]="{ 'width': '100%'}" [baseZIndex]="5000"></p-toast>
+<div class="header">{{ 'changeRequestMgmt.header.addChangeRequest' | translate }}</div>
+<div class="box">
+  <div class="field emp-info">
+    <div class="empInfo">{{'empDashboardLabels.basicInfo' | translate}}</div>
+  </div>
+
+  <div class="field">
+    <div class="field-name">{{'workerInfoLabel.placementId' | translate}} :</div>
+    <div class="field-value">{{this.QueryParamsData?.placementId}}</div>
+  </div>
+  <div class="field">
+    <div class="field-name">{{'hcmIdentifierLabels.fusionAssignID' | translate}} :</div>
+    <div class="field-value">{{this.asgmtData ? this.QueryParamsData.hcmAssignmentId :
+      this.QueryParamsData.fusionAssignmentId }}</div>
+  </div>
+  <div class="field">
+    <div class="field-name">{{'placementRepoComponentLevel.advanceSearch.workerName' | translate}} :</div>
+    <div class="field-value">{{this.asgmtData ? this.QueryParamsData.preferredName : this.QueryParamsData.workerName}}
+    </div>
+  </div>
+  <div class="field">
+    <div class="field-name">{{'workerSearchComponent.advanceSearch.personType' | translate}} :</div>
+    <div class="field-value">{{this.QueryParamsData.personType}}</div>
+  </div>
+  <div class="field">
+    <div class="field-name">{{'organisationalLabel.fusSuppname' | translate}} :</div>
+    <div class="field-value">{{this.QueryParamsData.fusionSupplierName}}</div>
+  </div>
+
+</div>
+<form [formGroup]="changeRequestParentGroup">
+  <div class="grid mt-8">
+    <!-- <div class="col-12 md:col-6 lg:col-8" *ngIf="disableBtn && (selectedRequest == 'Assignment Extension' || selectedRequest == 'End of Assignment')">
+      <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+    </div> -->
+    <!-- <div class="col-12 md:col-6 lg:col-4" *ngIf="disableBtn && (selectedRequest == 'Assignment Extension' || selectedRequest == 'End of Assignment')"></div> -->
+    <!-- <div class="col-12 md:col-6 lg:col-8" *ngIf="disableBtn && (selectedRequest === 'Pay Rates' || selectedRequest === 'Bill Rates' || selectedRequest === 'Pay and Bill Rates' )">
+      <p-messages [(value)]="message" [enableService]="false" [closable]="false"></p-messages>
+    </div> -->
+    <!-- <div class="col-12 md:col-6 lg:col-4" *ngIf="disableBtn && (selectedRequest === 'Pay Rates' || selectedRequest === 'Bill Rates' || selectedRequest === 'Pay and Bill Rates' )"></div> -->
+    <div class="col-12 md:col-6 lg:col-4">
+      <label for="request">{{ 'changeRequestMgmt.changeRequest.requestType' | translate }}<span
+          class="text-danger">*</span></label>
+      <p-dropdown [options]="request" name="requestType" (onChange)="selectRequest($event)" (onClear)="onClear()"
+        formControlName="requestType" optionLabel="name" [showClear]="clearIcon"
+        placeholder="{{'changeRequestMgmt.changeRequest.selectType' | translate}}">
+      </p-dropdown>
+      <div
+        *ngIf="changeRequestParentGroup.get('requestType')!.invalid && (changeRequestParentGroup.get('requestType')!.dirty || changeRequestParentGroup.get('requestType')!.touched)">
+        <small class="text-danger">{{errorMessages.mandatory}}</small>
+      </div>
+    </div>
+    <div class="col-12 md:col-6 lg:col-8"
+      *ngIf="disableBtn && (selectedRequest == 'Assignment Extension' || selectedRequest == 'End of Assignment')">
+      <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+    </div>
+    <div class="col-12 md:col-6 lg:col-8"
+      *ngIf="disableBtn && (selectedRequest === 'Pay Rates' || selectedRequest === 'Bill Rates' || selectedRequest === 'Pay and Bill Rates' )">
+      <p-messages [(value)]="message" [enableService]="false" [closable]="false"></p-messages>
+    </div>
+    <div class="col-12 md:col-6 lg:col-8" *ngIf="!disableBtn"></div>
+    <div class="col-12 md:col-6 lg:col-4">
+      <label for="effectiveDate" *ngIf="selectedRequest === 'Pay Rates' || selectedRequest === 'Pay and Bill Rates'">{{
+        'changeRequestMgmt.changeRequest.payEffectiveStartDate' | translate }}<span class="text-danger">*</span></label>
+      <label for="effectiveDate" *ngIf="selectedRequest === 'Bill Rates'">{{
+        'changeRequestMgmt.changeRequest.billEffectiveStartDate' | translate }}<span
+          class="text-danger">*</span></label>
+      <p-calendar formControlName="effectiveDate" appendTo='body'
+        *ngIf="selectedRequest === 'Pay Rates' || selectedRequest === 'Bill Rates' || selectedRequest === 'Pay and Bill Rates' "
+        [showIcon]="true" (onSelect)="onDateChange($event)" [minDate]="minDate" [maxDate]="maxDate"></p-calendar>
+      <div
+        *ngIf="changeRequestParentGroup.get('effectiveDate')!.invalid && (changeRequestParentGroup.get('effectiveDate')!.dirty || changeRequestParentGroup.get('effectiveDate')!.touched)">
+        <small class="text-danger">{{errorMessages.mandatory}}</small>
+      </div>
+    </div>
+    <div class="col-12 md:col-6 lg:col-8"></div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="selectedRequest === 'Pay and Bill Rates'">
+      <label for="effectiveDate">{{
+        'changeRequestMgmt.changeRequest.billEffectiveStartDate' | translate }}<span
+          class="text-danger">*</span></label>
+      <p-calendar formControlName="effectiveDate" appendTo='body' [showIcon]="true"
+        (onSelect)="onDateChange($event)" [minDate]="minDate" [maxDate]="maxDate"></p-calendar>
+      <div
+        *ngIf="changeRequestParentGroup.get('effectiveDate')!.invalid && (changeRequestParentGroup.get('effectiveDate')!.dirty || changeRequestParentGroup.get('effectiveDate')!.touched)">
+        <small class="text-danger">{{errorMessages.mandatory}}</small>
+      </div>
+    </div>
+
+  </div>
+  <p-dialog [(visible)]="logoutDialog" [style]="{ width: '50vw' }" [modal]="true" [draggable]="false"
+    [closable]="false" header="{{ 'Confirmation'}}">
+    <div class="w-full flex flex-column align-items-center justify-content-center gap-2 ">
+      <div class="p-dialog-content">
+        Are you sure you want to submit the {{selectedRequest}} change request?
+      </div>
+      <div>
+        <tr>
+          <th class="table">Fields</th>
+          <th class="table">Old Values</th>
+          <th class="table">New Values</th>
+        </tr>
+        <tr *ngFor="let item of dialogStore" class="table">
+          <td class="table" >{{item.name}}</td>
+          <td class="table">{{(item.oldValue)}}</td>
+          <td class="table">{{(item.newValue)}}</td>
+
+        </tr>
+      </div>
+      <div class="flex align-items-center gap-3 mt-3">
+        <button pButton type="button" (click)="close()" class="close-btn cancel-btn">{{ 'iconLabels.cancel' |
+          translate }}</button>
+        <button pButton type="button" class="close-btn" (click)="requestSubmit()">{{ 'iconLabels.confirm' | translate
+          }}</button>
+      </div>
+    </div>
+  </p-dialog>
+
+  <div *ngIf="selectedRequest === 'Pay Rates'">
+    <app-pay-change [changeData]="getChangeManagementData"></app-pay-change>
+  </div>
+  <div *ngIf="selectedRequest === 'Bill Rates'">
+    <app-bill-change [changeData]="getChangeManagementData"></app-bill-change>
+  </div>
+  <div *ngIf="selectedRequest === 'Pay and Bill Rates'">
+    <app-pay-change [changeData]="getChangeManagementData"></app-pay-change>
+    <app-bill-change [changeData]="getChangeManagementData"></app-bill-change>
+  </div>
+  <div *ngIf="selectedRequest === 'End of Assignment'">
+    <app-assignment-end-date
+      [effectiveEndDate]="this.asgmtData ? QueryParamsData.actualEndDate : QueryParamsData.effectiveEndDate"
+      [primaryAssignmentFlag]="QueryParamsData.primaryAssignmentFlag"
+      [assignmentStatus]="QueryParamsData.assignmentStatus"
+      [asgmtStartDate]="this.asgmtData ? QueryParamsData.actualStartDate : QueryParamsData.asgmtStartDate" (message)="onMessageEndAsgmnt($event)"></app-assignment-end-date>
+  </div>
+  <div *ngIf="selectedRequest === 'Assignment Extension'">
+    <app-assignment-extend [primaryAssignmentFlag]="QueryParamsData.primaryAssignmentFlag"
+      [effectiveEndDate]=" this.asgmtData ? QueryParamsData.actualEndDate : QueryParamsData.effectiveEndDate"
+      [asgmtStartDate]="this.asgmtData ? QueryParamsData.actualStartDate : QueryParamsData.asgmtStartDate" (message)="onMessageEndAsgmnt($event)"></app-assignment-extend>
+  </div>
+  <div class="grid pt-2 pb">
+    <div class="col-12 md:col-6 lg:col-4 textAreaDiv" *ngIf="selectedRequest">
+      <label for="comments">Comments</label><br>
+      <textarea id="comments" pInputTextarea maxlength="250" class="inputMargin" name="comments"
+        formControlName="comments"></textarea>
+    </div>
+    <div class="col-12 md:col-6 lg:col-8"></div>
+    <div class="col-12 md:col-6 lg:col-4 crmFooter" *ngIf="selectedRequest">
+      <button pButton type="button" label="Submit" [disabled]="disableBtn || disableSubmitBtn" (click)="openDialog()" ></button>
+      <button pButton pRipple type="button" label="Reset" [disabled]="disableBtn" (click)="reset()"
+        class="p-button-danger column-sel-bt"></button>
+    </div>
+  </div>
+  
+  <p-dialog [(visible)]="confirmDialog" [style]="{ width: '35vw' }" [modal]="true" [draggable]="false"
+    [closable]="false">
+    <div class="w-full flex flex-column align-items-center justify-content-center gap-2 py-3">
+      <div class="logout-text">
+        <b>{{ 'Confirmation'}}</b>
+      </div>
+      <div class="dialogcontent">
+      </div>
+      <div>
+        {{'Do you want to go to worker search? Yes or No'}}
+      </div>
+      <div class="flex align-items-center gap-3 mt-3">
+        <button pButton type="button" (click)="no()" class="close-btn cancel-btn">{{ 'iconLabels.cancel' |
+          translate }}</button>
+        <button pButton type="button" class="close-btn" (click)="yes()">{{ 'iconLabels.confirm' | translate
+          }}</button>
+      </div>
+    </div>
+  </p-dialog>
+</form>

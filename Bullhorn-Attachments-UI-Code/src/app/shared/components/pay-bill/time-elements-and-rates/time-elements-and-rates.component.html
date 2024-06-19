@@ -1,0 +1,484 @@
+<!-- <p-tabView [scrollable]="true"> -->
+    <!-- <p-tabPanel header="{{ 'payBillLabels.pay' | translate }}" ></p-tabPanel>
+    <p-tabPanel  header="{{ 'payBillLabels.bill' | translate }}" ></p-tabPanel> -->
+ <div class="p-dynamic-container">
+    <div class="grid timeElements">
+        <div class="col-12 md:col-6 lg:col-6 mb-0">
+            <label class="timeHeader" *ngIf="!billSectionAvailable">{{'placementReviewLevel.specialPayRates' | translate}}</label>
+            <label class="timeHeader" *ngIf="billSectionAvailable">{{'placementReviewLevel.specialBillRates' | translate}}</label>
+
+        </div>
+      <div class="col-12 md:col-6 lg:col-6 mb-0">
+        <div class="flex">
+          <div class="field-radiobutton" (click)="selectedSection('Pay')"  [ngClass]="selectedValue=='Pay' ? 'active':''">
+            <div class="divHeader">{{ 'payBillLabels.pay' | translate }}</div>
+            <!-- <button pButton type="button"  >{{ 'loginComponentLevel.loginSSOButtonInnova' | translate }}</button> -->
+<!-- <p-radioButton name="remote" value="Pay" inputId="pay" [(ngModel)]="selectedValue"
+              class="radio-inline" label="Pay"></p-radioButton> -->
+               <!-- <label class="assignment">Yes</label>  -->
+          </div>
+          <div class="field-radiobutton" (click)="selectedSection('Bill')" [ngClass]="selectedValue=='Bill' ? 'active':''">
+            <div class="divHeader">{{ 'payBillLabels.bill' | translate }}</div>
+
+            <!-- <button pButton type="button" >{{ 'loginComponentLevel.loginSSOButtonVolt' | translate }}</button> -->
+            <!-- <p-radioButton name="remote" value="Bill" inputId="bill" [(ngModel)]="selectedValue"
+              class="radio-inline" label="Bill"></p-radioButton> -->
+            <!-- <label class="assignment">No</label>  -->
+          </div>
+        </div>
+      </div>
+    </div>
+</div> 
+<!-- </p-tabView> -->
+<form [formGroup]="timeElementsAndRatesFormGroup" *ngIf="!billSectionAvailable">
+    <div class="grid timeElementsGrid">
+        <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+            <label for="_nightDifferentialPay">{{'timeElementsAndRatesLabels.nightDifferentialPay' | translate }}</label>
+            <div class="line"></div>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth"  *ngIf="isFormControlFieldDisplay('nightDifferentialStandardPay')" >
+            <label for="_nightDifferentialStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_nightDifferentialStandardPay" [formControl]="nightDifferentialStandardPayFormControl" class="inputMargin" pInputText  (change)="onFormChange('nightDifferentialStandardPay')" />
+            
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('nightDifferentialOverTimePay')">
+            <label for="_nightDifferentialOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_nightDifferentialOverTimePay" [formControl]="nightDifferentialOverTimePayFormControl" class="inputMargin" pInputText  (change)="onFormChange('nightDifferentialOverTimePay')" />
+           
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('nightDifferentialDoubleTimePay')">
+            <label for="_nightDifferentialDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_nightDifferentialDoubleTimePay" [formControl]="nightDifferentialDoubleTimePayFormControl" class="inputMargin" pInputText  (change)="onFormChange('nightDifferentialDoubleTimePay')" />
+           
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('nightDifferentialEffectiveDate')">
+            <label for="_nightDifferentialEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_nightDifferentialEffectiveDate" [formControl]="nightDifferentialEffectiveDateFormControl" (onSelect)="onFormChange('nightDifferentialEffectiveDate')"></p-calendar>
+            <small class="p-error block"  *ngIf="nightDifferentialValidationFlag">{{ errorMessages.effectDateError }}</small>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2" *ngIf="isFormControlFieldDisplay('nightDifferentialEffectiveEnd')">
+            <label for="_nightDifferentialEffectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_nightDifferentialEffectiveEnd" [formControl]="nightDifferentialEffectiveEndFormControl" (onSelect)="onFormChange('nightDifferentialEffectiveEnd')"></p-calendar>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+            <label for="_mealPremiumPay">{{'timeElementsAndRatesLabels.mealPremiumPay' | translate }}</label>
+            <div class="line"></div>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('mealPremiumStandardPay')">
+            <label for="_mealPremiumStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_mealPremiumStandardPay" [formControl]="mealPremiumStandardPayFormControl" class="inputMargin" pInputText  (change)="onFormChange('mealPremiumStandardPay')" />
+            
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('mealPremiumOverTimePay')">
+            <label for="_mealPremiumOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_mealPremiumOverTimePay" [formControl]="mealPremiumOverTimePayFormControl" class="inputMargin" pInputText  (change)="onFormChange('mealPremiumOverTimePay')" />
+           
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('mealPremiumDoubleTimePay')">
+            <label for="_mealPremiumDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_mealPremiumDoubleTimePay" [formControl]="mealPremiumDoubleTimePayFormControl" class="inputMargin" pInputText  (change)="onFormChange('mealPremiumDoubleTimePay')" />
+            
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('mealPremiumEffectiveDate')">
+            <label for="_mealPremiumEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_mealPremiumEffectiveDate" [formControl]="mealPremiumEffectiveDateFormControl" (onSelect)="onFormChange('mealPremiumEffectiveDate')"></p-calendar>
+            <small class="p-error block"  *ngIf="mealPremiumValidationFlag">{{ errorMessages.effectDateError }}</small>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('mealPremiumEffectiveEnd')">
+            <label for="_mealPremiumEffectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_mealPremiumEffectiveEnd" [formControl]="mealPremiumEffectiveEndFormControl" (onSelect)="onFormChange('mealPremiumEffectiveEnd')"></p-calendar>
+        </div>
+        <!-- <div class="col-12 md:col-2 lg:col-2">
+            <label for="_nightDifferentialOTBill">{{ 'timeElementsAndRatesLabels.nightDifferentialOTBill' | translate }}</label
+            ><br />
+            <input type="text" id="_nightDifferentialOTBill" [formControl]="nightDifferentialOtBillFormControl" class="inputMargin" pInputText (change)="onFormChange('nightDifferentialOtBill')" />
+        </div>
+        <div class="col-12 md:col-2 lg:col-2">
+            <label for="_nightDifferentialDTPay">{{ 'timeElementsAndRatesLabels.nightDifferentialDTPay' | translate }}</label
+            ><br />
+            <input type="text" id="_nightDifferentialDTPay" [formControl]="nightDifferentialDtPayFormControl" class="inputMargin" pInputText (change)="onFormChange('nightDifferentialDtPay')" />
+        </div> -->
+        <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+            <label for="_onCallOrPagerPay">{{ 'timeElementsAndRatesLabels.onCallOrPagerPay' | translate }}</label>
+            <div class="line"></div>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('onCallStandardPay')">
+            <label for="_onCallStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_onCallStandardPay" [formControl]="onCallStandardPayFormControl" class="inputMargin" pInputText  (change)="onFormChange('onCallStandardPay')" />
+            
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('onCallOverTimePay')">
+            <label for="_onCallOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_onCallOverTimePay" [formControl]="onCallOverTimePayFormControl" class="inputMargin" pInputText  (change)="onFormChange('onCallOverTimePay')" /> 
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('onCallDoubleTimePay')">
+            <label for="_onCallDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_onCallDoubleTimePay" [formControl]="onCallDoubleTimePayFormControl" class="inputMargin" pInputText  (change)="onFormChange('onCallDoubleTimePay')" /> 
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('onCallEffectiveDate')">
+            <label for="_onCallEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_onCallEffectiveDate" [formControl]="onCallEffectiveDateFormControl" (onSelect)="onFormChange('onCallEffectiveDate')"></p-calendar>
+            <small class="p-error block"  *ngIf="onCallValidationFlag">{{ errorMessages.effectDateError }}</small>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2" *ngIf="isFormControlFieldDisplay('onCallEffectiveEnd')">
+            <label for="_onCallEffectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_onCallEffectiveEnd" [formControl]="onCallEffectiveEndFormControl" (onSelect)="onFormChange('onCallEffectiveEnd')"></p-calendar>
+        </div>
+        <!-- <div class="col-12 md:col-2 lg:col-2">
+            <label for="_onCallOrPagerPay">{{ 'timeElementsAndRatesLabels.onCallOrPagerPay' | translate }}</label
+            ><br />
+            <input type="text" id="_onCallOrPagerPay" [formControl]="onCallPagerPayFormControl" class="inputMargin" pInputText (change)="onFormChange('onCallPagerPay')" />
+        </div>
+        <div class="col-12 md:col-2 lg:col-2">
+            <label for="_onCallOrPagerBill">{{ 'timeElementsAndRatesLabels.onCallOrPagerBill' | translate }}</label
+            ><br />
+            <input type="text" id="_onCallOrPagerBill" [formControl]="onCallPagerBillFormControl" class="inputMargin" pInputText (change)="onFormChange('onCallPagerBill')" />
+        </div> -->
+        <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+            <label for="_healthAndWelfarePay">{{ 'timeElementsAndRatesLabels.healthAndWelfarePay' | translate }}</label>
+            <div class="line"></div>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('healthWelfareStandardPay')">
+            <label for="_healthWelfareStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_healthWelfareStandardPay" [formControl]="healthWelfareStandardPayFormControl" class="inputMargin" pInputText  (change)="onFormChange('healthWelfareStandardPay')" />
+            
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('healthWelfareOverTimePay')">
+            <label for="_healthWelfareOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_healthWelfareOverTimePay" [formControl]="healthWelfareOverTimePayFormControl" class="inputMargin" pInputText  (change)="onFormChange('healthWelfareOverTimePay')" />
+            
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('healthWelfareDoubleTimePay')">
+            <label for="_healthWelfareDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_healthWelfareDoubleTimePay" [formControl]="healthWelfareDoubleTimePayFormControl" class="inputMargin" pInputText  (change)="onFormChange('healthWelfareDoubleTimePay')" />
+            
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('healthWelfareEffectiveDate')">
+            <label for="_healthWelfareEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_effectiveDate" [formControl]="healthWelfareEffectiveDateFormControl" (onSelect)="onFormChange('healthWelfareEffectiveDate')"></p-calendar>
+            <small class="p-error block"  *ngIf="healthWelfareValidationFlag">{{ errorMessages.effectDateError }}</small>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2" *ngIf="isFormControlFieldDisplay('healthWelfareEffectiveEnd')">
+            <label for="_effectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_healthWelfareEffectiveDate" [formControl]="healthWelfareEffectiveEndFormControl" (onSelect)="onFormChange('healthWelfareEffectiveEnd')"></p-calendar>
+        </div>
+        <!-- <div class="col-12 md:col-2 lg:col-2">
+            <label for="_vacationBillableBill">{{ 'timeElementsAndRatesLabels.vacationBillableBill' | translate }}</label
+            ><br />
+            <input type="text" id="_vacationBillableBill" [formControl]="vacationBillableBillFormControl" class="inputMargin" pInputText (change)="onFormChange('vacationBillableBill')" />
+        </div>
+        <div class="col-12 md:col-2 lg:col-2">
+            <label for="_mileagePay">{{ 'timeElementsAndRatesLabels.mileagePay' | translate }}</label
+            ><br />
+            <input type="text" id="_mileagePay" [formControl]="mileagePayFormControl" class="inputMargin" pInputText (change)="onFormChange('mileagePay')" />
+        </div> -->
+        <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+            <label for="_vacationBillablePay">{{ 'timeElementsAndRatesLabels.vacationBillablePay' | translate }}</label>
+            <div class="line"></div>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('vacationBillableStandardPay')">
+            <label for="_vacationBillableStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_vacationBillableStandardPay" [formControl]="vacationBillableStandardPayFormControl" class="inputMargin" pInputText  (change)="onFormChange('vacationBillableStandardPay')" />
+            
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('vacationBillableOverTimePay')">
+            <label for="_vacationBillableOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_vacationBillableOverTimePay" [formControl]="vacationBillableOverTimePayFormControl" class="inputMargin" pInputText  (change)="onFormChange('vacationBillableOverTimePay')" />
+           
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('vacationBillableDoubleTimePay')">
+            <label for="_vacationBillableDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_vacationBillableDoubleTimePay" [formControl]="vacationBillableDoubleTimePayFormControl" class="inputMargin" pInputText  (change)="onFormChange('vacationBillableDoubleTimePay')" />
+           
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('vacationBillableEffectiveDate')">
+            <label for="_vacationBillableEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_vacationBillableEffectiveDate" [formControl]="vacationBillableEffectiveDateFormControl" (onSelect)="onFormChange('vacationBillableEffectiveDate')"></p-calendar>
+            <small class="p-error block"  *ngIf="vacationBillableValidationFlag">{{ errorMessages.effectDateError }}</small>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2" *ngIf="isFormControlFieldDisplay('vacationBillableEffectiveEnd')">
+            <label for="_vacationBillableEffectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_vacationBillableEffectiveEnd" [formControl]="vacationBillableEffectiveEndFormControl" (onSelect)="onFormChange('vacationBillableEffectiveEnd')"></p-calendar>
+        </div>
+        <!-- <div class="col-12 md:col-2 lg:col-2">
+            <label for="_sickPayNonBillablePay">{{ 'timeElementsAndRatesLabels.sickPayNonBillablePay' | translate }}</label
+            ><br />
+            <input type="text" id="_sickPayNonBillablePay" [formControl]="sickPayNonBillablePayFormControl" class="inputMargin" pInputText (change)="onFormChange('sickPayNonBillablePay')" />
+        </div>
+        <div class="col-12 md:col-2 lg:col-2">
+            <label for="_holidayPay">{{ 'timeElementsAndRatesLabels.holidayPay' | translate }}</label
+            ><br />
+            <input type="text" id="_holidayPay" [formControl]="holidayPayFormControl" class="inputMargin" pInputText (change)="onFormChange('holidayPay')" />
+        </div> -->
+        <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+            <label for="_mileagePay">{{ 'timeElementsAndRatesLabels.mileagePay' | translate }}</label>
+            <div class="line"></div>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('mileageStandardPay')">
+            <label for="_mileageStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_mileageStandardPay" [formControl]="mileageStandardPayFormControl" class="inputMargin" pInputText (change)="onFormChange('mileageStandardPay')" />
+            
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('mileageOverTimePay')">
+            <label for="_mileageOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_mileageOverTimePay" [formControl]="mileageOverTimePayFormControl" class="inputMargin" pInputText (change)="onFormChange('mileageOverTimePay')" />
+            
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('mileageDoubleTimePay')">
+            <label for="_mileageDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_mileageDoubleTimePay" [formControl]="mileageDoubleTimePayFormControl" class="inputMargin" pInputText (change)="onFormChange('mileageDoubleTimePay')" />
+           
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('mileageEffectiveDate')">
+            <label for="_mileageEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_mileageEffectiveDate" [formControl]="mileageEffectiveDateFormControl" (onSelect)="onFormChange('mileageEffectiveDate')"></p-calendar>
+            <small class="p-error block"  *ngIf="mileageValidationFlag">{{ errorMessages.effectDateError }}</small>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2" *ngIf="isFormControlFieldDisplay('mileageEffectiveEnd')">
+            <label for="_mileageEffectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_mileageEffectiveEnd" [formControl]="mileageEffectiveEndFormControl" (onSelect)="onFormChange('mileageEffectiveEnd')"></p-calendar>
+        </div>
+        <!-- <div class="col-12 md:col-2 lg:col-2">
+            <label for="_holidayPayBill">{{ 'timeElementsAndRatesLabels.holidayPayBill' | translate }}</label
+            ><br />
+            <input type="text" id="_holidayPayBill" [formControl]="holidayPayBillFormControl" class="inputMargin" pInputText (change)="onFormChange('holidayPayBill')" />
+        </div>
+        <div class="col-12 md:col-2 lg:col-2">
+            <label for="_holidayPayBill">{{ 'timeElementsAndRatesLabels.holidayPayBill' | translate }}</label
+            ><br />
+            <input type="text" id="_holidayPayBill" [formControl]="holidayPayBillFormControl" class="inputMargin" pInputText (change)="onFormChange('holidayPayBill')" />
+        </div> -->
+        <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+            <label for="_sickPayBillablePay">{{ 'timeElementsAndRatesLabels.sickPayBillablePay' | translate }}</label>
+            <div class="line"></div>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('sickStandardPay')">
+            <label for="_sickStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_sickStandardPay" [formControl]="sickStandardPayFormControl" class="inputMargin" pInputText  (change)="onFormChange('sickStandardPay')" />
+           
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('sickOverTimePay')">
+            <label for="_sickOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_sickOverTimePay" [formControl]="sickOverTimePayFormControl" class="inputMargin" pInputText  (change)="onFormChange('sickOverTimePay')" />
+            
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('sickDoubleTimePay')">
+            <label for="_sickDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_sickDoubleTimePay" [formControl]="sickDoubleTimePayFormControl" class="inputMargin" pInputText  (change)="onFormChange('sickDoubleTimePay')" />
+           
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('sickEffectiveDate')">
+            <label for="_sickEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_sickEffectiveDate" [formControl]="sickEffectiveDateFormControl" (onSelect)="onFormChange('sickEffectiveDate')"></p-calendar>
+            <small class="p-error block"  *ngIf="sickValidationFlag">{{ errorMessages.effectDateError }}</small>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2" *ngIf="isFormControlFieldDisplay('sickEffectiveEnd')">
+            <label for="_sickEffectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_sickEffectiveEnd" [formControl]="sickEffectiveEndFormControl" (onSelect)="onFormChange('sickEffectiveEnd')"></p-calendar>
+        </div>
+        <!-- <div class="col-12 md:col-2 lg:col-2">
+            <label for="_holidayPayBill">{{ 'timeElementsAndRatesLabels.holidayPayBill' | translate }}</label
+            ><br />
+            <input type="text" id="_holidayPayBill" [formControl]="holidayPayBillFormControl" class="inputMargin" pInputText (change)="onFormChange('holidayPayBill')" />
+        </div>
+        <div class="col-12 md:col-2 lg:col-2">
+            <label for="_holidayPayBill">{{ 'timeElementsAndRatesLabels.holidayPayBill' | translate }}</label
+            ><br />
+            <input type="text" id="_holidayPayBill" [formControl]="holidayPayBillFormControl" class="inputMargin" pInputText (change)="onFormChange('holidayPayBill')" />
+        </div> -->
+        <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+            <label for="_sickPayNonBillablePay">{{ 'timeElementsAndRatesLabels.sickPayNonBillablePay' | translate }}</label>
+            <div class="line"></div>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('sickNonBillableStandardPay')">
+            <label for="_sickNonBillableStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_sickNonBillableStandardPay" [formControl]="sickNonBillableStandardPayFormControl" class="inputMargin" pInputText  (change)="onFormChange('sickNonBillableStandardPay')" />
+           
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('sickNonBillableOverTimePay')">
+            <label for="_sickNonBillableOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_sickNonBillableOverTimePay" [formControl]="sickNonBillableOverTimePayFormControl" class="inputMargin" pInputText  (change)="onFormChange('sickNonBillableOverTimePay')" />
+            
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('sickNonBillableDoubleTimePay')">
+            <label for="_sickNonBillableDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_sickNonBillableDoubleTimePay" [formControl]="sickNonBillableDoubleTimePayFormControl" class="inputMargin" pInputText  (change)="onFormChange('sickNonBillableDoubleTimePay')" />
+           
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('sickNonBillableEffectiveDate')">
+            <label for="_sickNonBillableEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_sickNonBillableEffectiveDate" [formControl]="sickNonBillableEffectiveDateFormControl" (onSelect)="onFormChange('sickNonBillableEffectiveDate')"></p-calendar>
+            <small class="p-error block"  *ngIf="sickNonBillableValidationFlag">{{ errorMessages.effectDateError }}</small>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2" *ngIf="isFormControlFieldDisplay('sickNonBillableEffectiveEnd')">
+            <label for="_sickNonBillableEffectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_sickNonBillableEffectiveEnd" [formControl]="sickNonBillableEffectiveEndFormControl" (onSelect)="onFormChange('sickNonBillableEffectiveEnd')"></p-calendar>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+            <label for="_holidayPay">{{ 'timeElementsAndRatesLabels.holidayPay' | translate }}</label>
+            <div class="line"></div>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('holidayStandardPay')">
+            <label for="_holidayStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_holidayStandardPay" [formControl]="holidayStandardPayFormControl" class="inputMargin" pInputText  (change)="onFormChange('holidayStandardPay')" />
+           
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('holidayOverTimePay')">
+            <label for="_holidayOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_holidayOverTimePay" [formControl]="holidayOverTimePayFormControl" class="inputMargin" pInputText  (change)="onFormChange('holidayOverTimePay')" />
+            
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('holidayDoubleTimePay')">
+            <label for="_holidayDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+            ><br />
+            <div class="p-input-icon-left">
+                <i class="pi pi-dollar"></i>
+            </div>
+            <input type="text" TwoDigitDecimalNumber id="_holidayDoubleTimePay" [formControl]="holidayDoubleTimePayFormControl" class="inputMargin" pInputText  (change)="onFormChange('holidayDoubleTimePay')" />
+            
+        </div>
+        <div class="col-12 md:col-2 lg:col-2 divWidth" *ngIf="isFormControlFieldDisplay('holidayEffectiveDate')">
+            <label for="_holidayEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_holidayEffectiveDate" [formControl]="holidayEffectiveDateFormControl" (onSelect)="onFormChange('holidayEffectiveDate')"></p-calendar>
+            <small class="p-error block"  *ngIf="holidayValidationFlag">{{ errorMessages.effectDateError }}</small>
+        </div>
+        <div class="col-12 md:col-2 lg:col-2" *ngIf="isFormControlFieldDisplay('holidayEffectiveEnd')">
+            <label for="_holidayEffectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [appendTo]="'body'" [iconDisplay]="'input'" [showIcon]="true" id="_holidayEffectiveEnd" [formControl]="holidayEffectiveEndFormControl" (onSelect)="onFormChange('holidayEffectiveEnd')"></p-calendar>
+        </div>
+        <!-- <div class="col-12 md:col-2 lg:col-2">
+            <label for="_holidayPayBill">{{ 'timeElementsAndRatesLabels.holidayPayBill' | translate }}</label
+            ><br />
+            <input type="text" id="_holidayPayBill" [formControl]="holidayPayBillFormControl" class="inputMargin" pInputText (change)="onFormChange('holidayPayBill')" />
+        </div>
+        <div class="col-12 md:col-2 lg:col-2">
+            <label for="_holidayPayBill">{{ 'timeElementsAndRatesLabels.holidayPayBill' | translate }}</label
+            ><br />
+            <input type="text" id="_holidayPayBill" [formControl]="holidayPayBillFormControl" class="inputMargin" pInputText (change)="onFormChange('holidayPayBill')" />
+        </div> -->
+
+    </div>
+</form>
+<app-time-elements-bill-section *ngIf="billSectionAvailable" [reviewData]="allReviewData"></app-time-elements-bill-section>

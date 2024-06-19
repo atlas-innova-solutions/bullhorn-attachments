@@ -1,0 +1,7 @@
+@import 'all';
+
+:host ::ng-deep {
+    div.poDescriptionTextAreaDiv > textarea {
+        height: 6rem !important;
+    }
+}

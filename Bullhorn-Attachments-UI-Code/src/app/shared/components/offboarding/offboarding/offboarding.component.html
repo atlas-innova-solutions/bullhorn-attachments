@@ -1,0 +1,9 @@
+<form [formGroup]="OffboardingForm">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('rehireEligible')">
+            <label for="_rehireeligible">{{ 'assignmentLabel.rehireEligible' | translate }}<span *ngIf="isFormControlRequired('rehireEligible')" class="text-danger">*</span></label><br>
+            <p-dropdown id="_rehireeligible" [formControl]="rehireEligibleFormControl" optionLabel="name" [options]="rehireEligibleList" optionValue="id" (onChange)="onFormChange('rehireEligible')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('rehireEligible')">{{ errorMessages.mandatory }}</small>
+        </div>
+    </div>        
+</form>

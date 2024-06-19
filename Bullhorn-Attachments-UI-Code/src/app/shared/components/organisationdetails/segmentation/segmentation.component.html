@@ -1,0 +1,35 @@
+<form  [formGroup]="segmentationFormGroup">
+    <div class="grid ">
+      <div class="col-12 md:col-6 lg:col-4">
+        <label for="_lob">Line of Business<span class="text-danger">*</span></label><br>
+        <input type="text" id="_lob" formControlName="lineofbusiness"  
+              class="inputMargin" pInputText />
+        </div>
+      <div class="col-12 md:col-6 lg:col-4">
+        <label for="_slob">Sub Line of Business<span class="text-danger">*</span></label><br>
+          <input type="text" id="_slob" formControlName="sublineofbusiness"  
+              class="inputMargin" pInputText />
+      </div>
+      <div class="col-12 md:col-6 lg:col-4">
+        <label for="_loc">Location<span class="text-danger">*</span></label><br>
+          <input type="text" id="_loc" formControlName="location"  
+              class="inputMargin" pInputText />
+      </div>
+      <div class="col-12 md:col-6 lg:col-4">
+        <label for="_sbu">Selling Business Unit (Vertical)<span class="text-danger">*</span></label><br>
+          <input type="text" id="_sbu" formControlName="sellingbusinessunit"  
+              class="inputMargin" pInputText />
+      </div>
+      <div class="col-12 md:col-6 lg:col-4">
+        <label for="_subseg">Sub-Segment(Sub Vertical)<span class="text-danger">*</span></label><br>
+          <input type="text" id="_subseg" formControlName="subsegment"  
+              class="inputMargin" pInputText />
+      </div>
+      <div class="col-12 md:col-6 lg:col-4">
+        <label for="_subsubseg">Sub-Sub-Segment(Sub Sub Vertical)<span class="text-danger">*</span></label><br>
+          <input type="text" id="_subsubseg" formControlName="subsubsegment"  
+              class="inputMargin" pInputText />
+      </div>
+      
+    </div>
+  </form>

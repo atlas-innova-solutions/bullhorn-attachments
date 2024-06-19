@@ -1,0 +1,151 @@
+<div class="inline-flex align-items-center col-11 workerHeader">
+  <p class="fw-055 pm-00 primarycolor">Customer Specific Field Configuration</p>
+</div>
+<div class="pt-5">
+  <p-messages *ngIf="isError" [(value)]="messages" [enableService]="false" [closable]="true"></p-messages>
+</div>
+<div class="grid ml-00 mt-05">
+  <div class="col-12 md:col-6 lg:col-4">
+    <div class="border-round-sm">
+      <label class="lable-font">{{ 'workerSearchComponent.advanceSearch.customerNameAccount' | translate }}<span class="text-danger">*</span></label><br />
+      <p-dropdown [options]="ClientaccountList" class="pl-02 dropdown" [resetFilterOnHide]="true"
+        [(ngModel)]="selectedFusionCustomer" [filter]="true" optionLabel="name" optionValue="id"
+        placeholder="{{ 'workerSearchComponent.placeHoldings.customerNameAccount' | translate }}"
+        (onChange)="onCustomerNameSelect($event)"></p-dropdown>
+    </div>
+  </div>
+  <div class="col-12 md:col-6 lg:col-4">
+    <div class="border-round-sm">
+      <label class="lable-font">{{ 'adminFields.projectId' | translate }}<span class="text-danger">*</span></label><br />
+      <p-dropdown [options]="projectsList" class="pl-02 dropdown" [resetFilterOnHide]="true"
+        [(ngModel)]="selectedProjectName" [filter]="true" optionLabel="projectName" optionValue="projectId"
+        placeholder="{{ 'adminFields.projectplaceholder' | translate }}"
+        [disabled]="projectDisabled"
+        (onChange)="onProjectNameSelected($event)"></p-dropdown>
+    </div>
+  </div>
+  <div class="col-12 md:col-6 lg:col-4">
+    <div class="border-round-sm">
+      <label class="lable-font">{{ 'adminFields.CSFId' | translate }}<span class="text-danger">*</span></label><br />
+      <input type="text" disabled="true" [(ngModel)]="CSFId" pInputText placeholder="CSF ID">
+    </div>
+  </div>
+  <div class="col-12 md:col-6 lg:col-4">
+    <div class="border-round-sm">
+      <label class="lable-font">{{ 'adminFields.CSFDescription' | translate }}</label><br />
+      <textarea [(ngModel)]="description" id="" name="" rows="4" cols="50" pInputTextarea></textarea>
+    </div>
+  </div>
+  <div class="col-12 md:col-6 lg:col-4">
+    <label for="" class="lable-font">Inactive / Active</label><br>
+    <p-inputSwitch [(ngModel)]="CSFStatus"></p-inputSwitch>
+  </div>
+</div>
+<ng-container>
+  <div class="grid ml-00 mt-05">
+    <div class="col-6 center" *ngIf="isCustomerDropDownSelected">
+      <div class="search mr-2 pd-00">
+        <label for="" class="lable-font header-color fs-14">Custom Fields</label><br>
+      </div>
+    </div>
+
+    <div class="col-6 right">
+      <div class="search mr-2 pd-00">
+        <p-button icon="pi pi-plus" *ngIf="isCustomerDropDownSelected && displayMainAddButton()" severity="info" class="button-trash" class="ml-auto" (click)="addItem($event)"
+          [disabled]="maxItemSelected" [autoHide]="false" tooltipPosition="left" pTooltip="Add Custom Fields">
+        </p-button>
+      </div>
+    </div>
+  </div>
+  <div class="grid ml-00 mt-00">
+    <div class="col-12">
+      <ng-container *ngIf="isAddbuttonClicked">
+        <form #fm [formGroup]="customForm" (ngSubmit)="onSubmit()">
+          <p-panel formArrayName="fieldData" *ngFor="let item of customForm.get('fieldData').controls; let i = index;">
+            <ng-container [formGroupName]="i">
+              <div class="grid height" id="grid-{{i}}">
+                <div class="col-12 md:col-6 lg:col-4">
+                  <label class="lable-font">Display Label Name<span class="text-danger">*</span></label><br/>
+                  <input type="text" class="dropDownText" formControlName="displayName" pInputText placeholder="Display Name">
+                  <small class="p-error block" *ngIf="isFieldValid('displayName', i)">{{ errorMessages.mandatory }}</small>
+                </div>
+                <div class="col-12 md:col-6 lg:col-4">
+                  <label class="lable-font">Display Sequence<span class="text-danger">*</span></label><br>
+                  <input type="text" class="dropDownText" formControlName="sequenceNumber" pInputText placeholder="Display Sequence" maxlength="1" (keypress)="onKeyPress($event)" (change)="onSequenceNumbEnter(fieldData, i)">
+                  <small class="p-error block" *ngIf="isFieldValid('sequenceNumber', i)">{{ errorMessages.mandatory }}</small>
+                </div>    
+                <div class="col-12 md:col-6 lg:col-4">
+                  <label for="" class="lable-font">System Label Name<span class="text-danger">*</span></label><br>
+                  <p-dropdown class="dropDownText" formControlName="customUserName" (onChange)="onDropdownChange(fieldData, i)" [options]="appUserList" optionLabel="name" optionValue="name"
+                    placeholder="System Label Name">
+                  </p-dropdown>
+                  <small class="p-error block" *ngIf="isFieldValid('customUserName', i)">{{ errorMessages.mandatory }}</small>
+                </div>  
+                <div class="col-12 md:col-6 lg:col-4">
+                  <div class="switchBtn">
+                <div class="mandatoryCheck">
+                  <label for="" class="lable-font">Mandatory</label><br>
+                  <p-inputSwitch formControlName="mandatory"></p-inputSwitch>
+                </div>
+                <div class="editableCheck">
+                  <label for="" class="lable-font">Editable</label><br>
+                  <p-inputSwitch formControlName="editable" (onChange)="onEditableChange($event, item, i)"></p-inputSwitch>
+                </div>
+                </div>
+                </div>
+                <div *ngIf="!isAllowEdit(item)" class="col-12 md:col-6 lg:col-4">
+                  <label class="lable-font">Default Value<span class="text-danger">*</span></label><br>
+                  <input type="text" class="dropDownText" formControlName="defaultValue" pInputText placeholder="Default Value">
+                  <small class="p-error block" *ngIf="isFieldValid('defaultValue', i)">{{ errorMessages.mandatory }}</small>
+                </div>
+                <div class="col-12 md:col-6 lg:col-4">
+                  <label for="" class="lable-font">Category<span class="text-danger">*</span></label><br>
+                  <p-dropdown class="dropDownText" formControlName="category" [options]="getCategoryList" optionLabel="name"
+                    optionValue="name"  placeholder="Category List">
+                  </p-dropdown>
+                  <small class="p-error block" *ngIf="isFieldValid('category', i)">{{ errorMessages.mandatory }}</small>
+                </div>
+                <div class="col-12 md:col-6 lg:col-4">
+                  <label for="" class="lable-font">Field Type<span class="text-danger">*</span></label><br>
+                  <p-dropdown class="dropDownText" formControlName="fieldType" [options]="fieldTypes" optionLabel="appFieldCode"
+                    optionValue="appFieldName" (onChange)="fieldTypeSelected($event, item, i)" (onClick)="onDropdownClicked(item)" placeholder="Field type">
+                  </p-dropdown>
+                  <small class="p-error block" *ngIf="isFieldValid('fieldType', i)">{{ errorMessages.mandatory }}</small>
+                </div>
+                <div class="col-12 md:col-6 lg:col-4">
+                  <form formArrayName="fieldOptions">
+                    <div *ngFor="let subItem of getSubItem(item, i); let j = index;">
+                      <ng-container [formGroupName]="j">
+                          <label for="" class="lable-font">Options</label>
+                          <div  class="button-container">
+                            <input type="text" formControlName="appFieldName" pInputText placeholder="Option {{j+1}}">
+                            <p-button icon="pi pi-plus"  severity="info" class="add-button" (click)="addSubItem(item, i)"
+                              tooltipPosition="bottom" />
+                            <p-button icon="pi pi-trash" severity="info" (click)="removeSubRow(item, j)"></p-button>
+                          </div>
+                      </ng-container>
+                    </div>
+                  </form>
+                </div>
+                <div class="button-trash col-12 right">
+                  <!-- <button type="button" (click)="removeRow(i)">X {{i}}</button> -->
+                  <p-button icon="pi pi-plus" *ngIf="isCustomerDropDownSelected" severity="info" class="button-trash" id="grid-add" class="ml-auto"
+                    (click)="addItem($event, i)" [disabled]="maxItemSelected" [autoHide]="false" tooltipPosition="left"
+                    pTooltip="Add Custom Fields">
+                  </p-button>
+                  <p-button icon="pi pi-trash" severity="info" (click)="removeRow(i)" class="button-trash"></p-button>
+                </div>
+              </div>
+            </ng-container>
+          </p-panel>
+        </form>
+      </ng-container>
+    </div>
+    <div class="col-12">
+      <div class="btn">
+        <button *ngIf="isAddbuttonClicked" [disabled]="!selectedFusionCustomer || !selectedProjectName || !CSFId" pButton type="button" class="p-button-info btn button-save saveBtn" (click)="saveDynamicFields()">Save</button>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<p-toast key="add"></p-toast>

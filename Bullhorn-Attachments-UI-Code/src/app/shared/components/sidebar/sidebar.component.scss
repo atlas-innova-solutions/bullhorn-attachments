@@ -1,0 +1,136 @@
+@import 'all';
+
+.sidemenu {
+    padding: 5px 2px;
+
+    ul {
+        list-style: none;
+        padding: 0 2px;
+
+        li {
+            cursor: pointer;
+            border-bottom: 1px solid $wgray;
+
+            a {
+                // color: #f9fafb;
+                color: $headercolor;
+                padding: 10px 11px;
+                display: block;
+                font-size: 13px;
+            }
+            .active,
+            :hover {
+                background: $menuHoverbg;
+                color: $primaryblue;
+            }
+        }
+
+        :hover {
+            background: $menuHoverbg;
+            color: $primaryblue;
+        }
+
+        li.admin-menu:hover {
+            background: $colorLightBlue;
+            color: $primaryblue;
+        }
+    }
+}
+
+.sidebar-menu-body {
+    padding: 5px 0;
+    margin: 0;
+    width: $w100;
+    margin-bottom: 6px;
+    position: absolute;
+    top: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+:host ::ng-deep .sidebar-menu-body .p-button .p-button-icon {
+    font-size: 16px;   
+    color: $headercolor;
+}
+
+button.p-element.p-button-secondary.p-button-text.p-button.p-component {
+    box-shadow: none;
+    margin: 0px;
+    margin-top: 32px;
+    // margin-top: 47px;
+    padding: 0px;
+}
+
+:host ::ng-deep .p-sidebar-left {
+    width: 230px;
+    top: 104px;
+    border-top-right-radius: 16px;
+    background: $menuBackground;
+
+}
+
+:host::ng-deep .p-sidebar .p-sidebar-content {
+    padding: 0;
+}
+
+:host::ng-deep .p-button-label {
+    font-size: 16px;
+}
+:host::ng-deep .p-sidebar .p-sidebar-header .p-sidebar-close:enabled:hover, .p-sidebar .p-sidebar-header .p-sidebar-icon:enabled:hover {
+    color: $primaryblue;
+}
+:host::ng-deep .p-sidebar .p-sidebar-header .p-sidebar-close:enabled:hover, .p-sidebar .p-sidebar-header .p-sidebar-icon:enabled:hover {
+    background: $menuHoverbg;
+}
+
+:host::ng-deep .p-breadcrumb {
+    margin-top: 50px;
+    background: none;
+    border: none;
+    border-radius: 0px;
+    padding: 0px;
+    font-size: 12px;
+    color: $headercolor;
+}
+
+:host::ng-deep .p-breadcrumb .p-breadcrumb-list li .p-menuitem-link .p-menuitem-text {
+    color: $headercolor;
+    font-weight: 600;
+}
+
+.pi {
+    font-size: 13px;
+    padding: 5px;
+}
+
+.breadcrumb {
+    padding: 5px 0px;
+    list-style: none !important;
+    list-style-type: none;
+    margin-top: 45px;
+}
+.breadcrumb li {
+    display: inline;
+    font-size: 12px;
+}
+.breadcrumb li+li:before {
+    padding: 2px;
+    color: $headercolor;
+    content: "\003E";
+}
+.breadcrumb li a {
+    color: $headercolor;
+    text-decoration: none;
+    font-weight: $fw600;
+}
+ol.breadcrumb li a:hover {
+    color: #64748b;
+    text-decoration: underline;
+}
+
+:host::ng-deep .p-sidebar .p-sidebar-header .p-sidebar-close, .p-sidebar .p-sidebar-header .p-sidebar-icon {
+    width: 2rem;
+    height: 2rem;
+    color: $headercolor;
+
+}

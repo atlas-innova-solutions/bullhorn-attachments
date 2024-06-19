@@ -1,0 +1,46 @@
+<form [formGroup]="payChangeGroup"  novalidate>
+    <div class="grid pt-2">
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="effectiveDate">{{ 'Pay Effective Start Date' | translate }}<span
+                class="text-danger">*</span></label>
+            <p-calendar formControlName="payEffStartDate" [showIcon]="true"></p-calendar>
+            <div
+              *ngIf="payChangeGroup.get('payEffStartDate')!.invalid && (payChangeGroup.get('payEffStartDate')!.dirty || payChangeGroup.get('payEffStartDate')!.touched)">
+              <small class="text-danger">{{errorMessage.mandatory}}</small>
+            </div>
+          </div>
+          <div class="col-12 md:col-6 lg:col-8"></div> -->
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="payRate">{{'changeRequestMgmt.payBill.payRate' | translate}}<span class="text-danger">*</span></label>
+                <input id="payRate" TwoDigitDecimalNumber type="text" class="inputMargin" name="payRate" formControlName="payRate"
+                    pInputText />
+                <div
+                    *ngIf="payChangeGroup.get('payRate')!.invalid && (payChangeGroup.get('payRate')!.dirty || payChangeGroup.get('payRate')!.touched )">
+                    <small class="text-danger">{{errorMessage.mandatory}}</small>
+                </div>
+        </div>
+        <div class="col-12 md:col-6 lg:col-8"></div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="overTimePayRate">{{'changeRequestMgmt.payBill.overTimePayRate' | translate}}<span
+                    class="text-danger">*</span></label>
+                <input TwoDigitDecimalNumber id="overTimePayRate" type="text" class="inputMargin" name="overTimePayRate"
+                    formControlName="overTimePayRate" pInputText />
+                <div
+                    *ngIf="payChangeGroup.get('overTimePayRate')!.invalid && (payChangeGroup.get('overTimePayRate')!.dirty || payChangeGroup.get('overTimePayRate')!.touched )">
+                    <small class="text-danger">{{errorMessage.mandatory}}</small>
+            </div>
+        </div>
+        <div class="col-12 md:col-6 lg:col-8"></div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="doubleTimePayRate">{{'changeRequestMgmt.payBill.doubleTimePayRate' | translate}}<span
+                    class="text-danger">*</span> </label>
+                <input TwoDigitDecimalNumber id="doubleTimePayRate" type="text" class="inputMargin" name="doubleTimePayRate"
+                    formControlName="doubleTimePayRate" pInputText />
+                <div
+                    *ngIf="payChangeGroup.get('doubleTimePayRate')!.invalid && (payChangeGroup.get('doubleTimePayRate')!.dirty || payChangeGroup.get('doubleTimePayRate')!.touched)">
+                    <small class="text-danger">{{errorMessage.mandatory}}</small>
+                </div>
+        </div>
+        <div class="col-12 md:col-6 lg:col-6"></div>
+    </div>
+</form>

@@ -1,0 +1,202 @@
+@import 'all';
+.pm-00 {
+    padding: 0;
+    margin: 0;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+.customMsgHeader{
+    margin-top: -2px;
+}
+.fw-055 {
+    font-weight: 550;
+}
+.fw-600 {
+    font-weight: 600;
+}
+
+.primarycolor {
+    color: $primaryblue;
+}
+:host ::ng-deep {
+    .p-inputgroup-addon {
+        padding: 0;
+    }
+    .p-dropdown {
+        height: 2.5rem;
+        width: 19rem;
+    }
+    .p-dropdown-filter {
+        width: 17rem !important;
+    }
+    .p-inputtext {
+        width: 19rem;
+    }
+    .p-panel .p-panel-header {
+        padding: 0;
+        background: none;
+    }
+    .p-button {
+        // float: right;
+        font-size: 14px;
+        padding: 0.45rem 0.8rem;
+        background: $primaryblue;
+        border-color: $primaryblue;
+        margin-top: 25px;
+        // min-width: 7%;
+        // justify-content: center;
+    }
+    .p-button.p-button-icon-only {
+       height: 1.9rem;
+       margin-top: 0.2rem;
+    }
+    .pi {
+        font-size: 12px;
+    }
+}
+
+.saveBtn{
+    width: 7rem;
+    justify-content: center;
+    font-weight: 700;
+    // margin-top: 1.3rem;
+    position: fixed;
+    top: 90vh;
+    right: 2rem;
+
+}
+.btn{
+    margin-top: 1rem;
+}
+@media only screen and (min-width: 990px) and (max-width: 1320px){
+    .lg\:col-3 {
+        width: 20rem !important;
+    }
+}
+
+
+@media only screen and (min-width: 1920px) and (max-width: 2305px){
+    .btn {
+        margin-top: 0.4rem;
+    }
+}
+
+.switchBtn{
+    display: inline-flex;
+    gap: 3rem;
+}
+.center {
+    margin: auto;
+    padding: 10px;
+    height: 2rem;
+  }
+.center-btn {
+    margin: auto;
+    padding: 10px;
+}
+
+.bd-radius {  
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+}
+
+.pd-00 {
+    padding: 0;
+}
+.pd-01 {
+    padding: 1rem;
+}
+.ml-00 {
+    margin-left: 0rem;
+}
+.mt-00 {
+    margin-top: 0rem;
+}
+.mt-05 {
+    margin-top: 0.5rem;
+}
+.fs-14 {
+    font-size: 14px !important;
+}
+
+.lable-font {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+.checkbox-font {
+    font-size: 12px;
+}
+.header-color {
+    color: $primaryblue;
+}
+.right {
+    text-align: right;
+}
+.left {
+    text-align: left;
+}
+.add-button{
+    height: 5px;
+    width: 10px;
+}
+.button-save{
+    float: right;
+    cursor: pointer;
+}
+.button-trash{
+    position: relative;
+    // z-index: 2;
+    top: 0rem;
+    // top: 1rem;
+    left: .5rem;
+}
+.height {
+    min-height: 9rem;
+}
+.button-container{
+    display: flex;
+    gap:40px;
+    width: fit-content;
+}
+
+.p-button.p-button-info:enabled:focus {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #ffff, 0 1px 2px 0 black;
+}
+
+textarea {
+    resize: none;
+}
+
+// @media only screen and (min-width: 1706px) and (max-width: 1707px){
+//     .button-save {
+//         margin-top: -3rem;
+// }}
+// @media (min-width: 2880px)   {
+//     .button-save {
+//         margin-top: -10rem;
+// }}
+// @media (min-width: 2304px) and (max-width: 2879px) {
+//     .button-save {
+//         margin-top: -6rem;
+//     }
+// }
+// @media only screen and (min-width: 1024px) and (max-width: 1307px){
+//     .button-save {
+//         margin-top: 0.5rem;
+// }}
+
+// @media only screen and (min-width: 1706px) and (max-width: 1707px){
+//     .btn {
+//         margin-top: -0.8rem;
+// }}
+// @media (min-width: 1920px) and (max-width: 2879px) {
+//     .btn {
+//             margin-top: -2.4rem;
+// }}
+// @media (min-width: 360px)  and (max-width:1084px)  {
+//     .btn {
+//         margin-top: 0.5rem;
+// }}

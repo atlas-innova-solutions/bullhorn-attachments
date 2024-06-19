@@ -1,0 +1,31 @@
+<div class="sidebar-menu-body">
+    <button pButton pRipple type="button" icon="pi pi-bars" (click)="display = true" class="p-button-secondary p-button-text"></button>
+    <!-- <h2 class="sidebar-title fs-16">{{breadcrumCaption}}</h2> -->
+    <!-- <p-breadcrumb class="max-w-full" [model]="items"></p-breadcrumb> -->
+    <!-- <button (click)="backClicked()" style="margin-top: 28px;">Back</button> -->
+    <ul class="breadcrumb">
+        <li *ngFor="let breadcrumb of items"
+            class="breadcrumb-item">
+          <a routerLink="{{breadcrumb.url}}" (click)="redirect(breadcrumb)">
+           {{ breadcrumb.label | translate}}
+          </a>
+        </li>
+    </ul>
+    <p-sidebar [(visible)]="display">
+        <div class="sidemenu">
+            <ul>
+                <ng-container *ngFor="let i of menuItems">
+                    <li *ngIf="i.label === 'Employment Information' || i.label === 'Placement List - Customer Setup Related Errors' || i.label === 'Rejected Bullhorn Placements'; else elseBlock" [hidden]="true" (click)="redirectTo(i)">
+                        <a><i [class]="i.icon"></i> {{ i.label | translate }}</a>
+                    </li>
+                    <ng-template #elseBlock>
+                        <li (click)="redirectTo(i)">
+                            <a><i [class]="i.icon"></i> {{ i.label | translate }}</a>
+                        </li>
+                    </ng-template>
+                    
+                </ng-container>
+            </ul>
+        </div>
+    </p-sidebar>
+</div>

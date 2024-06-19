@@ -1,0 +1,18 @@
+    <div class="grid">
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_perId">{{ 'hcmIdentifierLabels.fusionPersonID' | translate }}</label><br>
+                <span class="disabledFields">{{allReviewData?.assignment?.hcmPersonId}}</span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_fuempId">{{ 'hcmIdentifierLabels.fusionEmpID' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.assignment?.hcmEmplId}}</span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_fuassId">{{ 'hcmIdentifierLabels.fusionAssignID' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.assignment?.hcmAsgmtId}}</span>
+        </div> -->
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('hcmPersonType')">
+            <label for="_pertype">{{ 'hcmIdentifierLabels.personType' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.assignment?.hcmPersonType}}</span>
+        </div>
+    </div>

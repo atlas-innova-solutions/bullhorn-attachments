@@ -1,0 +1,58 @@
+<form [formGroup]="clientcontactFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_contype">{{ 'clientContactLabels.contactType' | translate }} </label><br />
+            <input type="text" id="_contype" [formControl]="contactTypeFormControl" class="inputMargin" pInputText (change)="onFormChange('contactType')" />
+            <!-- <span class="disabledFields">{{ contactTypeFormControl.value }}</span> -->
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_conname">{{ 'clientContactLabels.contactName' | translate }} </label><br />
+            <input type="text" id="_conname" [formControl]="contactNameFormControl" class="inputMargin" pInputText (change)="onFormChange('contactName')" />
+            <!-- <span class="disabledFields">{{ contactNameFormControl.value }}</span> -->
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_conemail">{{ 'clientContactLabels.contactEmail' | translate }} </label><br />
+            <input type="email" id="_conemail"  maxlength="70" [email]="true" [formControl]="contactEmailFormControl" class="inputMargin" pInputText (change)="onFormChange('contactEmail')" />
+            <!-- <span class="disabledFields">{{ contactEmailFormControl.value }}</span> -->
+            <small class="p-error block" *ngIf="contactEmailFormControl.errors?.['pattern']">{{ errorMessages.email }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_cadd1">{{ 'clientContactLabels.contactAddressLine1' | translate }} </label><br />
+            <input type="text" id="_conemail" [formControl]="contactAddressLine1FormControl" class="inputMargin" pInputText (change)="onFormChange('contactAddressLine1')" />
+            <!-- <span class="disabledFields">{{ contactAddressLine1FormControl.value }}</span> -->
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_cadd2">{{ 'clientContactLabels.contactAddressLine2' | translate }} </label><br />
+            <input type="text" id="_conemail" [formControl]="contactAddressLine2FormControl" class="inputMargin" pInputText (change)="onFormChange('contactAddressLine2')" />
+            <!-- <span class="disabledFields">{{ contactAddressLine2FormControl.value }}</span> -->
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_clicity">{{ 'clientContactLabels.city' | translate }} </label><br />
+            <input type="text" id="_conemail" [formControl]="contactCityFormControl" class="inputMargin" pInputText (change)="onFormChange('contactCity')" />
+            <!-- <span class="disabledFields">{{ contactCityFormControl.value }}</span> -->
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_clicountry">{{ 'clientContactLabels.country' | translate }} </label><br />
+            <p-dropdown id="_clicountry" [formControl]="contactCountryFormControl" optionLabel="name" optionValue="id" [options]="contactCountryList" (onChange)="onFormChange('contactCountry')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <!-- <span class="disabledFields">{{ contactContryFormControl.value }}</span> -->
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_clistate">{{ 'clientContactLabels.state/province' | translate }} </label><br />
+            <p-dropdown
+                id="_cpaygroup"
+                [formControl]="contactStateProvinceFormControl"
+                optionLabel="stateName"
+                optionValue="stateCode"
+                [options]="contactStateProvinceConditionalList"
+                (onChange)="onFormChange('contactStateProvince')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown>
+            <!-- <span class="disabledFields">{{ contactStateProvinceFormControl.value }}</span> -->
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_clizip">{{ 'clientContactLabels.zip' | translate }} </label><br />
+            <input type="text" id="_conemail" [formControl]="contactZipFormControl" class="inputMargin" pInputText (change)="onFormChange('contactZip')" />
+            <!-- <span class="disabledFields">{{ contactZipFormControl.value }}</span> -->
+        </div>
+    </div>
+</form>

@@ -1,0 +1,46 @@
+export const ErrorMessages = {
+    mandatory: 'Please fill mandatory field',
+    maxPoDescriptionChar: 'Po Description not allowed more than 500 Characters',
+    email: 'Email address format is incorrect',
+    taxIdFormat: 'SSN should be 9 digits without hyphen',
+    zipFormat: 'Only 5 digits numbers allowed and Alphanumeric not allowed',
+    zipFormatCanada: 'Only 7 digits Alphanumeric with Space',
+    cityFormat: 'City should not have any numbers',
+    countyFormat: 'County should not have any numbers',
+    googleValidate: 'Address validation has not been completed',
+    nonUsPhoneValidate: '10 digits without spaces or special characters',
+    phoneValidate: '10 digits numbers with format: 123-123-1234',
+    rateFormat: 'Number allowed upto 2 decimal places',
+    noDataFound: 'No Data Found',
+    targetDatesValidation: 'Target Start date should be less than Target End date',
+    dobFutureDateErrorMsg: 'DOB should not allow future Date',
+    dobPastDateErrorMsg: 'DOB should not allow invalid Date',
+    portalFeeFormat: 'Number allowed upto 3 decimal places',
+    referralRateValidationMsg: 'Please check referral rate value',
+    referralSDASDValidationMsg: 'Referral start date should be after or equal to Assignment Actual start date.',
+    referralEDValidationMsg: 'Referral end date can not be before Referral start date',
+    referralSDValidationMsg: 'Referral start date can not be after Referral end date',
+    referralPercentageValidationMsg: 'Please check referral percentage value',
+    referralEDWthTEDValidationMsg: 'Referral End Date Cannot be beyond Target End Date',
+    referralStartDateWithTargetStartDateValidationMsg: 'Referral start date should be after or equal to Target start date',
+    referralEndDateWithTargetStartDateValidationMsg: 'Referral end date should be after or equal to Target start date',
+    minFnameChar: 'Please enter at least 3 characters in First Name.',
+    minLnameChar: 'Please enter at least 3 characters in Last Name.',
+    empIdValid: 'Employment Id field should accept values with prefix as H,Ex:H1111',
+    workFlowSameOldNewValueError: `Current value and new value can't be same!`,
+    digitNumber: 'Only digits are allowed',
+    dateMessage: 'Please ensure that the Start Date should be greater than End Date.',
+    targetDateError: 'Please ensure that the Start Date should be less than End Date.',
+    EndDateError: 'Please ensure that the End date should be greater that start date',
+    effectDateError:'Please ensure that Effective Date should be less than Effective End.'
+};
+export const TimerMessage = {
+    NoLongerIdle: `No longer idle.`,
+    TimeOut: `Timed out!`,
+    YouHaveGoneIdle: `You have gone idle!`,
+    TimeOutAlert(countdown: number): string {
+        return 'You will time out in ' + countdown + ' seconds!';
+    },
+    NotStarted: `Not started.`,
+    IAmStarted: `I am started`
+};

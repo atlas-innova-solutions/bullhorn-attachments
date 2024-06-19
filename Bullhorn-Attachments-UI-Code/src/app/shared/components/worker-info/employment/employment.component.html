@@ -1,0 +1,10 @@
+<form [formGroup]="employmentFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('exemptionStatus')">
+            <label for="_exemptionStatus">{{ 'employmentexemtLabels.exemptionStatus' | translate }}<span *ngIf="isFormControlRequired('exemptionStatus')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_exemptionStatus" [formControl]="exemptionStatusFormControl" [options]="exemptionStatusList" optionLabel="name" optionValue="id" (onChange)="onFormChange('exemptionStatus')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('exemptionStatus')">{{ errorMessages.mandatory }}</small>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,33 @@
+@import 'all';
+
+:host ::ng-deep {
+    // .p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
+    //     background: $primaryblue;
+    //     border-color: $primaryblue;
+    //     color: $white;
+    //     font-size: $fs13;
+    // }
+
+    .p-accordion .p-accordion-header .p-accordion-header-link {
+        background: #9dbdf1;
+        border-color: #9dbdf1;
+        color: $white;
+        font-size: $fs13;
+    }
+    .p-accordion p-accordiontab .p-accordion-tab {
+        margin-bottom: 20px;
+    }
+    // .p-accordion .p-accordion-header .p-accordion-header-link{
+    //     background: #9dbdf1;
+    // }
+    .grid {
+        font-size: $fs12;
+        font-weight: $fw600;
+        letter-spacing: 0.3px;
+        word-wrap: break-word;
+
+        .personal-details-label{
+            color: $fontcolor;
+        }
+    }
+}

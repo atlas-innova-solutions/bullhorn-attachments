@@ -1,0 +1,16 @@
+{
+    "ClientAccounts": [
+        {
+            "name": "CN1",
+            "id": 1
+        },
+        {
+            "name": "CN2",
+            "id": 2
+        },
+        {
+            "name": "CN3",
+            "id": 3
+        }
+    ]
+}

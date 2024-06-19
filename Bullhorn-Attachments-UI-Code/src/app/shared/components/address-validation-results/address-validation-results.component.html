@@ -1,0 +1,74 @@
+<p-dialog [(visible)]="display" [baseZIndex]="10000" [modal]="true" [draggable]="false" [resizable]="false"
+  header="Google Map Address Validation Results" appendTo="body" [closable]="true" (onHide)="closePopup()">
+  <div class="card">
+    <div class="mb-2">Google maps has found addresses with some mismatch between the input values like street number,
+      route, city, state and postal code.</div>
+    <div>
+      <p-table styleClass="p-datatable-gridlines gmaptbl mb-2">
+        <ng-template pTemplate="caption">
+          Entered Address in Setup Portal
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th [innerHTML]="enterdData"></th>
+          </tr>
+          <tr>
+            <th>
+              <p-button type="button" label="select" [style]="{'width':'auto'}" class="p-button-info"
+                (click)="selectenteraddress(true)"></p-button>
+            </th>
+          </tr>
+        </ng-template>
+      </p-table>
+      <p-table styleClass="p-datatable-gridlines gmaptbl">
+        <ng-template pTemplate="caption">
+          Google Results
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th *ngIf="googledata && googledata.length" width="50%">
+              {{googledata[0].streetNumber}}{{googledata[0].route}}
+              <br>
+              {{googledata[0].city}} ,{{googledata[0].county}}
+              <br>
+              {{googledata[0].state}} ,{{googledata[0].zipcode}},{{googledata[0].country}}
+              <br>
+              <p-button type="button" label="select" [style]="{'width':'auto'}" class="p-button-info"
+              (click)="selectgoogleaddress(0)"></p-button>
+            </th>
+            <th *ngIf="googledata && googledata.length && googledata && googledata[1]">
+              {{googledata[1].streetNumber}}{{googledata[1].route}}
+              <br>
+              {{googledata[1].city}} ,{{googledata[1].county}}
+              <br>
+              {{googledata[1].state}} ,{{googledata[1].zipcode}},{{googledata[1].country}}
+              <br>
+              <p-button type="button" label="select" [style]="{'width':'auto'}" class="p-button-info"
+              (click)="selectgoogleaddress(1)"></p-button>
+            </th>
+            <th *ngIf="googledata && googledata.length && googledata && googledata[2]">
+              {{googledata[2].streetNumber}}{{googledata[2].route}}
+              <br>
+              {{googledata[2].city}} ,{{googledata[2].county}}
+              <br>
+              {{googledata[2].state}} ,{{googledata[2].zipcode}},{{googledata[2].country}}
+              <br>
+              <p-button type="button" label="select" [style]="{'width':'auto'}" class="p-button-info"
+              (click)="selectgoogleaddress(2)"></p-button>
+            </th>
+          </tr>
+          <!-- <tr>
+            <th *ngIf="arrlength==1 || arrlength==2">
+              <p-button type="button" label="select" [style]="{'width':'auto'}" class="p-button-info"
+                (click)="selectgoogleaddress(0)"></p-button>
+            </th>
+            <th *ngIf="arrlength==2">
+              <p-button type="button" label="select" [style]="{'width':'auto'}" class="p-button-info"
+                (click)="selectgoogleaddress(1)"></p-button>
+            </th>
+          </tr> -->
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</p-dialog>

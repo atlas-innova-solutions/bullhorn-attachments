@@ -1,0 +1,251 @@
+@import 'all';
+.pm-00 {
+    padding: 0;
+    margin: 0;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+.customMsgHeader {
+    margin-top: -2px;
+}
+.fw-055 {
+    font-weight: 550;
+}
+.fw-600 {
+    font-weight: 600;
+}
+
+.primarycolor {
+    color: $primaryblue;
+}
+
+:host ::ng-deep {
+    .p-button.p-button-info,
+    .p-buttonset.p-button-info > .p-button,
+    .p-splitbutton.p-button-info > .p-button {
+        background: $primaryblue;
+        border: 1px solid $primaryblue;
+    }
+    .p-button.p-button-icon-only {
+        width: 2rem;
+        height: 2rem;
+    }
+    .p-datatable-scrollable > .p-datatable-wrapper {
+        // min-height: 45vh !important;
+        max-height: 41.7vh !important;
+        border-radius: 0.25rem;
+    }
+
+    .p-datatable .p-datatable-thead > tr > th,
+    .p-datatable .p-datatable-tbody > tr > th {
+        text-align: center;
+        padding: 5px;
+    }
+
+    .p-datatable .p-datatable-tbody > tr > td {
+        padding: 10px;
+    }
+
+    .p-datatable .p-datatable-tbody > tr td:first-child {
+        font-weight: 600;
+        color: #11479f;
+    }
+
+    .p-datatable .p-datatable-header {
+        padding: 0.25rem 0.25rem;
+        background: $white;
+        border: none;
+    }
+
+    .p-inputtext {
+        width: 12rem;
+        height: 2.1rem !important;
+    }
+    .search .pi {
+        color: $white;
+    }
+    // .pi-eye{
+    //     color: #757575;
+    //     margin-left: 0.4rem;
+    //     background: #F7F7F7;
+    // }
+    .grid {
+        font-size: $fs12;
+        font-weight: $fw600;
+    }
+    .p-fieldset .p-fieldset-legend {
+        font-size: $fs13;
+        font-weight: $fw500;
+        border: 0px;
+        padding-left: 1rem;
+        background: $white;
+    }
+    .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a {
+        color: $primaryblue;
+        border: none;
+        background-color: $white;
+        padding: 0px;
+    }
+    .p-fieldset .p-fieldset-content {
+        padding: 0 0 0 3.5rem;
+    }
+    .p-fieldset {
+        padding: 0px;
+        border: none;
+    }
+    .lg\:col-3 {
+        padding: 0rem !important;
+    }
+    .p-paginator .p-dropdown {
+        width: 4rem;
+    }
+    .p-paginator {
+        border: none;
+    }
+    .p-paginator .p-paginator-current {
+        font-size: 12px;
+        color: $fontcolor;
+    }
+    .p-datatable .p-paginator-bottom {
+        padding-top: 1rem;
+    }
+    .p-overlaypanel-content {
+        padding: 0.05rem 0.5rem 0.05rem 0.5rem;
+        white-space: pre;
+        pointer-events: none;
+        background: $primaryblue;
+        font-weight: 450;
+    }
+    .p-panel .p-panel-header .p-panel-title {
+        color: $primaryblue;
+        font-size: $fs14;
+        font-weight: $fw500;
+    }
+    .panel-styling > .p-panel.p-panel-toggleable .p-panel-header {
+        padding: 0.3rem 1.2rem;
+    }
+    .panel-styling > .p-panel .p-panel-icons-end {
+        margin-bottom: -5px;
+    }
+    .p-picklist-filter-input {
+        width: 100%;
+    }
+    .p-picklist-list {
+        font-size: 12px;
+        font-weight: 550;
+    }
+    .p-button-danger{
+        background: $white;
+        border: 1px solid $primaryblue;
+        color: $primaryblue;
+    }
+    .p-button.p-button-danger:enabled:focus {
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #9dc1fb, 0 1px 2px 0 rgb(0, 0, 0);
+    }
+    .p-panel .p-panel-header .p-panel-header-icon {
+        top: -0.3rem;
+    }
+    .p-dialog .p-dialog-header .p-dialog-header-icon {
+        height: 2.5rem;
+        width: 1.5rem;
+    }
+}
+.icon-circle {
+    font-weight: 600;
+    border: 1px solid;
+    padding: 3px;
+    border-radius: 12px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    margin-left: 3px;
+    color: $primaryblue;
+}
+
+.icon-circle-blue {
+    background: $primaryblue;
+    border: none;
+    color: $white;
+}
+
+.icon-ellipse {
+    border: 1px solid;
+    padding: 3px;
+    background-color: $primaryblue;
+    border-radius: 12px;
+    color: $white;
+    cursor: pointer;
+}
+.icon-download {
+    border: 1px solid;
+    padding: 1rem;
+    margin-left: 84rem;
+    background-color: $primaryblue;
+    color: $white;
+}
+
+.search {
+    padding: 1.7rem 1rem 0rem 0rem;
+    display: inline-flex;
+}
+
+.iconsOverlayPanel span,
+.iconsOverlayPanel i {
+    cursor: pointer;
+    font-size: $fs12;
+    font-weight: $fw600;
+}
+.fontStyle {
+    font-family: 'Inter var', sans-serif;
+}
+.workerHeader {
+    position: absolute;
+    z-index: 1;
+    background: #fff;
+    margin-top: -1rem;
+    font-size: 16px;
+    width: calc(100% - 3rem);
+}
+.right {
+    float: right;
+}
+.mr {
+    margin-top: 1rem;
+    margin-bottom: 0.2rem;
+}
+.mt-01 {
+    margin-top: 0.5rem;
+}
+.pd-00 {
+    padding: 0;
+    font-weight: 600;
+}
+.pd-04 {
+    padding: 4px;
+    font-size: 16px;
+}
+.fs-01 {
+    font-size: 16px;
+}
+.fs-02 {
+    font-size: 17px;
+}
+.fs-03 {
+    font-size: 18px;
+}
+:host ::ng-deep .tableView > .p-datatable-scrollable > .p-datatable-wrapper {
+    max-height: 61.3vh !important;
+}
+:host ::ng-deep .p-button.p-button-info {
+    font-size: 12px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+.column-sel-bt {
+    font-size: 12px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+.emptyMsg {
+    text-align: left !important;
+}

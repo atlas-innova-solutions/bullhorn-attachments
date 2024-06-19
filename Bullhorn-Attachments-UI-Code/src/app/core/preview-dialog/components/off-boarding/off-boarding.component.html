@@ -1,0 +1,18 @@
+<div class="grid">
+    <!-- <div class="col-12 md:col-6 lg:col-4">
+        <label for="_actualend">{{ 'assignmentLabel.actualEndDate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.actualEndDateAsgmt}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4">
+        <label  for="_assignmentEnd">{{ 'assignmentLabel.assignmentEnd' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.asgmtEndReason}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4">
+        <label  for="_assignmentComment">{{ 'assignmentLabel.assignmentComment' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.asgmtEndComment}}</span>
+    </div> -->
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('rehireEligible')">
+        <label for="_rehireeligible">{{ 'assignmentLabel.rehireEligible' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.isRehireEligible}}</span>
+    </div>
+</div>  

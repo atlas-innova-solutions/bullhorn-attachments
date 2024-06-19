@@ -1,0 +1,17 @@
+:host::ng-deep {
+
+    .p-datatable .p-datatable-thead > tr > th {
+        text-align: center;
+        height: 40px !important;
+    }
+
+    .p-datatable .p-datatable-tbody > tr > td {
+        text-align: center;
+        height: 40px !important;
+    }
+
+    .p-datatable-scrollable > .p-datatable-wrapper {
+        min-height: 28rem !important;
+        max-height: 28rem !important;
+    }
+}

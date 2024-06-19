@@ -1,0 +1,92 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="search mr-2 pd-00">
+            <label for="" class="lable-font header-color">Set Dynamic Fields Value</label>
+        </div>
+    </div>
+</div>
+<div class="pt-5">
+    <p-messages *ngIf="isError" [(value)]="messages" [enableService]="false" [closable]="true"></p-messages>
+</div>
+<div class="grid ml-00 mt-05">
+    <div class="col-12 md:col-6 lg:col-4">
+        <div class="border-round-sm">
+            <label class="lable-font">{{ 'workerSearchComponent.advanceSearch.customerNameAccount' | translate
+                }}<span class="text-danger">*</span></label>
+            <p-dropdown [(ngModel)]="selectedCustomerDropdownId" [options]="clientaccountList" class="pl-02 dropdown"
+                [resetFilterOnHide]="true" [filter]="true" optionLabel="name" optionValue="id"
+                placeholder="{{ 'workerSearchComponent.placeHoldings.customerNameAccount' | translate }}"
+                (onChange)="onCustomerNameSelect(); entityId='';">
+            </p-dropdown>
+        </div>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4">
+        <div class="border-round-sm">
+            <label class="lable-font">{{ 'adminFields.projectId' | translate }}<span
+                    class="text-danger">*</span></label><br />
+            <p-dropdown [options]="projectsList" class="pl-02 dropdown" [resetFilterOnHide]="true"
+                [(ngModel)]="selectedProjectDropdownId" [filter]="true" optionLabel="projectName" optionValue="projectId"
+                placeholder="{{ 'adminFields.projectplaceholder' | translate }}" [disabled]="projectDisabled"
+                (onChange)="onProjectNameSelected()"></p-dropdown>
+        </div>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4">
+        <div class="border-round-sm">
+            <label class="lable-font">{{ 'adminFields.CSFId' | translate }}<span
+                    class="text-danger">*</span></label><br />
+            <input type="text" disabled="true" [(ngModel)]="csfId" pInputText placeholder="CSF ID">
+        </div>
+    </div>
+</div>
+<ng-container>
+    <div class="col-12 md:col-6 lg:col-3">
+        <label class="lable-font">Placement ID<span class="text-danger">*</span></label><br />
+        <input type="text" pInputText [(ngModel)]="entityId" placeholder="Enter PlacementId"
+            (onInput)="onInputText($event)" /><br />
+    </div>
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-3 ml-005">
+            <form *ngIf="form" [formGroup]="form">
+                <div class="grid">
+                    <div class="col-12 md:col-12 lg:col-12" *ngFor="let field of customFieldFieldData">
+                        <label for="{{ field.fieldName }}" class="lable-font">{{ field.displayName ? field.displayName :
+                            field.fieldName }}<span *ngIf="field.mandatory" class="text-danger">*</span></label><br />
+                        <ng-container [ngSwitch]="field.fieldType">
+                            <input *ngSwitchCase="'text'" [id]="field.fieldName" type="text" pInputText
+                                formControlName="{{ field.fieldName }}" placeholder="{{ field.displayName }}"
+                                (change)="onFormChange(field.fieldName)" class="inputMargin" />
+                            <ng-container *ngSwitchCase="'checkbox'">
+                                <div class="card flex left gap-3">
+                                    <div *ngFor="let option of field.fieldOptions"
+                                        class="form-check flex align-items-center left">
+                                        <p-radioButton [inputId]="option.appFieldName" [value]="option.appFieldName"
+                                            formControlName="{{ field.fieldName }}"
+                                            (click)="onFormChange(field.fieldName)"></p-radioButton>
+                                        <label [for]="option.appFieldName" class="lable-radio center">{{
+                                            option.appFieldName }}</label>
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <p-calender *ngSwitchCase="'calender'" formControlName="{{ field.fieldName }}"
+                                [id]="field.fieldName" (onSelect)="onFormChange(field.fieldName)"></p-calender>
+                            <p-dropdown *ngSwitchCase="'dropdown'" [options]="field.fieldOptions"
+                                formControlName="{{ field.fieldName }}" optionLabel="appFieldName"
+                                optionValue="appFieldName" (onChange)="onFormChange(field.fieldName)"
+                                placeholder="{{ field.displayName }}"></p-dropdown>
+                        </ng-container>
+                        <small class="p-error block" *ngIf="isValid(field.fieldName)">{{ errorMessages.mandatory
+                            }}</small>
+                    </div>
+                </div>
+                <!-- <button  type="submit" pbutton class="button-save button-class"
+                    (click)="saveDynamicFields()">Save</button> -->
+            </form>
+        </div>
+    </div>
+</ng-container>
+<div class="col-12">
+    <div class="btn">
+      <button [disabled]="!selectedCustomerDropdownId || !selectedProjectDropdownId || !csfId || !customFieldFieldData || !(customFieldFieldData && customFieldFieldData.length > 0)" pButton type="button" class="p-button-info btn button-save saveBtn" (click)="saveDynamicFields()">Save</button>
+    </div>
+  </div>
+<p-toast key="add"></p-toast>

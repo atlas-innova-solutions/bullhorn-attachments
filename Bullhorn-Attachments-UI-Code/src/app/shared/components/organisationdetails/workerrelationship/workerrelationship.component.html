@@ -1,0 +1,19 @@
+<form  [formGroup]="workerRelationshipFormGroup">
+    <div class="grid ">
+      <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('workerType')">
+        <label  for="_wtype">{{ 'workerRelationshipLabels.workerType' | translate }}<span *ngIf="isFormControlRequired('workerType')" class="text-danger">*</span></label><br>
+        <p-dropdown  id="_lob" [formControl]="workerTypeFormControl" optionLabel="name" optionValue="id" [options]="workerTypeList" (onChange)="onFormChange('workerType')"  placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+        <small class="p-error block" *ngIf="isValid('workerType')">{{ errorMessages.mandatory }}</small>
+        </div>
+      <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('legacyReportingBusinessUnit')">
+        <label  for="_lrbu">{{ 'workerRelationshipLabels.legacyBusinessUnit' | translate }} <span *ngIf="isFormControlRequired('legacyReportingBusinessUnit')" class="text-danger">*</span></label><br>
+        <p-dropdown  id="_lrbu" [formControl]="legacyReportingBusinessUnitFormControl" [options]="legacyReportingBusinessUnitList" optionLabel="name" optionValue="id"  (onChange)="onFormChange('legacyReportingBusinessUnit')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+        <small class="p-error block" *ngIf="isValid('legacyReportingBusinessUnit')">{{ errorMessages.mandatory }}</small>
+      </div>
+      <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('legalEmployer')">
+        <label  for="_lemp">{{ 'workerRelationshipLabels.legalEmployer' | translate }}<span *ngIf="isFormControlRequired('legalEmployer')" class="text-danger">*</span></label><br>
+          <p-dropdown  id="_lemp" [formControl]="legalEmployerFormControl" optionLabel="name" optionValue="id" [options]="legalEmployerList" (onChange)="onFormChange('legalEmployer')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+          <small class="p-error block" *ngIf="isValid('legalEmployer')">{{ errorMessages.mandatory }}</small>
+      </div>
+    </div>
+</form>

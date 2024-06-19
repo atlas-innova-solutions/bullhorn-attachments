@@ -1,0 +1,96 @@
+<div class="grid">
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('lineOfBusiness')">
+        <label for="_credlob">{{ 'innovaTeamLabel.lineOfBusiness' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.serviceLine}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('location')">
+        <label for="_creloc">{{ 'innovaTeamLabel.financeLocation' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.location}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('strategicBusinessUnit')">
+        <label for="_strabusi">{{ 'innovaTeamLabel.strategicBusinessUnit' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.strategicBusinessUnit}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('shadowStrategicBusinessUnit')">
+        <label for="_recteam">{{ 'innovaTeamLabel.shadowStrategic' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.shadowStrategicBusinessUnit}}</span>
+    </div>
+    <!-- <div class="col-12 md:col-6 lg:col-4"> -->
+    <!-- <div class="col-12 md:col-6 lg:col-4">
+        <label for="_sssv">{{ 'innovaTeamLabel.subsegver' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.subSegment}}</span>
+    </div> -->
+    <!-- <div class="col-12 md:col-6 lg:col-4">
+        <label for="_sssver">{{ 'innovaTeamLabel.subsegvertical' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.subSubSegment}}</span>
+    </div> -->
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('recruiter')">
+        <label for="_crerec">{{ 'innovaTeamLabel.recruiter' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.recruiter}}</span>
+    </div>
+ 
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('recruiterSecondary')">
+        <label for="_recsec">{{ 'innovaTeamLabel.recruiterSecondary' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.recruiterSecondary}}</span>
+    </div>
+    
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('recruiterPercentage')">
+        <label for="_recper">{{ 'innovaTeamLabel.recruiterPercentage' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.recruiterPercentage}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('recruiterSecondaryPercentage')">
+        <label for="_recseper">{{ 'innovaTeamLabel.recruiterSecPercentage' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.recruiterSecondaryPercentage}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('recruiterOverride')">
+        <label for="_recseper">{{ 'innovaTeamLabel.recuiterOverride' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.recruiterOverride}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('nonCommissionableRecruiter')">
+        <label for="_recseper">{{ 'innovaTeamLabel.nonCommRecruiter' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.nonCommissionableRecruiter}}</span>
+    </div>
+
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('salesPerson')">
+        <label for="_sperson">{{ 'innovaTeamLabel.salesPerson' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.salesPerson}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('salesPersonSecondary')">
+        <label for="_spersec">{{ 'innovaTeamLabel.salesPersonSec' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.salesPersonSecondary}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('salesPersonPercentage')">
+        <label for="_spersonper">{{ 'innovaTeamLabel.salesPersonPer' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.salesPersonPercentage}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('salesPersonSecondaryPercentage')">
+        <label for="_spersonsecper">{{ 'innovaTeamLabel.salesPersonSecPer' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.salesPersonSecondaryPercentage}}</span>
+    </div>
+ 
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('clientServiceManager')">
+        <label for="_csman">{{ 'innovaTeamLabel.clientSerManager' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.clientServiceManager}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('salesTeam')">
+        <label for="_steam">{{ 'innovaTeamLabel.salesTeam' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.salesTeam}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('salesTeamOverride')">
+        <label for="_steamover">{{ 'innovaTeamLabel.salesTeamOverride' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.salesTeamOverride}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('salesPersonOverride')">
+        <label for="_steamover">{{ 'innovaTeamLabel.salesPersonOverride' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.salesPersonOverride}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('nonCommissionableSalesPerson')">
+        <label for="_steamover">{{ 'innovaTeamLabel.nonCommissionableSalesPerson' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.nonCommissionableSalesPerson}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('recruiterTeam')">
+        <label for="_recteam">{{ 'innovaTeamLabel.recruiterTeam' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.recruiterTeam}}</span>
+    </div>
+  
+</div>

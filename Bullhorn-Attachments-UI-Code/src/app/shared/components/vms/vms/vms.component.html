@@ -1,0 +1,19 @@
+<form [formGroup]="vmsForm">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('vmsName')">
+            <label for="_vmsname">{{ 'vmsLabels.vmsName' | translate }}<span *ngIf="isFormControlRequired('vmsName')" class="text-danger">*</span></label><br>
+            <p-dropdown  id="_vmsname" [formControl]="vmsNameFormControl" [options]="vmsNameList" optionLabel="name" optionValue="id" (onChange)="onFormChange('vmsName')"  placeholder="{{ 'placeholders.select' | translate }}" ></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('vmsName')">{{ maxLenVmsWorkOrderNumberChar }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('vmsWorkOrderNumber')">
+            <label  for="_vmswork">{{ 'vmsLabels.vmsWorkOrderNum' | translate }}<span *ngIf="isFormControlRequired('vmsWorkOrderNumber')" class="text-danger">*</span></label><br>
+            <input type="text" id="_vmswork" [formControl]="vmsWorkOrderNumberFormControl" maxlength="70" class="inputMargin" pInputText (change)="onFormChange('vmsWorkOrderNumber')"/>
+            <small class="p-error block" *ngIf="isValid('vmsWorkOrderNumber')">{{ maxLenVmsWorkOrderNumberChar }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('vmsWorkerId')">
+            <label  for="_vmsworkerid">{{ 'vmsLabels.vmsWorkerId' | translate }}<span *ngIf="isFormControlRequired('vmsWorkerId')" class="text-danger">*</span></label><br>
+            <input type="text" id="_vmsworkerid" [formControl]="vmsWorkerIdFormControl" maxlength="70" class="inputMargin" pInputText (change)="onFormChange('vmsWorkerId')"/>
+            <small class="p-error block" *ngIf="isValid('vmsWorkerId')">{{ maxLenVmsWorkerIdChar }}</small>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,19 @@
+<form [formGroup]="sharedFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('consultantPointOfContact')">
+            <label for="_conpoc">{{ 'sharedLabels.conPointOfContact' | translate }}<span *ngIf="isFormControlRequired('consultantPointOfContact')" class="text-danger">*</span></label><br>
+            <p-dropdown  id="_conpoc" [formControl]="consultantPointOfContactFormControl" [options]="consultantPointOfContactList" optionLabel="name" optionValue="id" (onChange)="onFormChange('consultantPointOfContact')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('consultantPointOfContact')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('onBoardingSpecialist')">
+            <label for="_onbspec">{{ 'sharedLabels.onBoardingSpl' | translate }}<span *ngIf="isFormControlRequired('onBoardingSpecialist')" class="text-danger">*</span></label><br>
+            <p-dropdown  id="_onbspec" [formControl]="onBoardingSpecialistFormControl" [options]="onBoardingSpecialistList" optionLabel="name" optionValue="id" (onChange)="onFormChange('onBoardingSpecialist')"  placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('onBoardingSpecialist')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('timeManagementSpecialist')">
+            <label for="_timemng">{{ 'sharedLabels.timeManagement' | translate }}<span *ngIf="isFormControlRequired('timeManagementSpecialist')" class="text-danger">*</span></label><br>
+            <p-dropdown  id="_timemng" [formControl]="timeManagementSpecialistFormControl" [options]="timeManagementSpecialistList" optionLabel="name" optionValue="id" (onChange)="onFormChange('timeManagementSpecialist')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('timeManagementSpecialist')">{{ errorMessages.mandatory }}</small>
+        </div>
+    </div>
+</form>

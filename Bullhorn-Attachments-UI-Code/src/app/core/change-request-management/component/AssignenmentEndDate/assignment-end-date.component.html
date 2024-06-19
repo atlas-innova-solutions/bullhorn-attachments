@@ -1,0 +1,36 @@
+<div [formGroup]="endDateChangeGroup">
+  <div class="grid">
+    <div class="col-12 md:col-6 lg:col-4">
+      <label for="endDate">{{'assignmentLabel.asgmtEndDate' | translate}}</label><span class="text-danger">*</span>
+      <p-calendar formControlName="endDate" [showIcon]="true" appendTo="body"></p-calendar>
+      <div
+        *ngIf="endDateChangeGroup.get('endDate')!.invalid && (endDateChangeGroup.get('endDate')!.dirty || endDateChangeGroup.get('endDate')!.touched )">
+        <small class="text-danger">{{ error.mandatory }}</small>
+      </div>
+      <small class="p-error block"  *ngIf="dateValidation">{{ error.EndDateError }}</small>
+    </div>
+    <div class="col-12 md:col-6 lg:col-8"></div>
+    <div class="col-12 md:col-6 lg:col-4">
+      <label for="endDate">{{'changeStatusLabels.reason' | translate}}</label><span class="text-danger">*</span><br>
+      <p-dropdown [options]="reasonList" optionValue="code"
+      formControlName="reason" optionLabel="name" 
+      placeholder="{{'changeRequestMgmt.changeRequest.selectType' | translate}}">
+    </p-dropdown>
+      <div
+        *ngIf="endDateChangeGroup.get('reason')!.invalid && (endDateChangeGroup.get('reason')!.dirty || endDateChangeGroup.get('reason')!.touched )">
+        <small class="text-danger">{{ error.mandatory }}</small>
+      </div>
+    </div>
+    <div class="col-12 md:col-6 lg:col-8"></div>
+    <div class="col-12 md:col-6 lg:col-4">
+      <label for="endDate">{{'empDashboardLabels.assignmentStatus' | translate}}</label><span
+        class="text-danger">*</span>
+      <input id="asgmntStatus" type="text" class="inputMargin" name="asgmntStatus" formControlName="asgmntStatus" pInputText />
+      <div
+        *ngIf="endDateChangeGroup.get('asgmntStatus')!.invalid && (endDateChangeGroup.get('asgmntStatus')!.dirty || endDateChangeGroup.get('asgmntStatus')!.touched )">
+        <small class="text-danger">{{ error.mandatory }}</small>
+      </div>
+    </div>
+    <div class="col-12 md:col-6 lg:col-6"></div>
+  </div>
+</div>

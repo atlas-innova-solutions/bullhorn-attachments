@@ -1,0 +1,19 @@
+<form [formGroup]="vendorFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_aveSTPayRate">{{ 'vendorLabels.aveSTPayRate' | translate }}</label
+            ><br />
+            <input type="text" TwoDigitDecimalNumber id="_aveSTPayRate" [formControl]="aveSTPayRateFormControl" class="inputMargin" pInputText (change)="onFormChange('aveSTPayRate')" />
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_aveOTPayRate">{{ 'vendorLabels.aveOTPayRate' | translate }}</label
+            ><br />
+            <input type="text" TwoDigitDecimalNumber id="_aveOTPayRate" [formControl]="aveOTPayRateFormControl" class="inputMargin" pInputText (change)="onFormChange('aveOTPayRate')"/>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_aveDTPayRate">{{ 'vendorLabels.aveDTPayRate' | translate }}</label
+            ><br />
+            <input type="text" id="_aveDTPayRate" [formControl]="aveDTPayRateFormControl" class="inputMargin" pInputText (change)="onFormChange('aveDTPayRate')"/>
+        </div>
+    </div>
+</form>

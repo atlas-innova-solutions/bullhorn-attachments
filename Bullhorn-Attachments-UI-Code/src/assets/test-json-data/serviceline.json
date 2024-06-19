@@ -1,0 +1,16 @@
+{
+    "ServiceLine": [
+        {
+            "name": "IT Solutions",
+            "id": 1
+        },
+        {
+            "name": "Staffing",
+            "id": 2
+        },
+        {
+            "name": "Payrolling",
+            "id": 3
+        }
+    ]
+}

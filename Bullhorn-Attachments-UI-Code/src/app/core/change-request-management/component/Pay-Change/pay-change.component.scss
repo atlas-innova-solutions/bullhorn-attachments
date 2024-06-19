@@ -1,0 +1,21 @@
+@import 'all';
+
+:host ::ng-deep {
+    .grid {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+    .p-inputtext {
+        width: 100%;
+        border-color: $inputBorderColorlightBlue;
+        font-size: $fs12;
+        font-weight: $fw500;
+    }
+    div.textAreaDiv > textarea {
+        height: 6rem !important;
+    }
+}
+.text-danger{
+    color: #e24c4c;
+}

@@ -1,0 +1,23 @@
+<form [formGroup]="hcmidentifiersFormGroup">
+    <div class="grid">
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_perId">{{ 'hcmIdentifierLabels.fusionPersonID' | translate }}</label
+            ><br />
+            <span class="disabledFields">{{ reviewData && reviewData.assignment && reviewData.assignment.hcmPersonId ? reviewData.assignment.hcmPersonId : '' }}</span>
+        </div> -->
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_fuempId">{{ 'hcmIdentifierLabels.fusionEmpID' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.assignment?.hcmEmplId}}</span>
+        </div> -->
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_fuassId">{{ 'hcmIdentifierLabels.fusionAssignID' | translate }}</label><br>
+            <span class="disabledFields">{{reviewData && reviewData.assignment && reviewData.assignment.hcmAsgmtId ? reviewData.assignment.hcmAsgmtId : ''}}</span>
+        </div> -->
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('hcmPersonType')">
+            <label for="_pertype">{{ 'hcmIdentifierLabels.personType' | translate }}<span *ngIf="isFormControlRequired('hcmPersonType')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_pertype" [options]="hcmPersonTypeList" [formControl]="hcmPersonTypeFormControl" optionLabel="userPersonType" optionValue="systemPersonType" (onChange)="onFormChange('hcmPersonType')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('hcmPersonType')">{{ errorMessages.mandatory }}</small>
+        </div>
+    </div>
+</form>

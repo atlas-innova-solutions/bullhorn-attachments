@@ -1,0 +1,77 @@
+<form [formGroup]="ratesFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('perDiemStartDate')">
+            <label for="_pdsdate">{{ 'payBillLabel.perdiemstartdate' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('perDiemStartDate')">*</span></label
+            ><br />
+            <p-calendar class="iconshow" appendTo="body"  [iconDisplay]="'input'" [showIcon]="true" id="_pdsdate" [formControl]="perDiemStartDateFormControl" (onSelect)="onFormChange('perDiemStartDate')"></p-calendar>
+            <small class="p-error block"  *ngIf="isValid('perDiemStartDate')">{{ errorMessages.targetDateError }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('perDiemEndDate')">
+            <label for="_pdedate">{{ 'payBillLabel.perdiemenddate' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('perDiemEndDate')">*</span></label
+            ><br />
+            <p-calendar class="iconshow" appendTo="body"  [iconDisplay]="'input'" [showIcon]="true" id="_pdedate" [formControl]="perDiemEndDateFormControl" (onSelect)="onFormChange('perDiemEndDate')"></p-calendar>
+            <small class="p-error block"  *ngIf="isValid('perDiemEndDate')">{{ errorMessages.targetDateError }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('perDiemRate')">
+            <label for="_pdrate">{{ 'payBillLabel.perdiemrate' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('perDiemRate')">*</span></label
+            ><br />
+            <input type="text" TwoDigitDecimalNumber id="_pdrate" [formControl]="perDiemRateFormControl" class="inputMargin" pInputText (change)="onFormChange('perDiemRate')" />
+            <small class="p-error block"  *ngIf="isValid('perDiemRate')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_pdper">{{ 'payBillLabel.perdiemper' | translate }}</label
+            ><br />
+            <p-dropdown id="_pdper" [formControl]="perDiemPerFormControl" [options]="perDiemPerList" (change)="onFormChange('perDiemPer')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_pdbill">{{ 'payBillLabel.perdiembill' | translate }}</label
+            ><br />
+            <p-dropdown id="_pdbill" [formControl]="perDiemBillPayTaxFormControl" [options]="perDiemBillPayTaxList" (onChange)="onFormChange('perDiemBillPayTax')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_pdhour">{{ 'payBillLabel.perdiemhourlimit' | translate }}</label
+            ><br />
+            <p-dropdown id="_pdhour" [formControl]="perDiemHourLimitFormControl" [options]="perDiemHourLimitList" (onChange)="onFormChange('perDiemHourLimit')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <label for="_discOT">{{ 'payBillLabel.discountedOTBillRate' | translate }}</label><br>
+                <input type="text" id="_discOT" [formControl]="discountedOTBillRateFormControl" class="inputMargin" pInputText />
+        </div> -->
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('isPerDiemBillable')">
+            <label for="_isbill">{{ 'payBillLabel.Isperdiembillable' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('isPerDiemBillable')">*</span></label
+            ><br />
+            <p-dropdown
+                id="_isbill"
+                [formControl]="isPerDiemBillableFormControl"
+                [options]="isPerDiemBillableList"
+                optionLabel="name"
+                optionValue="id"
+                (onChange)="onFormChange('isPerDiemBillable')"
+                placeholder="{{ 'placeholders.select' | translate }}"
+            ></p-dropdown>
+            <small class="p-error block"  *ngIf="isValid('isPerDiemBillable')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('discountedOtBillRate')">
+            <label for="_discOT">{{ 'payBillLabel.discountedOTBillRate' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('discountedOtBillRate')">*</span></label
+            ><br />
+            <input type="text" TwoDigitDecimalNumber id="_discOT" [formControl]="discountedOTBillRateFormControl" class="inputMargin" pInputText  (change)="onFormChange('discountedOtBillRate')" />
+            <small class="p-error block"  *ngIf="isValid('discountedOtBillRate')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('perDiemBillableDailyPay')">
+            <label for="_perDiemBillableDailyPay">{{ 'timeElementsAndRatesLabels.perDiemBillableDailyPay' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('perDiemBillableDailyPay')">*</span></label
+            ><br />
+            <input type="text" id="_perDiemBillableDailyPay" [formControl]="perDiemBillableDailyPayFormControl" class="inputMargin" pInputText (change)="onFormChange('perDiemBillableDailyPay')" />
+            <small class="p-error block"  *ngIf="isValid('perDiemBillableDailyPay')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('perDiemDailyBill')">
+            <label for="_perDiemDailyBill">{{ 'timeElementsAndRatesLabels.perDiemDailyBill' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('perDiemDailyBill')">*</span></label
+            ><br />
+            <input type="text" TwoDigitDecimalNumber id="_perDiemDailyBill" [formControl]="perDiemDailyBillFormControl" class="inputMargin" pInputText (change)="onFormChange('perDiemDailyBill')" />
+            <small class="p-error block"  *ngIf="isValid('perDiemDailyBill')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('perDiemNonBillDailyPay')">
+            <label for="_perDiemNonBillDailyPay">{{ 'timeElementsAndRatesLabels.perDiemNonBillDailyPay' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('perDiemNonBillDailyPay')">*</span></label
+            ><br />
+            <input type="text" TwoDigitDecimalNumber id="_perDiemNonBillDailyPay" [formControl]="perDiemNonBillDailyPayFormControl" class="inputMargin" pInputText (change)="onFormChange('perDiemNonBillDailyPay')" />
+            <small class="p-error block"  *ngIf="isValid('perDiemNonBillDailyPay')">{{ errorMessages.mandatory }}</small>
+        </div>
+    </div>
+</form>

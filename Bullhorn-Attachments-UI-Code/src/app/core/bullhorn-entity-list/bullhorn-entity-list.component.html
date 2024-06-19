@@ -1,0 +1,95 @@
+<div class="card">
+    <div class="inline-flex align-items-center col-12 repoHeader">
+
+        <a href="#/home"><i class="pi pi-arrow-circle-left" style="font-size: 1.5rem"></i></a>
+
+        <p class="fw-055 pm-00 primarycolor ml-1"> DashBoard</p>
+    </div>
+    <p-tabView (onChange)="onTabChange($event)">
+        <p-tabPanel *ngFor="let tab of tabs">
+            <ng-template pTemplate="header" style="width: auto;">
+                <span>
+                    {{tab.title}}
+                </span>
+
+                <div class="card flex justify-content-right">
+                    <p-button (onClick)="showDialog()" label="Show" [link]="true" />
+                    </div>
+            </ng-template>
+        </p-tabPanel>
+    </p-tabView>
+</div>
+
+<div class="card">
+    <p-table #dt [columns]="cols" [value]="candidateList" [paginator]="true" [resetPageOnSort]="true" (onPage)="getEntityData($event)"
+    [showCurrentPageReport]="true" [totalRecords]="dataTableCount" (onLazyLoad)="getEntityData($event)" [lazy]="true" [loading]="loading" [rows]="10"
+    currentPageReportTemplate="{first} to {last} of {totalRecords}" responsiveLayout="scroll" [breakpoint]="'960px'"
+    [rowsPerPageOptions]="[25, 50, 100]" [scrollable]="true" selectionMode="single">
+
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th id="history_header" *ngFor="let col of columns" [pSortableColumn]="col.field"
+                    [pSortableColumnDisabled]="col.field == 'attachment'">
+                    {{ col.header }}
+                    <p-sortIcon *ngIf="col.field != 'attachment'" [field]="col.field" [ngClass]="'right'"></p-sortIcon>
+                </th>
+            </tr>
+            <tr>
+                <th id="filter_header" *ngFor="let col of columns">
+                    <span class="p-input-icon-right ml-auto" *ngIf="col.field !== 'attachment'">
+                        <i class="pi pi-search"></i>
+                        <input pInputText *ngIf="col.field !== 'attachment'"
+                            (input)="$any(dt).filter($any($event.target).value, col.field, 'contains');"
+                            [value]="$any(dt).filters[col.key]?.value" />
+                    </span>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template  pTemplate="body" let-list>
+            <tr *ngIf="entityType == 'candidate'">
+                <td>{{ list.bhCandidateId}}</td>
+                <td>{{ list.bhFirstName}}</td>
+                <td>{{ list.bhLastName}}</td>
+                <td>{{ list.bhEmployeeType}}</td>
+                <td>{{ list.bhEmail}}</td>
+                <td>{{ list.bhMobile}}</td>
+                <td> <p-button label="Attachment" (click)="entityFileAttachmentList(list)" [link]="true" /></td>
+            </tr>
+            <tr *ngIf="entityType == 'placement'">
+                <td>{{ list.bhPlacementId}}</td>
+                <td>{{ list.bhEmployeeType}}</td>
+                <td>{{ list.sourceSystem}}</td>
+                <td> <p-button label="Attachment" (click)="entityFileAttachmentList(list)" [link]="true" /></td>
+            </tr>
+            <tr *ngIf="entityType == 'joborder'">
+                <td>{{ list.bhJoborderId}}</td>
+                <td>{{ list.title}}</td>
+                <td>{{ list.clientCorporationId}}</td>
+                <td>{{ list.contactId}}</td>
+                <td>{{ list.isOpen}}</td>
+                <td>{{ list.address}}</td>
+                <td>{{ list.sourceSystem}}</td>
+                <td> <p-button label="Attachment" (click)="entityFileAttachmentList(list)" [link]="true" /></td>
+            </tr>
+            <tr *ngIf="entityType == 'company'">
+                <td>{{ list.clientCorporationId}}</td>
+                <td>{{ list.name}}</td>
+                <td>{{ list.address}}</td>
+                <td>{{ list.status}}</td>
+                <td>{{ list.sourceSystem}}</td>
+                <td> <p-button label="Attachment" (click)="entityFileAttachmentList(list)" [link]="true" /></td>
+            </tr>
+            <tr *ngIf="entityType =='contact'">
+                <td>{{list.bhContactId}}</td>
+                <td>{{ list.bhFirstName}}</td>
+                <td>{{ list.bhMiddleName}}</td>
+                <td>{{ list.bhLastName}}</td>
+                <td>{{ list.status}}</td>
+                <td>{{ list.bhEmail}}</td>
+                <td>{{ list.bhMobile}}</td>
+                <td>{{ list.sourceSystem}}</td> 
+                <td> <p-button label="Attachment" (click)="entityFileAttachmentList(list)" [link]="true" /></td>              
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

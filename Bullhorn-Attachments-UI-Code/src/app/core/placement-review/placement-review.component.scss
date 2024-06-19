@@ -1,0 +1,377 @@
+@import 'all';
+
+@media only screen and (min-width: 1706px) and (max-width: 1707px){
+    .footer {
+        margin-top: -0.8rem;
+}}
+@media (min-width: 1920px) and (max-width: 2879px) {
+    .footer {
+            margin-top: -2.4rem;
+}}
+@media (min-width: 2880px)   {
+    .footer {
+        margin-top: -4rem;
+}}
+
+    .tabError{
+        color: #e24c4c;
+    }
+
+:host ::ng-deep {
+    .p-message .p-message-wrapper {
+        padding: 0.4rem 0.4rem;
+        color: #e24c4c;
+    }    
+    .p-card .p-card-body {
+        position: relative;
+    }
+    .menuItemsList{
+        border: none;
+        padding: 0px;
+        width: 12rem;
+        margin-top: 0rem;
+        font-size: 13px;
+    }
+    .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+        // padding: 2.5rem;
+        font-weight: $fw500;
+        font-size: $fs14;
+        padding-bottom: 1.25rem;
+        // color: $fontcolor !important;
+
+    }
+    .p-tabview .p-tabview-panels {
+        margin-top: 5rem;
+    }
+    .p-tabview .p-tabview-nav li .p-tabview-nav-link{
+        color: #000;
+    }
+
+    .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+        color: $inputBorderColorlightBlue;
+        border-bottom: 3px solid $inputBorderColorlightBlue !important;
+    }
+
+    .p-fieldset {
+        padding: 0px;
+        border: none;
+    }
+
+    .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a {
+        color: #1f7ac7;
+        border: none;
+        background-color: $white;
+        padding: 0px;
+        font-size: 1rem;
+    }
+
+    .p-fieldset .p-fieldset-legend {
+        font-size: $fs11;
+        font-weight: $fw500;
+    }
+
+    .p-fieldset .p-fieldset-legend {
+        border: 0px;
+    }
+
+    .p-fieldset-legend-text {
+        line-height: 3;
+        font-size: $fs13;
+        z-index: 0;
+    }
+
+    .p-ripple {
+        height: 2rem;
+    }
+
+    .p-inputtext {
+        width: $inputWd;
+        border-color: $inputBorderColorlightBlue;
+        // margin-top: 0.5rem;
+        font-size: $fs12;
+        font-weight: $fw500;
+    }
+    .p-input-icon-right>.p-icon-wrapper,
+    .p-input-icon-right>i:last-of-type {
+        color: $inputBorderColorlightBlue;
+    }
+
+    .grid {
+        font-size: $fs12;
+        font-weight: $fw600;
+        letter-spacing: 0.3px;
+    }
+
+    .p-fieldset .p-fieldset-content {
+        padding: 0.5rem;
+    }
+
+    .p-dropdown {
+        width: $inputWd;
+        border-color: $inputBorderColorlightBlue;
+        height: $inputHeight;
+        margin-top: 0.5rem;
+    }
+
+    .p-dropdown .p-dropdown-trigger {
+        color: $inputBorderColorlightBlue;
+    }
+
+    .p-fieldset .p-fieldset-content {
+        margin-left: 4rem;
+    }
+
+    .p-dialog-content {
+        margin-top: -1.5rem;
+    }
+    // .p-inputtext {
+    //     height: 3rem !important;
+    // }
+    .p-dropdown-panel .p-dropdown-items {
+        padding: 0;
+        font-size: 12px;
+    }
+
+    .pi {
+        font-size: 12px;
+    }
+
+    .p-input-icon-left>i,
+    .p-input-icon-left>.p-icon-wrapper,
+    .p-input-icon-right>i,
+    .p-input-icon-right>.p-icon-wrapper {
+        margin-top: 0;
+    }
+
+    .p-tabview .p-tabview-nav-btn.p-link {
+        background: none;
+        color: #3B82F6;
+        margin-right: -1rem;
+        box-shadow: none;
+    }
+
+    .p-tabview-scrollable .p-tabview-nav-container {
+        position: sticky;
+        top: 88px;
+        z-index: 1;
+        background-color: white;
+    }
+    .p-tabview .p-tabview-nav {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-width: 0 0 2px 0;
+        gap: 197px;
+    }
+    .icons[_ngcontent-ng-c4019212452] {
+        white-space: nowrap;
+        margin: auto;
+    }
+    
+
+    .p-button {
+        float: right;
+        font-size: 14px;
+        padding: 0.45rem 0.8rem;
+        background: $primaryblue;
+        border-color: $primaryblue;
+        // min-width: 7%;
+        justify-content: center;
+        font-weight: 700;
+        width: 7rem;
+        // height: 2.3rem;
+    }
+
+    .p-button.p-button-info:enabled:focus {
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #ffff, 0 1px 2px 0 black;
+    }
+    
+}
+.icons{
+    white-space: nowrap;
+}
+.iconsOverlayPanel span{
+    // pointer-events: none;
+    // color: $white;
+    cursor: pointer;
+    font-size: $fs12;
+    font-weight: $fw600
+}
+
+.fontStyle{
+    font-family: "Inter var", sans-serif;
+}
+button.p-element.close-btn.p-button.p-component {
+    padding: 0.5rem 1.5rem;
+}
+button.p-element.close-btn.cancel-btn.p-button.p-component {
+    color: black;
+    background: white;
+}
+.tab {
+    color: $inputBorderColorlightBlue;
+    font-weight: $fw500;
+    //Basic Info
+    font-size: 16px;
+    white-space: nowrap;
+}
+.headerSection{
+  display: flex;
+  //basic 
+  margin-left: 5px;
+  background: white;
+}
+//comment section
+div.commentsTextAreaDiv>textarea {
+    height: 5rem !important;
+}
+.line{
+border-top: 1px solid lightgray;
+margin: 10px;
+margin-left: 12px;
+width: 80%;
+}
+.logout-popup {
+    border-radius: 20px;
+  }
+  .logout-text {
+    color: #0070cd;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .dialogcontent {
+    color: #586c7d;
+    font-size: 13px;
+  }
+  .displayStatusTxt{
+    color: #0070cd;
+    font-size: 16px;
+    font-weight: 400;
+  }
+.icon-circle {
+    // border: 1px solid;
+    padding: 6px;
+    border-radius: 3px;
+    border-color: $white;
+    // border: 1px;
+    cursor: pointer;
+    color: #11479f;
+    font-weight: 400;
+    margin-left: 10px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.icon-circle-blue {
+    background: $primaryblue;
+    border: none;
+    color: $white;
+}
+
+.icon-ellipse {
+    border: 1px solid;
+    padding: 3px;
+    background-color: $primaryblue;
+    border-radius: 12px;
+    color: $white;
+    cursor: pointer;
+}
+
+.header {
+    position: absolute;
+    z-index: 1;
+    max-width: 95%;
+    background: $white;
+    margin-top: -7px;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.footer {
+    position: absolute;
+    // bottom: 3.7px;
+    top: 91.5vh;
+    right: 25px;
+    width: 96%;
+    background: $white;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem 
+}
+.pb-03 {
+    padding-bottom: 3rem;
+}
+
+//Basic Info
+
+.empInfo {
+    margin-top: 5px;
+    color:white !important;
+    font-size: 14px;
+    font-weight: $fw600;
+}
+.emp-info {
+    background: $primaryblue;
+    color: white;
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.field {
+    background: white;
+    padding: 5px;
+    border: 1px solid lightgray;
+    margin: 0px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+// .box {
+
+//     width: 96%;
+//     margin-top: 19px;
+//     margin-left: -12px;
+//     position: absolute;
+//     z-index: 1;
+//     background: $white;
+// }
+.box{
+    background: white;
+    position: fixed;
+    z-index: 1;
+    width: 94%;
+    // margin-top: 4rem;
+}
+
+.basicInfo{
+    display: flex;
+    padding: 0rem;
+    // padding-bottom: 0.5rem;
+}
+.placementReviewHeader{
+    margin-top: 3.5rem;
+}
+.field-name {
+    font-weight: 600;
+    font-size: 12px;
+    margin-left: 0.5rem;
+    color: $fontcolor;
+
+}
+
+.field-value {
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+.end-field {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.commentBox{
+    display: flex;
+    gap: 1rem;
+    border: none;
+    box-shadow: none;
+}
+.comment-reason{
+gap: 1rem;
+font-size: 13px;
+}

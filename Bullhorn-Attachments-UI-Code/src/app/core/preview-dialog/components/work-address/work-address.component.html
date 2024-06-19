@@ -1,0 +1,39 @@
+<div class="grid">
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('workingRemote')">
+        <label for="_workingRemote">{{ 'assignmentLabel.workingRemote' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.workingRemote}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('streetAddressLine1')">
+        <label for="_hadd2">{{ 'assignmentLabel.streetAdress1' | translate }} </label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.streetAddressLine1}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('streetAddressLine2')">
+        <label for="_hadd3">{{ 'assignmentLabel.streetAdress2' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.streetAddressLine2}}</span>
+    </div>
+    <!-- <div class="col-12 md:col-6 lg:col-4">
+        <label for="_hadd4">{{ 'assignmentLabel.streetAdress3' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.streetAddressLine3}}</span>
+    </div> -->
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('city')">
+        <label for="_city">{{ 'assignmentLabel.city' | translate }} </label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.city}}</span>
+
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('county')">
+        <label for="_county">{{ 'assignmentLabel.county' | translate }} </label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.county}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('state')">
+        <label for="_state">{{ 'assignmentLabel.state' | translate }} </label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.state}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('country')">
+        <label for="_country">{{ 'assignmentLabel.country' | translate }} </label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.country}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('zip')">
+        <label for="_zip">{{ 'assignmentLabel.zip' | translate }} </label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.zip}}</span>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+<div class="box">
+    <div class="grid">
+        <div class="col-12 basicInfo ">
+            <div class="col-2 emp-info ">
+                <div class="empInfo">{{'empDashboardLabels.basicInfo' | translate}}</div>
+            </div>
+            <div class="col-1 field">
+                <div class="field-name">{{ 'workerInfoLabel.placementId' | translate }} :</div>
+                <div class="field-value">{{reviewData && reviewData.placementId ? reviewData.placementId : ''}}</div>
+            </div>
+            <div class="col-1 field">
+                <div class="field-name">{{ 'workerInfoLabel.jobId' | translate }} :</div>
+                <div class="field-value">{{reviewData && reviewData.assignment && reviewData.assignment.atsJobId ?
+                    reviewData.assignment.atsJobId : ''}}</div>
+            </div>
+            <div class="col-2 field">
+                <div class="field-name">{{'placementRepoComponentLevel.advanceSearch.workerName' | translate}} :</div>
+                <div class="field-value">{{reviewData && reviewData.person && reviewData.person.firstName ?
+                    reviewData.person.firstName : ''}} {{reviewData && reviewData.person && reviewData.person.lastName ?
+                    reviewData.person.lastName : ''}}</div>
+            </div>
+            <div class="col-2 field">
+                <div class="field-name">{{'hcmIdentifierLabels.personType' | translate}} :</div>
+                <div class="field-value">{{reviewData && reviewData.assignment && reviewData.assignment.hcmPersonType ?
+                    reviewData.assignment.hcmPersonType : ''}}</div>
+            </div>
+            <div class="col-2 field">
+                <div class="field-name">{{ 'organisationalLabel.ATSsupplierName' | translate }} :</div>
+                <div class="field-value">{{reviewData && reviewData.assignment && reviewData.assignment.supplierName ?
+                    reviewData.assignment.supplierName : ''}}</div>
+            </div>
+            <div class="col-2 field end-field">
+                <div class="field-name">{{ 'workerInfoLabel.placementStatus' | translate }} :</div>
+                <div class="field-value">{{reviewData && reviewData.assignment && reviewData.assignment.placementStatus
+                    ? reviewData.assignment.placementStatus : ''}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card ">
+    <p-tabView [scrollable]="true" [(activeIndex)]="index">
+        <p-tabPanel header="{{'workerInfoLabels.workerInfo' | translate}}">
+            <p-fieldset *ngIf="isSectionAvailable('External Identifier')" legend="{{'workerInfoLabels.externalIdentifier' | translate}}" [toggleable]="true"><app-external-identifire [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-external-identifire></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Personal Information')" legend="{{'workerInfoLabels.personalInfo' | translate}}" [toggleable]="true"><app-personal-info [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-personal-info></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Worker Relationship')" legend="{{'orgDetailLabels.workerRelationship' | translate}}"  [toggleable]="true"><app-worker-relationship [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-worker-relationship></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Supplier')" legend="{{'orgDetailLabels.supplier' | translate}}"  [toggleable]="true"><app-supplier [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-supplier></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('HCM Identifiers')" legend="{{'workerInfoLabels.hcmIdentifiers' | translate}}" [toggleable]="true"><app-hcm-itentifire [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-hcm-itentifire></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Home Address')" legend="{{'workerInfoLabels.homeAddress' | translate}}" [toggleable]="true"> <app-home-address [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-home-address></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Immigration')" legend="{{'workerInfoLabels.immigration' | translate}}" [toggleable]="true"><app-preview-immigration [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-preview-immigration></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Employment')" legend="{{'workerInfoLabels.employment' | translate}}" [toggleable]="true"> <app-employment [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-employment></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Assignment')" legend="{{'assignmentJobLabels.assignment' | translate}}" [toggleable]="true"> <app-assignment [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-assignment></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Job')" legend="{{'assignmentJobLabels.job' | translate}}"[toggleable]="true"> <app-job [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-job></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Purchase Order')" legend="{{'assignmentJobLabels.purchaseOrder' | translate}}" [toggleable]="true"><app-purchase-order [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-purchase-order></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Shift and Schedules')" legend="{{'assignmentJobLabels.shift&schedule' | translate}}" [toggleable]="true"><app-shift-schedules [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-shift-schedules></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('VMS')" legend="{{'assignmentJobLabels.vms' | translate}}" [toggleable]="true"><app-vms [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-vms></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Worker Address')" legend="{{'assignmentJobLabels.workAddress' | translate}}" [toggleable]="true"><app-work-address [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-work-address></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Benefits')" legend="{{'benefitLabels.benefits' | translate}}" [toggleable]="true"> <app-benefits [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-benefits></p-fieldset>
+        </p-tabPanel>
+        <p-tabPanel header="{{'orgDetailLabels.orgDetails' | translate}}">
+            <p-fieldset *ngIf="isSectionAvailable('Customer')" legend="{{'orgDetailLabels.customer' | translate}}" [toggleable]="true"><app-customer [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-customer></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Project Delivery')" legend="{{'orgDetailLabels.projectDelivery' | translate}}" [toggleable]="true"><app-project-delivery [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-project-delivery></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Credit Allocation')" legend="{{'innovaTeamLabels.creditAllocation/producers' | translate}}" [toggleable]="true"><app-credit-allocation [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-credit-allocation></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Shared Services Team')" legend="{{'innovaTeamLabels.sharedServicesTeam' | translate}}" [toggleable]="true"><app-shared-service [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-shared-service></p-fieldset>
+            <!-- <p-fieldset legend="{{'orgDetailLabels.clientContact' | translate}}" [toggleable]="true"> <app-client-contact [reviewData]="reviewData"></app-client-contact></p-fieldset>
+            <p-fieldset legend="{{'orgDetailLabels.vendor' | translate}}" [toggleable]="true"> <app-vendor [reviewData]="reviewData"></app-vendor></p-fieldset> -->
+        </p-tabPanel>
+        <!-- <p-tabPanel header="{{'assignmentJobLabels.assignment&Job' | translate}}">
+                         <p-fieldset *ngIf="isSectionAvailable('Offboarding')" legend="{{'assignmentJobLabels.offboarding' | translate}}" [toggleable]="true"> <app-off-boarding [reviewData]="reviewData"  [roleAttributes]="roleAttributes"></app-off-boarding></p-fieldset> 
+                  </p-tabPanel> -->
+        <p-tabPanel header="{{'payBillLabels.pay&bill' | translate}}">
+            <p-fieldset *ngIf="isSectionAvailable('Payroll')" legend="{{'payBillLabels.payRoll' | translate}}" [toggleable]="true"><app-payroll [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-payroll></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Rates')" legend="{{'payBillLabels.rates' | translate}}" [toggleable]="true"><app-rate [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-rate></p-fieldset>
+            <!-- <p-fieldset legend="{{'payBillLabels.csf' | translate}}" [toggleable]="true"><app-csf [reviewData]="reviewData" ></app-csf></p-fieldset> -->
+            <p-fieldset *ngIf="isSectionAvailable('Pay and Bill Approver')" legend="{{'payBillLabels.payAndBillApprover' | translate}}" [toggleable]="true"><app-pay-bill-approver [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-pay-bill-approver></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Billing')" legend="{{'payBillLabels.billing' | translate}}" [toggleable]="true"><app-billing [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-billing></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Time Setup')" legend="{{'timeSetupLabels.timeSetup' | translate}}" [toggleable]="true"> <app-time-setup  [reviewData]="reviewData" [roleAttributes]="roleAttributes"></app-time-setup></p-fieldset>
+            <p-fieldset *ngIf="isSectionAvailable('Time Elements And Rate')" legend="{{'payBillLabels.timeElementsAndRates' | translate }}" [toggleable]="true"> 
+                <app-time-elements [reviewData]="reviewData" ></app-time-elements>
+            </p-fieldset>
+    
+            <!-- <p-fieldset legend="{{'payBillLabels.timeElementsAndRates' | translate}}" [toggleable]="true"><app-time-elements [reviewData]="reviewData" ></app-time-elements></p-fieldset> -->
+        </p-tabPanel>
+        <!-- <p-tabPanel header="{{'hireLabels.otherHireDetaisl' | translate}}">
+            <p-fieldset legend="{{'hireLabels.directHire' | translate}}" [toggleable]="true"><app-direct-hire [reviewData]="reviewData"></app-direct-hire></p-fieldset>
+            <p-fieldset legend="{{'hireLabels.contractHire' | translate}}" [toggleable]="true"><app-contract-hire [reviewData]="reviewData"></app-contract-hire></p-fieldset> 
+        </p-tabPanel> -->
+        <!-- <p-tabPanel *ngIf="isSectionAvailable('Credit Allocation') || isSectionAvailable('Shared Services Team')" header="{{'innovaTeamLabels.innovaTeamInfo' | translate}}">
+                 </p-tabPanel> -->
+        <!-- <p-tabPanel *ngIf="isSectionAvailable('Benefits')" header="{{'benefitLabels.benefits' | translate}}">
+        </p-tabPanel> -->
+        <!-- <p-tabPanel *ngIf="isSectionAvailable('Time Setup')" header="{{'timeSetupLabels.timeSetup' | translate}}" >
+        </p-tabPanel> -->
+        <!-- <p-tabPanel *ngIf="isSectionAvailable('Time Elements And Rate')" header="{{ 'payBillLabels.timeElementsAndRates' | translate }}">
+        </p-tabPanel> -->
+        <p-tabPanel header="{{ 'placementReviewLevel.viewCustomFields' | translate }}">
+            <p-fieldset legend="{{ 'placementReviewLevel.viewCustomFields' | translate }}" [toggleable]="true"><app-csf [reviewData]="reviewData"></app-csf></p-fieldset>
+        </p-tabPanel>
+        <!-- <p-tabPanel header="{{ 'placementReviewLevel.additionalInfo' | translate }}"> </p-tabPanel> -->
+        <!-- <div class="col-11 footer">
+                    <button pButton type="button" class="p-button-info btn" (click)="openNext()" *ngIf="index < 8">{{ 'placementReviewLevel.save' | translate }}</button>
+                    <button pButton type="button" class="p-button-info btn" (click)="save()" *ngIf="index == 8">{{ 'changeStatusLabels.save' | translate }}</button>
+                    <button pButton type="button" class="p-button-info btn mr-1" (click)="openPrev()" *ngIf="index != 0">{{ 'placementReviewLevel.previous' | translate }}</button>
+                </div> -->
+    </p-tabView>
+</div>

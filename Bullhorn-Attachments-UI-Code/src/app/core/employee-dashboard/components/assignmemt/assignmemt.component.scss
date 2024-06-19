@@ -1,0 +1,43 @@
+@import 'all';
+.ptWidth{
+    width: 106.8%;
+}
+:host ::ng-deep {
+    .p-datatable .p-datatable-thead > tr > th {
+        padding: 12px;
+        text-align: center;
+    }
+    .pi {
+        color: $primaryblue;
+        font-weight: $fw600;
+        margin-left: 18px;
+    }
+    .p-datatable .p-datatable-tbody > tr td:first-child {
+        color: $primaryblue;
+        font-weight: $fw600;
+    }
+    .p-datatable .p-datatable-tbody > tr > td {
+        padding: 10px;
+    }
+}
+
+@media (min-width: 1228px) and (max-width: 1229px) {
+    .ptWidth{
+        width: 109%;
+    }
+}
+@media (min-width: 1396px) and (max-width: 1397px) {
+    .ptWidth{
+        width: 108%;
+    }
+}
+@media (min-width: 1706px) and (max-width: 1920px) {
+    .ptWidth{
+        width: 106%;
+    }
+}
+@media (min-width: 2048px) and (max-width: 2304px) {
+    .ptWidth{
+        width: 105.5%;
+    }
+}

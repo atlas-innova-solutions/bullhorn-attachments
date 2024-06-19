@@ -1,0 +1,126 @@
+<form [formGroup]="personalDetailsFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('firstName')">
+            <label for="_fname">{{ 'workerInfoLabel.firstName' | translate }}<span *ngIf="isFormControlRequired('firstName')" class="text-danger">*</span></label
+            ><br />
+            <input type="text" id="_fname" [formControl]="firstNameFormControl" maxlength="70" class="inputMargin" pInputText (change)="onFormChange('firstName')" />
+            <div class="p-input-icon-right">
+                <i class="pi pi-user"></i>
+            </div>
+            <small class="p-error block" *ngIf="isValid('firstName')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('middleName')">
+            <label for="_mname">{{ 'workerInfoLabel.middleName' | translate }}<span *ngIf="isFormControlRequired('middleName')" class="text-danger">*</span></label
+            ><br />
+            <input type="text" id="_mname" [formControl]="middleNameFormControl" maxlength="70" class="inputMargin" pInputText (change)="onFormChange('middleName')"/>
+            <div class="p-input-icon-right">
+                <i class="pi pi-user"></i>
+            </div>
+            <small class="p-error block" *ngIf="isValid('middleName')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('lastName')">
+            <label for="_lname">{{ 'workerInfoLabel.lastName' | translate }}<span *ngIf="isFormControlRequired('lastName')" class="text-danger">*</span></label
+            ><br />
+            <input type="text" id="_lname" [formControl]="lastNameFormControl" maxlength="70" class="inputMargin" pInputText (change)="onFormChange('lastName')"/>
+            <div class="p-input-icon-right">
+                <i class="pi pi-user"></i>
+            </div>
+            <small class="p-error block" *ngIf="isValid('lastName')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('preferredName')">
+            <label for="_pname">{{ 'workerInfoLabel.preferredName' | translate }}<span *ngIf="isFormControlRequired('preferredName')" class="text-danger">*</span></label
+            ><br />
+            <input type="text" id="_pname" [formControl]="preferredNameFormControl" maxlength="70" class="inputMargin" pInputText (change)="onFormChange('preferredName')"/>
+            <div class="p-input-icon-right">
+                <i class="pi pi-user"></i>
+            </div>
+            <small class="p-error block" *ngIf="isValid('preferredName')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('preferredLanguage')">
+            <label for="_planguage">{{ 'workerInfoLabel.prefferdLanguage' | translate }}<span *ngIf="isFormControlRequired('preferredLanguage')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_planguage" [options]="preferredLanguageList" optionLabel="name" optionValue="id" [formControl]="preferredLanguageFormControl" (onChange)="onFormChange('preferredLanguage')"  placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('preferredLanguage')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('gender')">
+            <label for="_gender">{{ 'workerInfoLabel.gender' | translate }}<span *ngIf="isFormControlRequired('gender')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ genderFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('gender')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('birthDate')">
+            <label for="_birthDate">{{ 'workerInfoLabel.birthDate' | translate }}<span *ngIf="isFormControlRequired('birthDate')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ birthDateFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('birthDate')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('personalEmail')">
+            <label for="_pemail">{{ 'workerInfoLabel.personalEmail' | translate }}<span *ngIf="isFormControlRequired('personalEmail')" class="text-danger">*</span></label
+            ><br />
+            <input type="email" id="_pemail" [formControl]="personalEmailFormControl" [email]="true" maxlength="70" class="inputMargin" pInputText (change)="onFormChange('personalEmail')"/>
+            <div class="p-input-icon-right">
+                <i class="pi pi-inbox"></i>
+            </div>
+            <small class="p-error block" *ngIf="isValid('personalEmail')">{{ errorMessages.mandatory }}</small>
+            <small class="p-error block" *ngIf="personalEmailFormControl.errors?.['pattern']">{{ errorMessages.email }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('workEmail')">
+            <label for="_wemail">{{ 'workerInfoLabel.workEmail' | translate }}<span *ngIf="isFormControlRequired('workEmail')" class="text-danger">*</span></label
+            ><br />
+            <input type="email" id="_wemail" [formControl]="workEmailFormControl" maxlength="70" [email]="true" class="inputMargin" pInputText (change)="onFormChange('workEmail')"/>
+            <div class="p-input-icon-right">
+                <i class="pi pi-inbox"></i>
+            </div>
+            <small class="p-error block" *ngIf="isValid('workEmail')">{{ errorMessages.mandatory }}</small>
+            <small class="p-error block" *ngIf="workEmailFormControl.errors?.['pattern']">{{ errorMessages.email }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('prefferedEmail')">
+            <label for="_priemail">{{ 'workerInfoLabel.prefferedEmail' | translate }}<span *ngIf="isFormControlRequired('prefferedEmail')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_priemail" [options]="prefferedEmailList" optionLabel="name" optionValue="id" [formControl]="prefferedEmailFormControl" (onChange)="onFormChange('prefferedEmail')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <!-- <small class="p-error block" *ngIf="isValid('prefferedEmail')">{{ errorMessages.mandatory }}</small> -->
+            <small class="p-error block" *ngIf="isValid('prefferedEmail')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('mobilePhone')">
+            <label for="_mphone">{{ 'workerInfoLabel.mobilePhone' | translate }}<span *ngIf="isFormControlRequired('mobilePhone')" class="text-danger">*</span></label
+            ><br />
+            <input type="tel" id="_mphone" [formControl]="mobilePhoneFormControl" maxlength="12" minlength="12" class="inputMargin" pInputText (change)="onFormChange('mobilePhone')"/>
+            <div class="p-input-icon-right">
+                <i class="pi pi-phone"></i>
+            </div>
+            <small class="p-error block" *ngIf="isValid('mobilePhone')">{{ errorMessages.mandatory }}</small>
+            <small class="p-error block" *ngIf="mobilePhoneFormControl.errors?.['pattern']">{{ errorMessages.phoneValidate }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('homePhone')">
+            <label for="_hphone">{{ 'workerInfoLabel.homePhone' | translate }}<span *ngIf="isFormControlRequired('homePhone')" class="text-danger">*</span></label
+            ><br />
+            <input type="tel" id="_hphone" [formControl]="homePhoneFormControl" maxlength="12" minlength="12" class="inputMargin" pInputText (change)="onFormChange('homePhone')"/>
+            <div class="p-input-icon-right">
+                <i class="pi pi-phone"></i>
+            </div>
+            <small class="p-error block" *ngIf="isValid('homePhone')">{{ errorMessages.mandatory }}</small>
+            <small class="p-error block" *ngIf="homePhoneFormControl.errors?.['pattern']">{{ errorMessages.phoneValidate }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('prefferedPhone')">
+            <label for="_pphone">{{ 'workerInfoLabel.prefferedPhone' | translate }}<span *ngIf="isFormControlRequired('prefferedPhone')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_pphone" [options]="prefferedPhoneList" optionLabel="name" optionValue="id" [formControl]="prefferedPhoneFormControl" (onChange)="onFormChange('prefferedPhone')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <!-- <small class="p-error block" *ngIf="isValid('prefferedPhone')">{{ errorMessages.mandatory }}</small> -->
+            <small class="p-error block" *ngIf="isValid('prefferedPhone')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('nationalIdType')">
+            <label for="_national">{{ 'workerInfoLabels.nationalIdType' | translate }}<span *ngIf="isFormControlRequired('nationalIdType')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_national" [options]="nationalIdTypeList" optionLabel="name" optionValue="id" [formControl]="nationalIdTypeFormControl" (onChange)="onFormChange('nationalIdType')"  placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('nationalIdType')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('taxId')">
+            <label for="_taxId">{{ 'workerInfoLabel.taxId' | translate }}<span *ngIf="isFormControlRequired('taxId')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ taxIdFormControl.value }}</span>
+            <!-- <input type="text" id="_taxId" [formControl]="taxIdFormControl" maxlength="70" class="inputMargin" pInputText (change)="onFormChange('taxId')"/> -->
+            <small class="p-error block" *ngIf="isValid('taxId')">{{ errorMessages.mandatory }}</small>
+            <!-- <small class="p-error block" *ngIf="taxIdFormControl.errors?.['pattern']">{{ errorMessages.digitNumber }}</small>  -->
+        </div>
+    </div>
+</form>

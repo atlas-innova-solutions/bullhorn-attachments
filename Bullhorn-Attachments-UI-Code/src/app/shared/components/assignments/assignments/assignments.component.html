@@ -1,0 +1,48 @@
+<form [formGroup]="assignmentsForm">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('asgmtExemptionStatus')">
+            <label for="_exempt">{{ 'assignmentLabel.exemptionStatus' | translate }}<span *ngIf="isFormControlRequired('asgmtExemptionStatus')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_exempt" [formControl]="asgmtExemptionStatusFormControl" optionLabel="name" optionValue="id" [options]="asgmtExemptionStatusList" (onChange)="onFormChange('asgmtExemptionStatus')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('asgmtExemptionStatus')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('asgmtActualStartDate')">
+            <label for="_actualstart">{{ 'assignmentLabel.actualStartDate' | translate }}<span *ngIf="isFormControlRequired('asgmtActualStartDate')" class="text-danger">*</span></label
+            ><br />
+            <p-calendar class="iconshow" appendTo="body"  [iconDisplay]="'input'" [showIcon]="true" id="_actualstart" [formControl]="asgmtActualStartDateFormControl" (onSelect)="onFormChange('asgmtActualStartDate')" ></p-calendar>
+            <small class="p-error block" *ngIf="isValid('asgmtActualStartDate')">{{ errorMessages.mandatory }}</small>
+            <small class="p-error block"  *ngIf="actualDateValidationFlag">{{ errorMessages.dateMessage }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('parttimeFulltime')">
+            <label for="_parttime">{{ 'assignmentLabel.partTime' | translate }}<span *ngIf="isFormControlRequired('parttimeFulltime')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_parttime" [formControl]="parttimeFulltimeFormControl" optionLabel="name" optionValue="id" [options]="partTimeFullTimeList" (onChange)="onFormChange('parttimeFulltime')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('parttimeFulltime')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('startDateDelayReason')">
+            <label for="_startdatedelay">{{ 'assignmentLabel.startDateDelay' | translate }}<span *ngIf="isFormControlRequired('startDateDelayReason')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_startdatedelay" [formControl]="startDateDelayReasonFormControl" optionLabel="name" optionValue="id" [options]="startDateDelayReasonList" (onChange)="onFormChange('startDateDelayReason')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('startDateDelayReason')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('asgmtTargetStartDate')">
+            <label for="_targetstart">{{ 'assignmentLabel.targetStartDate' | translate }}<span *ngIf="isFormControlRequired('asgmtTargetStartDate')" class="text-danger">*</span></label
+            ><br />
+            <p-calendar class="iconshow" appendTo="body"  [iconDisplay]="'input'" [showIcon]="true" id="_targetstart" [formControl]="asgmtTargetStartDateFormControl" (onSelect)="onFormChange('asgmtTargetStartDate')"></p-calendar>
+            <small class="p-error block" *ngIf="isValid('asgmtTargetStartDate')">{{ errorMessages.mandatory }}</small>
+            <small class="p-error block"  *ngIf="targetDateValidationFlag">{{ errorMessages.targetDateError }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('asgmtTargetEndDate')" [ngClass]="displayDateFieldCss('asgmtTargetEndDate')">
+            <label for="_targetend">{{ 'assignmentLabel.targetEndDate' | translate }}<span *ngIf="isFormControlRequired('asgmtTargetEndDate')" class="text-danger">*</span></label
+            ><br />
+            <p-calendar class="iconshow" appendTo="body"  [iconDisplay]="'input'" [showIcon]="true" id="_targetend" [formControl]="asgmtTargetEndDateFormControl" (onSelect)="onFormChange('asgmtTargetEndDate')"></p-calendar>
+            <small class="p-error block" *ngIf="isValid('asgmtTargetEndDate')">{{ errorMessages.mandatory }}</small>
+        </div>
+       
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('normalWeeklyHours')">
+            <label for="_normalweekly">{{ 'assignmentLabel.normalWeeklyHours' | translate }}<span *ngIf="isFormControlRequired('normalWeeklyHours')" class="text-danger">*</span></label><br />
+            <p-dropdown id="_normalweekly" formControlName="normalWeeklyHours" [options]="normalWeeklyHoursList" optionLabel="name" optionValue="id" (onChange)="onFormChange('normalWeeklyHours')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('normalWeeklyHours')">{{ errorMessages.mandatory }}</small>
+        </div>
+    </div>
+</form>

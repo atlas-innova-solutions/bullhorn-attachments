@@ -1,0 +1,78 @@
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('timeEntrySource')">
+            <label for="_tcard">{{ 'timeSetupLabels.timeEntrySource' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.timeSetup?.timeEntrySource}}</span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('timeEntryMethod')">
+            <label for="_temeth">{{ 'timeSetupLabels.timeEntryMethod' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.timeSetup?.timeEntryMethod}}</span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('layout')">
+            <label for="_lay">{{ 'timeSetupLabels.layout' | translate }} </label><br>
+            <span class="disabledFields">{{allReviewData?.timeSetup?.timeCardLayout}}</span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('timeCardEndOfWeek')">
+            <label for="_tcard">{{ 'timeSetupLabels.timecard-end' | translate }}</label><br>
+            <span class="disabledFields">{{allReviewData?.timeSetup?.timeCardEndOfWeek}}</span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('mealBreakTracking')">
+            <label for="_temeth">{{ 'timeSetupLabels.mealTracking' | translate }} </label><br>
+            <span class="disabledFields">{{allReviewData?.timeSetup?.mealBreakTracking}}</span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('attestationFlag')">
+            <label for="_temeth">{{ 'timeSetupLabels.attestationFlag' | translate }} </label><br>
+            <span class="disabledFields">{{allReviewData?.assignment?.attestationName}}</span>
+        </div>
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_temeth">{{ 'timeSetupLabels.extractPay' | translate }}</label><br>
+            <span class="disabledFields"></span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_temeth">{{ 'timeSetupLabels.extractBill' | translate }}</label><br>
+            <span class="disabledFields"></span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_temeth">{{ 'timeSetupLabels.allowTime' | translate }}</label><br>
+            <span class="disabledFields"></span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_temeth">{{ 'timeSetupLabels.minPerDay' | translate }} </label><br>
+            <span class="disabledFields"></span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_temeth">{{ 'timeSetupLabels.otStartPerDay' | translate }}</label><br>
+            <span class="disabledFields"></span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_temeth">{{ 'timeSetupLabels.maxPerDay' | translate }}</label><br>
+            <span class="disabledFields"></span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_temeth">{{ 'timeSetupLabels.minPerPeriod' | translate }}</label><br>
+            <span class="disabledFields"></span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_temeth">{{ 'timeSetupLabels.otStartPerPeriod' | translate }}</label><br>
+            <span class="disabledFields"></span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_temeth">{{ 'timeSetupLabels.maxPerPeriod' | translate }}</label><br>
+            <span class="disabledFields"></span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_temeth">{{ 'timeSetupLabels.allowWeekend' | translate }}</label><br>
+            <span class="disabledFields"></span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_temeth">{{ 'timeSetupLabels.allowHoliday' | translate }}</label><br>
+            <span class="disabledFields"></span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_temeth">{{ 'timeSetupLabels.userTimeInOut' | translate }} </label><br>
+            <span class="disabledFields"></span>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_temeth">{{ 'timeSetupLabels.allowWorker' | translate }}</label><br>
+            <span class="disabledFields"></span>
+        </div> -->
+    </div>

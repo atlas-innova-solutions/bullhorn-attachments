@@ -1,0 +1,255 @@
+@import 'all';
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.box {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px 12px 10px;
+    width: 96%;
+    margin-top: 19px;
+    margin-left: -12px;
+    position: absolute;
+    z-index: 1;
+    background: $white;
+}
+
+.empInfo {
+    margin-top: 9px;
+    color: $white !important;
+    font-size: 14px;
+    font-weight: $fw600;
+}
+
+.field {
+    background: white;
+    width: calc(50% - 20px);
+    padding: 5px;
+    border: 1px solid lightgray;
+    margin: 0px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.main-content {
+    display: flex;
+    margin-top: 95px;
+    // margin-left: -14px;
+}
+
+.emp-info {
+    background: $primaryblue;
+    color: white;
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.end-field {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.field-name {
+    font-weight: 600;
+    font-size: 12px;
+    margin-left: 0.5rem;
+    color: $fontcolor;
+
+}
+
+.field-value {
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+.menu-as-divs {
+
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin-left: -5px;
+}
+
+.menu {
+    margin-left: 4px;
+}
+
+.menu-item-box {
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    color: $primaryblue;
+    font-size: 14px;
+    font-weight: 600;
+    border-left: 7px solid lightgray;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.cards {
+    width: 80%;
+    padding: 10px;
+    position: relative;
+}
+
+.cards-menu-close {
+    background: white;
+    width: 90%;
+    padding: 10px;
+    position: relative;
+    z-index: 0;
+}
+
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: -1rem;
+}
+
+.card {
+    width: 33%;
+    margin-bottom: 10px;
+}
+
+.header {
+    color: $primaryblue;
+    position: absolute;
+    background: white;
+    z-index: 1;
+    width: 97.3%;
+}
+
+.asgntext {
+    color: $primaryblue;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-top: 4px;
+}
+
+.menu-item-box.active {
+    background-color: $primaryblue;
+    color: white;
+}
+
+.sidebar-open .page-content {
+    margin-left: 200px;
+}
+
+.sidebar {
+    width: 50px;
+    background: #fff;
+    height: calc(100vh - 135px);
+    overflow: auto;
+    transition: all ease .5s;
+}
+
+.sidebar ul,
+.sidebar ul li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: $fs13;
+}
+
+.sidebar ul li div {
+    padding: 1.5rem 1rem 1.5rem 1rem;
+    display: block;
+    border-bottom: 1px solid #ddd;
+    text-decoration: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: $fw600;
+    color: $primaryblue;
+    display: flex;
+}
+
+.sidebar-left {
+    z-index: 0;
+    border-right: 1px solid #ddd;
+    bottom: 0;
+    left: -200px;
+    height: 148vh;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 0px;
+}
+
+.expandSidebar {
+    width: 200px
+}
+
+.rightIcon {
+    padding: 0.5rem;
+    font-size: 1.7rem;
+    margin-left: 0.7rem;
+    color: $primaryblue;
+}
+
+.leftIcon {
+    padding: 0.5rem;
+    font-size: 1.7rem;
+    margin-left: 9.5rem;
+    color: $primaryblue;
+}
+
+.icons .pi {
+    font-size: 1.2rem;
+    margin-right: 10px;
+    font-weight: $fw400;
+}
+
+.active {
+    background-color: $primaryblue;
+    color: white !important;
+}
+
+@media only screen and (min-width: 1706px) and (max-width: 1707px) {
+    .cards-menu-close {
+        width: 90.5%;
+    }
+    .cards {
+        width: 81.5%;
+    }
+}
+@media (min-width: 2304px) and (max-width: 2305px) {
+    .cards-menu-close {
+        width: 92%;
+    }
+    .cards {
+        width: 85%;
+    }
+}
+@media (min-width: 1228px) and (max-width: 1229px) {
+    .cards-menu-close {
+        width: 88%;
+    }
+    .cards {
+        width: 75%;
+    }
+}
+@media (min-width: 1396px) and (max-width: 1397px) {
+    .cards-menu-close {
+        width: 89%;
+    }
+    .cards {
+        width: 77.5%;
+    }
+}
+@media (min-width: 1920px) and (max-width: 2303px) {
+    .cards-menu-close {
+        width: 91%;
+    }
+    .cards {
+        width: 83.4%;
+    }
+}

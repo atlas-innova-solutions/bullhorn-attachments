@@ -1,0 +1,18 @@
+<div class="grid ">
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('atsSupplierId')">
+      <label for="_atsvId">{{ 'organisationalLabel.aTSSupplierID' | translate }}</label><br>
+      <span class="disabledFields">{{ allReviewData?.assignment?.supplierId }}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('atsSupplierName')">
+      <label for="_atssupname">{{ 'organisationalLabel.ATSsupplierName' | translate }}</label><br>
+        <span class="disabledFields">{{ allReviewData?.assignment?.supplierName }}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('fusionSupplierId')">
+      <label for="_fussupId">{{ 'organisationalLabel.fussupplierID' | translate }}</label><br>
+      <span class="disabledFields">{{ allReviewData?.assignmentTeamAddr?.fusionSupplierId }}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('fusionSupplierName')">
+      <label for="_fussupname">{{ 'organisationalLabel.fusSuppname' | translate }}</label><br>
+      <span class="disabledFields">{{ allReviewData?.assignmentTeamAddr?.fusionSupplierName }}</span>
+    </div>
+</div>

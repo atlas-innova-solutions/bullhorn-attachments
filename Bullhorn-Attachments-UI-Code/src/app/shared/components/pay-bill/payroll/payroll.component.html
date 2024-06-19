@@ -1,0 +1,66 @@
+<form [formGroup]="payrollFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('payGroup')">
+            <label for="_cpaygroup">{{ 'payBillLabel.payGroup' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('payGroup')">*</span></label
+            ><br />
+            <p-dropdown id="_cpaygroup" [formControl]="payGroupFormControl" optionLabel="name" [options]="payGroupList" optionValue="id" (onChange)="onFormChange('payGroup')"  placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('payGroup')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('payFrequency')">
+            <label for="_payfreq">{{ 'payBillLabel.payFrequency' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('payFrequency')">*</span></label
+            ><br />
+            <p-dropdown id="_payfreq" [formControl]="payFrequencyFormControl" optionLabel="name"  [options]="payFrequencyList" optionValue="id" (onChange)="onFormChange('payFrequency')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('payFrequency')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4"*ngIf="isFormControlFieldDisplay('payCycle')">
+            <label for="_pcycle">{{ 'payBillLabel.payCycle' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('payCycle')">*</span></label
+            ><br />
+            <p-dropdown id="_pcycle" [formControl]="payCycleFormControl" optionLabel="name" [options]="payCycleList" optionValue="id" (onChange)="onFormChange('payCycle')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('payCycle')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4"*ngIf="isFormControlFieldDisplay('payWeekendingDay')">
+            <label for="_pweekday">{{ 'payBillLabel.payWeekendingDay' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('payWeekendingDay')">*</span></label
+            ><br />
+            <p-dropdown id="_pweekday" [formControl]="payWeekendingDayFormControl" optionLabel="name" [options]="payWeekendingDayList" optionValue="id" (onChange)="onFormChange('payWeekendingDay')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('payWeekendingDay')">{{ errorMessages.mandatory }}</small>
+        </div>
+      
+        <div class="col-12 md:col-6 lg:col-4"*ngIf="isFormControlFieldDisplay('payType')">
+            <label for="_pper">{{ 'payBillLabel.payType' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('payType')">*</span></label
+            ><br />
+            <p-dropdown id="_pper" [formControl]="payTypeFormControl" [options]="payTypeList" optionLabel="name" optionValue="id" (onChange)="onFormChange('payType')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('payType')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4"*ngIf="isFormControlFieldDisplay('payCurrency')">
+            <label for="_pcurrency">{{ 'payBillLabel.payCurrency' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('payCurrency')">*</span></label
+            ><br />
+            <!-- <p-dropdown id="_pcurrency" [formControl]="payCurrencyFormControl" optionLabel="name" [options]="payCurrencyList" optionValue="id" (onChange)="onFormChange('payCurrency')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown> -->
+            <span class="disabledFields">{{ reviewData && reviewData.assignment && reviewData.assignment.payCurrency ? reviewData.assignment.payCurrency : '' }}</span>
+            <small class="p-error block" *ngIf="isValid('payCurrency')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4"*ngIf="isFormControlFieldDisplay('standardPayRate')">
+            <label for="_spayrate">{{ 'payBillLabel.standardPayRate' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('standardPayRate')">*</span></label
+            ><br />
+            <input type="text" TwoDigitDecimalNumber id="_spayrate" [formControl]="standardPayRateFormControl" class="inputMargin" pInputText (input)="onFormChange('standardPayRate')"/>
+            <small class="p-error block" *ngIf="isValid('standardPayRate')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4"*ngIf="isFormControlFieldDisplay('overTimePayRate')">
+            <label for="_oprate">{{ 'payBillLabel.overTimePayRate' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('overTimePayRate')">*</span></label
+            ><br />
+            <input type="text" TwoDigitDecimalNumber id="_oprate" [formControl]="overTimePayRateFormControl" class="inputMargin" pInputText (change)="onFormChange('overTimePayRate')"/>
+            <small class="p-error block" *ngIf="isValid('overTimePayRate')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4"*ngIf="isFormControlFieldDisplay('doubleTimePayRate')">
+            <label for="_dprate">{{ 'payBillLabel.doubleTimePayRate' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('doubleTimePayRate')">*</span></label
+            ><br />
+            <input type="text" TwoDigitDecimalNumber id="_dprate" [formControl]="doubleTimePayRateFormControl" class="inputMargin" pInputText (change)="onFormChange('doubleTimePayRate')"/>
+            <small class="p-error block" *ngIf="isValid('doubleTimePayRate')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4"*ngIf="isFormControlFieldDisplay('OTRuleOverride')">
+            <label for="_otrule">{{ 'payBillLabel.OTRuleOverride' | translate }}</label
+            ><br />
+            <p-dropdown id="_otrule" [formControl]="otRuleOverrideFormControl" optionLabel="name" [options]="otRuleOverrideList" optionValue="id" (onChange)="onFormChange('otRuleOverride')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('OTRuleOverride')">{{ errorMessages.mandatory }}</small>
+        </div>
+    </div>
+</form>

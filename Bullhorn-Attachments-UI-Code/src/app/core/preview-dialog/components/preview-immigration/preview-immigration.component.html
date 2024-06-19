@@ -1,0 +1,30 @@
+<div class="grid">
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('immigrationStatus')">
+        <label for="_Istatus">{{ 'immigrationLabels.immigrationStatus' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.person?.immigrationStatus}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('visaType')">
+        <label for="_vtype">{{ 'immigrationLabels.visaType' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.person?.visaType}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('visaStartDate')">
+        <label for="_vsdate">{{ 'immigrationLabels.visaStartDate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.person?.visaStartDate}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('visaEndDate')">
+        <label for="_vedate">{{ 'immigrationLabels.visaEndDate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.person?.visaEndDate}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('visaPermitNumber')">
+        <label for="_vnum">{{ 'immigrationLabels.visaPermit' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.person?.visaPermitNumber}}</span>
+    </div>
+    <!-- <div class="col-12 md:col-6 lg:col-4">
+        <label for="_lamount">{{ 'immigrationLabels.lcaAmount' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignmentTeamAddr?.lcaAmount}}</span>
+    </div> -->
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('immigrationNotes')">
+        <label for="_Inotes">{{ 'immigrationLabels.immigrationNotes' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.person?.immigrationNotes}}</span>
+    </div>
+</div>

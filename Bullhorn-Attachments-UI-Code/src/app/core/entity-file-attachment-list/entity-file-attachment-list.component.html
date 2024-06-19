@@ -1,0 +1,76 @@
+<div class="inline-flex align-items-center col-12 repoHeader">
+
+    <a href="#/home/bullhorn-entity-List"><i class="pi pi-arrow-circle-left" style="font-size: 1.5rem"></i></a>
+
+    <p class="fw-055 pm-00 primarycolor ml-1"> Back</p>
+</div>
+
+
+<div class="card">
+    <p-table #dt [columns]="cols"  [value]="entityFileAttachmentLists" [paginator]="true" [resetPageOnSort]="true" 
+    [showCurrentPageReport]="true" [totalRecords]="dataTableCount"  [loading]="loading" [rows]="10"
+    currentPageReportTemplate="{first} to {last} of {totalRecords}" responsiveLayout="scroll" [breakpoint]="'960px'"
+    [rowsPerPageOptions]="[25, 50, 100, 200]" [scrollable]="true" selectionMode="single">
+        <ng-template pTemplate="caption">
+            <div class="flex">
+                <p-iconField iconPosition="left" class="ml-auto">
+                    <p-inputIcon>
+                        <i class="pi pi-search"></i>
+                    </p-inputIcon>
+                    <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')"
+                        placeholder="Search keyword" />
+                </p-iconField>
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th id="history_header" *ngFor="let col of columns" [pSortableColumn]="col.field"
+                    [pSortableColumnDisabled]="col.field == 'attachment'">
+                    {{ col.header }}
+                    <p-sortIcon *ngIf="col.field != 'attachment'" [field]="col.field" [ngClass]="'right'"></p-sortIcon>
+                </th>
+            </tr>
+            <tr>
+                <th id="filter_header" *ngFor="let col of columns">
+                    <span class="p-input-icon-right ml-auto" *ngIf="col.field !== 'attachment'">
+                        <i class="pi pi-search"></i>
+                        <input pInputText *ngIf="col.field !== 'attachment'"
+                            (input)="$any(dt).filter($any($event.target).value, col.field, 'contains');"
+                            [value]="$any(dt).filters[col.key]?.value" />
+                    </span>
+                </th>
+            </tr>
+        </ng-template>
+<!--         
+        <ng-template pTemplate="header">
+            <tr>
+                <th>File Id</th>
+                <th>File Name</th>
+                <th>File Type</th>
+                <th>Distribution</th>
+                <th>File Size</th>
+                <th>Date Added</th>
+            </tr>
+        </ng-template> -->
+        <ng-template pTemplate="body" let-list>
+            <tr>
+                <td>{{list.bhFileId}}</td>
+                <td (click)="saveDownloadHistory(list)"><a href="https://objectstorage.us-ashburn-1.oraclecloud.com/p/W1IrdGSbRqpfrhyWeBed9_WBHmb60s0BFfca4a0-NzRwq7_b6flURYklqbYADZA_/n/acsgroup/b/Bkt-Volt-Bullhorn/o/{{list.downloadUrl}}" >{{list.bhFileName}}</a></td>
+               
+              <!-- <td>{{list.bhFileName}}</td> -->
+                <td>{{list.bhType}}</td>
+                <td>{{list.bhDistribution}}</td>
+                <td>{{list.fileSize}}</td>  
+                <td>{{list.bhDateAdded}}</td>                         
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td class="emptyMsg">No Data Found</td>
+            </tr>
+        </ng-template>
+    </p-table>
+       
+</div>
+

@@ -1,0 +1,14 @@
+<div class="grid">
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('timesheetApproverClient')">
+        <label for="_tapp">{{ 'payBillLabel.timesheetApproverClient' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.assignment?.timesheetApproverClient}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('timesheetApproverClientAlternateApprover')">
+        <label for="_tclientapp">{{ 'payBillLabel.timesheetApproverClientAlternateApprover' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.assignment?.timesheetApproverClientAlternateApprover}}</span>
+    </div>
+    <!-- <div class="col-12 md:col-6 lg:col-4">
+        <label for="_tintapp">{{ 'payBillLabel.timesheetApproverInternal' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.assignment?.timesheetApproverInternal}}</span>
+    </div> -->
+</div>

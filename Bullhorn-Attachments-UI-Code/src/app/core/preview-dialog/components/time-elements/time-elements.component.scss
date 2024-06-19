@@ -1,0 +1,152 @@
+@import 'all';
+
+:host ::ng-deep {
+.iconshow .p-icon-wrapper{
+    padding-bottom: 1rem;
+    margin-top: -10px;
+    }
+     .p-inputtext{
+      color: #4b5563;;
+     }
+.p-input-icon-left, .p-input-icon-right {
+    padding-bottom: 1rem;
+    }
+    .p-input-icon-left > i{
+      margin-top: -1rem !important;
+      color: #4b5563;
+    }
+    .p-radiobutton .p-radiobutton-box{
+        width: 12px;
+        height: 12px;
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+    .p-radiobutton-label{
+        margin-top: 0px;
+        margin-left: 30px;
+    }
+    .p-radiobutton{
+        align-items: baseline;
+       margin-left: 6px;
+    } 
+
+  //   .p-datepicker table td>span {
+  //     font-size: 12px;
+  //   //   width: 2rem;
+  //   // height: 2rem;
+  // }
+  
+  // .p-datepicker table td {
+  //     padding: 0rem;
+  // }
+  
+  // .p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month {
+  //     padding: 0.2rem;
+  //     font-size: 12px;
+  // }
+  
+  // .p-datepicker table th {
+  //     padding: 0rem;
+  //     font-size: 12px;
+  // }
+  
+  // .p-calendar .p-datepicker {
+  //     top: -272px;
+  // }
+  
+  // .p-calendar {
+  //     width: $inputWd;
+  //     border-color: $inputBorderColorlightBlue;
+  //     margin-top: 0.5rem;
+  // }
+  
+  // .p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year,
+  // .p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month {
+  //     padding: 0rem;
+  //     font-size: 12px;
+  // }
+  //   // .p-calendar{
+    //   width: ;
+    // }
+}
+// .divWidth{
+//   width: 19.6667%;
+// }
+.timeSetupTitle{
+    line-height: 90px;
+    color: #000;
+   // text-align: center;
+}
+.line{
+        margin-left: 10rem;
+        border: 1px solid lightgray;
+        margin-top: -45px;
+        width: 30px;    
+}
+
+// .field-radiobutton {
+//     margin-top: $gutter5;
+//     margin-bottom: $gutter5;
+//     border:1px solid lightgray;
+//     border-radius: 15px;
+//     width: 120px;
+//     height: 30px;
+//     cursor: pointer;
+//   }
+  
+  // .field-checkbox label,
+  // .field-radiobutton label {
+  //   cursor: pointer;
+  //   margin-bottom: $gutter0;
+  //   font-weight: $fw500;
+  // }
+  label{
+    color: #000;
+  }
+  .radioGrid{
+    float: right;
+  }
+  // .timeElementsGrid{
+  //   margin-right: -1.5rem;
+  // }
+  // .timeElements{
+  //   margin-top: 5px;
+  // }
+  .divHeader{
+    margin-left: 90px;
+  }
+  .field-radiobutton{
+    border: 1px solid lightgray;
+    padding: 10px;
+    width: 40%;
+    cursor: pointer;
+    color: #000;
+
+  }
+  .field-radiobutton.active{
+    //border: 1px solid #305faf !important;
+    border-bottom: 3px solid #305faf !important;
+    color: #305faf !important;
+  } 
+  .flex{
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .timeHeader{
+    color: #305faf;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  .p-dynamic-container {
+    //min-height: 150px;
+    max-height: calc(100vh - 188px);
+    overflow-y: auto;
+    padding: $gutter15;
+  }
+  .radioMargin{
+    margin-right: 2rem;
+  }
+  // span{
+  //   text-align: center;
+  // }

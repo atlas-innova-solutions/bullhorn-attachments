@@ -1,0 +1,39 @@
+<div class="ptWidth">
+    <p-table
+        #dt
+        [value]="assignmentInfo"
+        [columns]="cols"
+        [paginator]="true"
+        [rows]="10"
+        [rowsPerPageOptions]="[10,20]"
+        responsiveLayout="scroll"
+        [style]="{'height': '100%'}" [scrollable]="true"
+    >
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th id="repo_header" *ngFor="let cols of columns" 
+                [alignFrozen]="cols.field == 'actions' ? 'right' : 'left'" pFrozenColumn
+                [frozen]="cols.field == 'actions' || cols.field == 'hcmAssignmentId' || cols.field == 'customerName'" 
+               >
+                    {{ cols.header | translate }}</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns"class="roow">
+            <tr [pSelectableRow]="rowData" class="row-space" >
+                 <td *ngFor="let col of columns" [alignFrozen]="col.field == 'actions' ? 'right' : 'left'" pFrozenColumn
+                 [frozen]="col.field == 'actions' || col.field == 'hcmAssignmentId' || col.field == 'customerName'"  (click)="openFusionAsgmtPreview(col.field == 'hcmAssignmentId',rowData.hcmAssignmentId)"
+                 >
+                    <ng-container *ngIf="col.field !== 'actions'; else actionColumn">
+                        {{ rowData[col.field] }}
+                    </ng-container>
+                    <ng-template #actionColumn>
+                        <span *ngIf="isActionAvailable('Preview')" class="pi pi-eye pd-04" pTooltip="{{ 'iconLabels.preview' | translate }}" tooltipPosition="top" (click)="openPreviewDialog(rowData.hcmAssignmentId)"></span>
+                        <span *ngIf="isActionAvailable('CRM')" class="pi pi-history pd-04" pTooltip="{{ 'changeRequestMgmt.header.addChangeRequest' | translate }}" tooltipPosition="top" (click)="openChangeRequest(rowData,'asgmtData')"></span>
+
+                    </ng-template>
+                </td>
+            </tr>
+        </ng-template>
+        
+    </p-table>
+</div>

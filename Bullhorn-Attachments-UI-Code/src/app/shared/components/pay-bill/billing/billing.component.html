@@ -1,0 +1,90 @@
+<form [formGroup]="billingFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('clientBillableOt')">
+            <label for="_cbillableot">{{ 'payBillLabel.clientBillableOT' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('clientBillableOt')">*</span></label
+            ><br />
+            <p-dropdown id="_cbillableot" [formControl]="clientBillableOtFormControl" optionLabel="name" [options]="clientBillableOtList" optionValue="id" (onChange)="onFormChange('clientBillableOt')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('clientBillableOt')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('billCurrency')">
+            <label for="_billcurr">{{ 'payBillLabel.billcurrency' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('billCurrency')">*</span></label
+            ><br />
+            <span class="disabledFields">{{ billCurrencyFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('billCurrency')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('billPer')">
+            <label for="_bper">{{ 'payBillLabel.billper' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('billPer')">*</span></label
+            ><br />
+            <p-dropdown id="_bper" [formControl]="billPerFormControl" optionLabel="name" [options]="billPerList" optionValue="id" (onChange)="onFormChange('billPer')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('billPer')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('standardBillRate')">
+            <label for="_stbillrate">{{ 'payBillLabel.standardbillrate' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('standardBillRate')">*</span></label
+            ><br />
+            <input type="text" TwoDigitDecimalNumber id="_stbillrate" [formControl]="standardBillRateFormControl" class="inputMargin" class="inputMargin" pInputText (input)="onFormChange('standardBillRate')"/>
+            <small class="p-error block" *ngIf="isValid('standardBillRate')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('overTimeBillRate')">
+            <label for="_otbrate">{{ 'payBillLabel.overtimebillrate' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('overTimeBillRate')">*</span></label
+            ><br />
+            <input type="text" TwoDigitDecimalNumber id="_otbrate" [formControl]="overTimeBillRateFormControl" class="inputMargin" class="inputMargin" pInputText (input)="onFormChange('overTimeBillRate')"/>
+            <small class="p-error block" *ngIf="isValid('overTimeBillRate')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('doubleTimeBillRate')">
+            <label for="_dotbrate">{{ 'payBillLabel.doubleovertimebillrate' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('doubleTimeBillRate')">*</span></label
+            ><br />
+            <input type="text" TwoDigitDecimalNumber id="_dotbrate" [formControl]="doubleTimeBillRateFormControl" class="inputMargin" class="inputMargin" pInputText (input)="onFormChange('doubleTimeBillRate')"/>
+            <small class="p-error block" *ngIf="isValid('doubleTimeBillRate')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('portalFeePercentage')">
+            <label for="_pfper">{{ 'payBillLabel.portalfeepercentage' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('portalFeePercentage')">*</span></label
+            ><br />
+            <input type="text" TwoDigitDecimalNumber id="_pfper" [formControl]="portalFeePercentageFormControl" class="inputMargin" pInputText (input)="onFormChange('portalFeePercentage')"/>
+            <small class="p-error block" *ngIf="isValid('portalFeePercentage')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('portalRate')">
+            <label for="_prate">{{ 'payBillLabel.portalrate' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('portalRate')">*</span></label
+            ><br />
+            <!-- <input type="text" TwoDigitDecimalNumber id="_prate" [formControl]="portalRateFormControl" class="inputMargin" pInputText/> -->
+            <span class="disabledFields">{{ reviewData && reviewData.assignment && reviewData.assignment.portalRate ? reviewData.assignment.portalRate : '0.00' }}</span>
+            <small class="p-error block" *ngIf="isValid('portalRate')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('markup')">
+            <label for="_mup">{{ 'payBillLabel.markup' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('markup')">*</span></label
+            ><br />
+            <!-- <input type="text" TwoDigitDecimalNumber id="_mup" [formControl]="markupFormControl" class="inputMargin" pInputText/> -->
+            <span class="disabledFields">{{ reviewData && reviewData.assignment && reviewData.assignment.markup ? reviewData.assignment.markup : '0.00' }}</span>
+            <small class="p-error block" *ngIf="isValid('markup')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_pdsdate">{{ 'payBillLabel.perdiemstartdate' | translate }}</label
+            ><br />
+            <p-calendar class="iconshow" [iconDisplay]="'input'" [showIcon]="true" id="_pdsdate" [formControl]="perDiemStartDateFormControl" (onSelect)="onFormChange('perDiemStartDate')"></p-calendar>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_pdrate">{{ 'payBillLabel.perdiemrate' | translate }}</label
+            ><br />
+            <input type="text" id="_pdrate" [formControl]="perDiemRateFormControl" class="inputMargin" class="inputMargin" pInputText (change)="onFormChange('perDiemRate')"/>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_pdper">{{ 'payBillLabel.perdiemper' | translate }}</label
+            ><br />
+            <p-dropdown id="_pdper" [formControl]="perDiemPerFormControl" [options]="perDiemPerList" (change)="onFormChange('perDiemPer')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_pdbill">{{ 'payBillLabel.perdiembill' | translate }}</label
+            ><br />
+            <p-dropdown id="_pdbill" [formControl]="perDiemBillPayTaxFormControl" [options]="perDiemBillPayTaxList" (onChange)="onFormChange('perDiemBillPayTax')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_pdhour">{{ 'payBillLabel.perdiemhourlimit' | translate }}</label
+            ><br />
+            <p-dropdown id="_pdhour" [formControl]="perDiemHourLimitFormControl" [options]="perDiemHourLimitList" (onChange)="onFormChange('perDiemHourLimit')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_isbill">{{ 'payBillLabel.Isperdiembillable' | translate }}</label
+            ><br />
+            <p-dropdown id="_isbill" [formControl]="isPerDiemBillableFormControl" [options]="isPerDiemBillableList" (onChange)="onFormChange('isPerDiemBillable')"  placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+        </div> -->
+    </div>
+</form>

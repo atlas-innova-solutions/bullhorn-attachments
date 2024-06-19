@@ -1,0 +1,35 @@
+<div class="grid">
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('asgmtExemptionStatus')">
+        <label for="_exempt">{{ 'assignmentLabel.exemptionStatus' | translate }} </label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.asgmtExemptionStatus}}</span>
+    </div>
+  
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('asgmtTargetStartDate')">
+        <label  for="_targetstart">{{ 'assignmentLabel.targetStartDate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.asgmtTargetStartDate}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('asgmtActualStartDate')">
+        <label  for="_actualstart">{{ 'assignmentLabel.actualStartDate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.asgmtActualStartDate}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('asgmtTargetEndDate')">
+        <label  for="_targetend">{{ 'assignmentLabel.targetEndDate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.asgmtTargetEndDate}}</span>
+    </div>
+    <!-- <div class="col-12 md:col-6 lg:col-4">
+        <label  for="_enddate">{{ 'assignmentLabel.endDate' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.emplEndDate}}</span>
+    </div> -->
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('startDateDelayReason')">
+        <label  for="_startdatedelay">{{ 'assignmentLabel.startDateDelay' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.startDateDelayReason}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('parttimeFulltime')">
+        <label  for="_parttime">{{ 'assignmentLabel.partTime' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.parttimeFulltime}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('normalWeeklyHours')">
+        <label  for="_normalweekly">{{ 'assignmentLabel.normalWeeklyHours' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.normalWeeklyHours}}</span>
+    </div>
+</div>

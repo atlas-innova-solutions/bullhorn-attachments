@@ -1,0 +1,16 @@
+{
+    "RegisteredBU": [
+        {
+            "name": "BU1",
+            "id": 1
+        },
+        {
+            "name": "BU2",
+            "id": 2
+        },
+        {
+            "name": "BU3",
+            "id": 3
+        }
+    ]
+}

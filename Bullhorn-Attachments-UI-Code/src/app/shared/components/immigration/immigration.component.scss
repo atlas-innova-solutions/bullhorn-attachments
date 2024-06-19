@@ -1,0 +1,15 @@
+@import 'all';
+
+.text-danger {
+    color: red;
+    display: contents;
+}
+.grid {
+    align-items: center;
+}
+
+:host ::ng-deep {
+    div.immigrationNotesTextAreaDiv > textarea {
+        height: 6rem !important;
+    }
+}

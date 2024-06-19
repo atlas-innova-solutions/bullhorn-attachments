@@ -1,0 +1,86 @@
+<form [formGroup]="WorkerAddressForm">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('streetAddressLine1')">
+            <label for="_wadd1">{{ 'assignmentLabel.streetAdress1' | translate }}<span *ngIf="isFormControlRequired('streetAddressLine1')" class="text-danger">*</span></label
+            ><br />
+            <input type="text" id="_wadd1" [formControl]="streetAddressLine1FormControl" maxlength="70" class="inputMargin" pInputText (change)="onFormChange('streetAddressLine1')" />
+            <small class="p-error block" *ngIf="isValid('streetAddressLine1')">{{ errorMessages.mandatory }}</small>
+            <small class="p-error block" *ngIf="streetAddressLine1FormControl.hasError('maxlength')">{{ maxStreetAddressLine1Char }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('streetAddressLine2')">
+            <label for="_wadd2">{{ 'assignmentLabel.streetAdress2' | translate }}<span *ngIf="isFormControlRequired('streetAddressLine2')" class="text-danger">*</span></label
+            ><br />
+            <input type="text" id="_wadd2" [formControl]="streetAddressLine2FormControl" maxlength="70"class="inputMargin" pInputText (change)="onFormChange('streetAddressLine2')"/>
+            <small class="p-error block" *ngIf="isValid('streetAddressLine2')">{{ errorMessages.mandatory }}</small>
+            <small class="p-error block" *ngIf="streetAddressLine2FormControl.hasError('maxlength')">{{ maxStreetAddressLine2Char }}</small>
+        </div>
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_sadd3">{{ 'assignmentLabel.streetAdress3' | translate }}</label
+            ><br />
+            <input type="text" id="_sadd3" [formControl]="streetAddressLine3FormControl"maxlength="70"class="inputMargin"  pInputText (change)="onFormChange('streetAddressLine3')"/>
+            <small class="p-error block" *ngIf="streetAddressLine3FormControl.hasError('maxlength')">{{ maxStreetAddressLine3Char }}</small>
+        </div> -->
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('city')">
+            <label for="_wcity">{{ 'assignmentLabel.city' | translate }}<span *ngIf="isFormControlRequired('city')" class="text-danger">*</span></label
+            ><br />
+            <input type="text" id="_wcity" [formControl]="cityFormControl" maxlength="70"class="inputMargin" pInputText (change)="onFormChange('city')"/>
+            <!-- <span class="disabledFields">{{ cityFormControl.value }}</span> -->
+            <small class="p-error block" *ngIf="isValid('city')">{{ errorMessages.mandatory }}</small>
+            <small class="p-error block" *ngIf="cityFormControl.hasError('maxlength')">{{ maxCityChar }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('county')">
+            <label for="_wcounty">{{ 'assignmentLabel.county' | translate }}<span *ngIf="isFormControlRequired('county')" class="text-danger">*</span></label
+            ><br />
+            <input type="text" id="_wcounty" [formControl]="countyFormControl" maxlength="70"class="inputMargin" pInputText (change)="onFormChange('county')"/>
+            <small class="p-error block" *ngIf="isValid('county')">{{ errorMessages.countyFormat }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('country')">
+            <label for="_wcountry">{{ 'assignmentLabel.country' | translate }}<span *ngIf="isFormControlRequired('country')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_wcountry" [formControl]="countryFormControl" [options]="countryList" optionLabel="name" optionValue="id" placeholder="{{ 'placeholders.select' | translate }}" (onChange)="onFormChange('country')"></p-dropdown>
+            <!-- <span class="disabledFields">{{ countryFormControl.value }}</span> -->
+            <small class="p-error block" *ngIf="isValid('country')">{{ errorMessages.mandatory }}</small>
+            <!-- <small class="p-error block" *ngIf="countryFormControl.hasError('maxlength')">{{ maxCountryChar }}</small> -->
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('state')">
+            <label for="_wstate">{{ 'assignmentLabel.state' | translate }}<span *ngIf="isFormControlRequired('state')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_wstate" [formControl]="stateFormControl" [options]="stateConditionalList" optionLabel="stateName" optionValue="stateCode" placeholder="{{ 'placeholders.select' | translate }}" (onChange)="onFormChange('state')"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('state')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('zip')">
+            <label for="_wzip">{{ 'assignmentLabel.zip' | translate }}<span *ngIf="isFormControlRequired('zip')" class="text-danger">*</span></label
+            ><br />
+            <input type="text" id="_wzip" [formControl]="zipFormControl" maxlength="70"class="inputMargin" pInputText (change)="onFormChange('zip')"/>
+            <small class="p-error block" *ngIf="isValid('zip')">{{ errorMessages.mandatory }}</small>
+            <small class="p-error block" *ngIf="zipFormControl.hasError('maxlength')">{{ maxZipChar }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('workingRemote')">
+            <label for="_workingRemote">{{ 'assignmentLabel.workingRemote' | translate }}<span *ngIf="isFormControlRequired('workingRemote')" class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_workingRemote" [formControl]="workingRemoteFormControl" optionLabel="name" [options]="workingRemoteList" optionValue="id" placeholder="{{ 'placeholders.select' | translate }}" (onChange)="onFormChange('workingRemote')"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('workingRemote')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" [hidden]="!OverrideReasonFlag">
+            <label for="_woverridereason">{{ 'assignmentLabel.overrideReason' | translate }}<span class="text-danger">*</span></label><br>
+            <input type="text" id="_woverridereason" [formControl]="workaddrGoogleOverrideReasonFormControl" class="inputMargin" pInputText (change)="onFormChange('workaddrGoogleOverrideReason')"/>
+            <small class="p-error block" *ngIf="isValid('workaddrGoogleOverrideReason')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4"  *ngIf="isSectionAvailable('Google Worker Address')">
+            <button pButton pRipple 
+            type="button" [label]="googleButtonText" 
+            icon="pi pi-fw pi-check-circle" 
+            class="p-button-success google-button"
+            [class.google-button-notValidated]="!googleValidateCheck" 
+            [disabled]="!disableGoogleValidate()"
+            (click)="validateaddress('Home')"></button>
+        </div>
+    </div>
+</form>
+<app-address-validation-results *ngIf="visible"
+[enterdData]="googleAddress"
+[googleData]="validatedAddressList"
+(selectGoogleAddress)="selectgoogleresults($event)"
+(selecEnteredAddress)="selectenteredaddress($event)"
+(closePopUpValue)="closeAddressWindow($event)">
+</app-address-validation-results>

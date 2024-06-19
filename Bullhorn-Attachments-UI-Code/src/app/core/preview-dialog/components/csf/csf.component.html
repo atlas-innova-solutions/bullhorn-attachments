@@ -1,0 +1,34 @@
+<!-- <div class="grid">
+    <div class="col-12 md:col-6 lg:col-4">
+        <label for="_bname">{{ 'csfLabels.templateId' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.assignment?.csfTemplateId}}</span>
+    </div>
+</div> -->
+<div class="grid">
+    <div class="col-12" *ngIf="CSFStatus">
+        <form [formGroup]="form">
+            <div class="grid">
+                <div class="col-12 md:col-6 lg:col-4" *ngFor="let field of customFieldFieldData">
+                    <label for="{{ field.fieldName }}" class="lable-font">{{ field.displayName ? field.displayName : field.fieldName }}<span *ngIf="field.mandatory" class="text-danger">*</span></label><br />
+                    <ng-container [ngSwitch]="field.fieldType">
+                        <input *ngSwitchCase="'text'" [id]="field.fieldName" type="text" pInputText formControlName="{{ field.fieldName }}" placeholder="{{ field.displayName }}" class="inputMargin bold" />
+                        <ng-container *ngSwitchCase="'checkbox'">
+                            <div class="card flex left gap-3 mt-01">
+                                <div *ngFor="let option of field.fieldOptions" class="form-check flex align-items-center left">
+                                    <!-- <p-radioButton formControlName="{{field.fieldName}}" value="{{option}}" inputId="{{option.appFieldName}}"></p-radioButton>                   
+                                    <label class="form-check-label" for="{{ option.appFieldName }}">{{ option.appFieldName }}</label> -->
+                                    <p-radioButton [inputId]="option.appFieldName" [value]="option.appFieldName" formControlName="{{field.fieldName}}"></p-radioButton>
+                                    &nbsp;<label [for]="option.appFieldName" class="lable-radio center">{{ option.appFieldName }}</label>
+                                </div>
+                            </div>                    
+                        </ng-container>
+                        <p-calender *ngSwitchCase="'calender'" formControlName="{{ field.fieldName }}" [id]="field.fieldName" type="text"></p-calender>
+                        <p-dropdown *ngSwitchCase="'dropdown'" [options]="field.fieldOptions" formControlName="{{ field.fieldName }}" optionLabel="appFieldName" optionValue="appFieldName" placeholder="{{ field.displayName }}"></p-dropdown>
+                    </ng-container>
+                    <small class="p-error block" *ngIf="isValid(field.fieldName)">{{ errorMessages.mandatory }}</small>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-12" *ngIf="!CSFStatus"></div>
+</div>

@@ -1,0 +1,29 @@
+<div style="height: 15rem;">
+    <p-table #dt [columns]="chnageHistoryCols" [value]="ChangeHistoryData" [paginator]="true"  [rows]="25" [rowsPerPageOptions]="[25, 50, 100]" responsiveLayout="scroll" [style]="{'height': '100%'}"
+    [breakpoint]="'960px'" [tableStyle]="" [scrollable]="true">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th id="history_header" *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{ col.header | translate }}<p-sortIcon [field]="col.field" [ngClass]="'right'"></p-sortIcon>
+            </th>
+        </tr>
+        <tr>
+            <th id="changeHistory_filter_header" *ngFor="let col of columns">
+                <span class="p-input-icon-right ml-auto">
+                    <i class="pi pi-search"></i>
+                    <input pInputText (input)="$any(dt).filter($any($event.target).value, col.field, 'contains')" [value]="$any(dt).filters[col.key]?.value" />
+                </span>
+            </th>
+        </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData">
+                <td *ngFor="let col of columns">
+                    <ng-container>
+                        {{ rowData[col.field] }}
+                    </ng-container>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

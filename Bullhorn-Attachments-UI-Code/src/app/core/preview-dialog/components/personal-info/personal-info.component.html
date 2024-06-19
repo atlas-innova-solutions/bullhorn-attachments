@@ -1,0 +1,62 @@
+<div class="grid">
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('firstName')">
+        <label for="_fname">{{ 'workerInfoLabel.firstName' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.person?.firstName}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('middleName')">
+        <label for="_mname">{{ 'workerInfoLabel.middleName' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.person?.middleName}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('lastName')">
+        <label for="_lname">{{ 'workerInfoLabel.lastName' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.person?.lastName}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('preferredName')">
+        <label for="_pname">{{ 'workerInfoLabel.preferredName' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.person?.preferredName}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('birthDate')">
+        <label for="_birthDate">{{ 'workerInfoLabel.birthDate' | translate }}</label>
+        <span class="disabledFields">{{ allReviewData?.person?.birthDate }}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('gender')">
+        <label for="_gender">{{ 'workerInfoLabel.gender' | translate }}</label>
+        <span class="disabledFields">{{ allReviewData?.person?.gender }}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('preferredLanguage')">
+        <label for="_planguage">{{ 'workerInfoLabel.prefferdLanguage' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.person?.preferredLanguage}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('prefferedEmail')">
+        <label for="_pemail">{{ 'workerInfoLabel.personalEmail' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.person?.personalEmail}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('workEmail')">
+        <label for="_wemail">{{ 'workerInfoLabel.workEmail' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.person?.workEmail}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('prefferedEmail')">
+        <label for="_priemail">{{ 'workerInfoLabel.prefferedEmail' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.person?.prefferedEmail}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('mobilePhone')">
+        <label for="_mphone">{{ 'workerInfoLabel.mobilePhone' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.person?.mobilePhone}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('homePhone')">
+        <label for="_hphone">{{ 'workerInfoLabel.homePhone' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.person?.homePhone}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('prefferedPhone')">
+        <label for="_pphone">{{ 'workerInfoLabel.prefferedPhone' | translate }}</label>
+        <span class="disabledFields">{{allReviewData?.person?.prefferedPhone}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('taxId')">
+        <label for="_taxId">{{ 'workerInfoLabel.taxId' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.person?.taxId}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('nationalIdType')">
+        <label for="_taxId">{{ 'workerInfoLabels.nationalIdType' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.national}}</span>
+    </div>
+</div>

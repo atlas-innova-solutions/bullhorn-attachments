@@ -1,0 +1,25 @@
+<form [formGroup]="contracthireFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_consal">{{ 'contractHireLabels.conSalary' | translate }}<span class="text-danger">*</span></label><br>
+                <input type="text" id="_consal" formControlName="conversionSalary" class="inputMargin" pInputText />
+                <small class="p-error block" *ngIf="isValid('conversionSalary')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_confee">{{ 'contractHireLabels.conFee' | translate }}<span class="text-danger">*</span></label><br>
+                <input type="text" id="_confee" formControlName="conversionFee" class="inputMargin" pInputText />
+                <small class="p-error block" *ngIf="isValid('conversionFee')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_condate">{{ 'contractHireLabels.conDate' | translate }}<span class="text-danger">*</span></label><br>
+                <!-- <input type="text" id="_condate" formControlName="conversionDate" class="inputMargin" pInputText /> -->
+                <p-calendar [iconDisplay]="'input'" [showIcon]="true" id="_condate" formControlName="conversionDate"></p-calendar>
+                <small class="p-error block" *ngIf="isValid('conversionDate')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_connotes">{{ 'contractHireLabels.conNotes' | translate }}<span class="text-danger">*</span></label><br>
+                <input type="text" id="_connotes" formControlName="conversionNotes" class="inputMargin" pInputText />
+                <small class="p-error block" *ngIf="isValid('conversionNotes')">{{ errorMessages.mandatory }}</small>
+        </div>
+    </div>
+</form>

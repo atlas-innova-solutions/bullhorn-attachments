@@ -1,0 +1,18 @@
+<form [formGroup]="paybillFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('timesheetApproverClient')">
+            <label for="_tapp">{{ 'payBillLabel.timesheetApproverClient' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('timesheetApproverClient')">*</span></label><br />
+            <input type="text" id="_tapp" [formControl]="timesheetApproverClientFormControl" maxlength="70" class="inputMargin" pInputText (change)="onFormChange('timesheetApproverClient')" />
+            <small class="p-error block" *ngIf="isValid('timesheetApproverClient')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('timesheetApproverClientAlternateApprover')">
+            <label for="_tclientapp">{{ 'payBillLabel.timesheetApproverClientAlternateApprover' | translate }}<span class="text-danger" *ngIf="isFormControlRequired('timesheetApproverClientAlternateApprover')">*</span></label><br />
+            <input type="text" id="_tclientapp" maxlength="70" [formControl]="timesheetApproverClientAlternateApproverFormControl" class="inputMargin" pInputText (change)="onFormChange('timesheetApproverClientAlternateApprover')"/>
+            <small class="p-error block" *ngIf="isValid('timesheetApproverClientAlternateApprover')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_tintapp">{{ 'payBillLabel.timesheetApproverInternal' | translate }}</label><br />
+            <input type="text" id="_tintapp" maxlength="70" [formControl]="timesheetApproverInternalFormControl" class="inputMargin" pInputText />
+        </div> -->
+    </div>
+</form>

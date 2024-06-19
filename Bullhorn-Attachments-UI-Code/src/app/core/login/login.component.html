@@ -1,0 +1,58 @@
+<div class="background">
+    <div class="vcenter">
+        <!-- <div class="language">
+            <div class="card">
+                <p-splitButton [model]="LanguageList" (onChange)="changeLanguage($event)" type="button"
+                    icon="pi pi-language" [label]="selectedLang ? selectedLang : 'Select Language'"
+                    styleClass="p-button-raised p-button-text mr-2 mb-2"> </p-splitButton>
+            </div>
+        </div> -->
+        <div class="grid">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="card flex justify-content-center">
+                    <p-card>
+                        <div *ngIf="!authenticateStatus && azureRoles.length <= 1" class="card-content">
+                            <div class="left-content">
+                                <img alt="Innova" [src]="imageName" class="Innova-Logo" />
+                                <h2 class="welcome-text">{{ 'loginComponentLevel.loginWelcomeHeader' | translate }}</h2>
+                                <div>
+                                    <h1 class="setup-text">{{ 'loginComponentLevel.loginWelcomeSubHeading' | translate
+                                        }}</h1>
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1" style="margin-left: 3rem">
+                                <img [src]="lineImg" class="Line-Logo" alt="line" width="1%" height="98%" />
+                            </div>
+                            <div  class="right-content">
+                                <button pButton type="button" class="sso-button" (click)="initloginProcess('Innova')">{{
+                                    'loginComponentLevel.loginSSOButtonInnova' | translate }}</button>
+                                <!-- <button pButton type="button" class="sso-button-volt"
+                                    (click)="initloginProcess('Volt')">{{ 'loginComponentLevel.loginSSOButtonVolt' |
+                                    translate }}</button> -->
+                            </div>
+                        </div>
+                        <div class="col-12 footer" *ngIf="errorMsg">
+                            <p-message severity="danger" [text]="errorMsg">{{errorMsg}}</p-message>
+                        </div>
+                        <div *ngIf="authenticateStatus && azureRoles.length > 1" class="card-content userRoles">
+                            <div class="left-content">
+                                <img alt="Innova" [src]="imageName" class="Innova-Logo" />
+                                <h2 class="welcome-text">{{ 'loginComponentLevel.loginWelcomeHeader' | translate }}</h2>
+                                <div>
+                                    <h1 class="setup-text">{{ 'loginComponentLevel.loginWelcomeSubHeading' | translate
+                                        }}</h1>
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1" style="margin-left: 3rem">
+                                <img [src]="lineImg" class="Line-Logo" alt="line" width="1%" height="98%" />
+                            </div>
+                        </div>
+                    </p-card>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

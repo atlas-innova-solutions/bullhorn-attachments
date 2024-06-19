@@ -1,0 +1,116 @@
+
+<div class="card-container">
+    <div class="empInfo-card">
+        <p-card header="Employment"  [style]="{ height: '310px' }">
+           <p-table [value]="employeeInfoData" >
+                <ng-template pTemplate="body" let-empinfo>
+                    <tr>
+                        <th>HCM Employee ID:</th>
+                        <td>{{empinfo?.person?.firstName}}</td>
+                        
+                        <th>Employment Status:</th>
+                        <td>{{empinfo?.person?.middleName}}</td>
+                    </tr>
+                    <tr>
+                        <th>Part-Time or Full- Time:</th>
+                        <td>{{empinfo?.person?.lastName}}</td>
+                        <th>Worker Type :</th>
+                        <td>{{empinfo?.person?.preferredName}}</td>
+                    </tr> 
+                    <tr>
+                        <th>Legal Employeer:</th>
+                        <td>{{empinfo?.person?.gender}}</td>
+                        <th>Reporting Business Unit:</th>
+                        <td>{{empinfo?.person?.birthDate}}</td>
+                    </tr> 
+                    <tr>
+                        <th>Original Start Date:</th>
+                        <td>xxxxxx</td>
+                        <th>Actual Start Date - Assignment:</th>
+                        <td>xxxxxxxxx</td>
+                    </tr> 
+                    <tr>
+                        <th>Actual End Date - Assignment:</th>
+                        <td>xxxxxxxxxxx</td>
+                        <th>Fusion Supplier Name:</th>
+                        <td>xxxxxx</td>
+                    </tr> 
+                    <tr>
+                        <th>Supplied Pay Group:</th>
+                        <td>xxxxxx</td>
+                        <th>US W2 Electronic Consent:</th>
+                        <td>xxxxxx</td>
+                    </tr> 
+                    <tr>
+                        <th>Federal Government Worker:</th>
+                        <td>xxxxxxxxx</td>
+                    </tr> 
+                </ng-template>
+                
+           </p-table> 
+        </p-card>
+    </div>
+    <div class="card">
+        <p-card header="Pay Roll" [style]="{ height: '230px' }">
+            <p-table [value]="employeeInfoData"   >
+                <ng-template pTemplate="body" let-empinfo>
+                    <tr>
+                        <th>Pay Frequency:</th>
+                        <td>xxxxxxxxxx</td>
+                    </tr>
+                    <tr>
+                        <th>Pay Weekending Day:</th>
+                        <td>{{empinfo?.assignment?.workerType}}</td>
+                    </tr>
+                    <tr>
+                        <th>Pay Cycle:</th>
+                        <td>xxxxxxxxxx</td>
+                    </tr> 
+                    <tr>
+                        <th>Pay Group:</th>
+                        <td>xxxxxxxxxx</td>
+                    </tr> 
+                </ng-template>
+                
+           </p-table>
+        </p-card>
+    </div>
+    <div class="card">
+        <p-card header="Exempt Status"  [style]="{ height: '230px' }">
+            <p-table [value]="employeeInfoData" >
+                <ng-template pTemplate="body" let-empinfo>
+                    <tr>
+                        <th>Exempt Status:</th>
+                        <td>{{empinfo?.assignment?.payFrequency}}</td>
+                    </tr>
+                    <tr>
+                        <th>Exempt Reason:</th>
+                        <td>{{empinfo?.assignment?.payWeekendingDay}}</td>
+                    </tr>
+                </ng-template>
+                
+           </p-table>
+        </p-card>
+    </div>
+    <div class="card">
+        <p-card header="External System Identifiers"  [style]="{ height: '230px' }">
+            <p-table [value]="employeeInfoData" >
+                <ng-template pTemplate="body" let-empinfo>
+                    <tr>
+                        <th>Source System:</th>
+                        <td>{{ empinfo?.person?.ptoPlan }}</td>
+                    </tr>
+                    <tr>
+                        <th>Payroll ID:</th>
+                        <td>{{ empinfo?.person?.sickPlan }}</td>
+                    </tr>
+                    <tr>
+                        <th>Worker ID:</th>
+                        <td>{{ empinfo?.person?.holidayPlan }}</td>
+                    </tr> 
+                </ng-template>
+                
+           </p-table>
+        </p-card>
+    </div>
+</div>

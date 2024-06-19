@@ -1,0 +1,12 @@
+@import 'all';
+
+:host ::ng-deep {
+    div.invoiceTermsNotesTextAreaDiv > textarea {
+        height: 6rem !important;
+    }
+}
+
+.text-danger {
+    color: red;
+    display: contents;
+}

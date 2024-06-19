@@ -1,0 +1,274 @@
+@import 'all';
+
+.pm-00 {
+    padding: 0;
+    margin: 0;
+}
+
+.fw-055 {
+    font-weight: $fw500;
+}
+.customMsgHeader{
+    margin-top: -2px;
+}
+
+.primarycolor {
+    color: $primaryblue;
+}
+.p1{
+    font-size: $fs13;
+}
+
+.card {
+    border: 1px solid #d1d5db;
+    padding: 0.6rem;
+    border-radius: 5px;
+}
+.search {
+    // padding-top: 2.4rem;
+    padding: 1.7rem 1rem 0rem 0rem;
+    display: inline-flex;
+}
+.defaultView{
+    padding-left: 1.7rem;
+}
+
+.icon-circle {
+    border: 1px solid;
+    padding: 3px;
+    border-radius: 12px;
+    border-color: $white;
+    border: 1px;
+    cursor: pointer;
+    color: #11479f;
+    font-weight: 600;
+    margin-left: 3px;
+}
+
+.icon-circle-blue {
+    background: $primaryblue;
+    border: none;
+    color: $white;
+}
+
+.icon-ellipse {
+    border: 1px solid;
+    padding: 3px;
+    background-color: $primaryblue;
+    border-radius: 12px;
+    color: $white;
+    cursor: pointer;
+}
+.icon-download {
+    border: 1px solid;
+    padding: 1rem;
+    margin-left: 84rem;
+    background-color: $primaryblue;
+    color: $white;
+}
+.search-icon{
+width: 40px;
+}
+
+:host ::ng-deep {
+    .p-datatable .p-datatable-header {
+        padding: 0.25rem 0.25rem;
+        background: $white;
+        border: none;
+    }
+    .p-datatable .p-datatable-tbody>tr td:first-child {
+        font-weight: $fw600;
+        color: $primaryblue;
+    }
+    .p-datatable .p-datatable-thead>tr>th:last-child {
+        border-right: none;
+    }
+    .p-column-filter-row .p-column-filter-menu-button,
+    .p-column-filter-row .p-column-filter-clear-button {
+        display: none;
+    }
+    .p-datatable-scrollable>.p-datatable-wrapper {
+        max-height: 41.7vh !important;
+        border-radius: 0.25rem;
+    }
+    .p-paginator {
+        border: none;
+    }
+    .p-datatable .p-paginator-bottom {
+        padding-top: 0rem;
+    }
+    .search .pi {
+        color: $white;
+    }
+    .pi-eye{
+        color: #757575;
+        margin-left: 0.4rem;
+        background: #F7F7F7;
+    }
+    .export-file .pi {
+        color: $white;
+    }
+    .grid {
+        font-size: $fs12;
+        font-weight: $fw600;
+        letter-spacing: 0.3px;
+    }
+    .p-paginator .p-dropdown {
+        width: 4rem;
+    }    
+    .p-paginator .p-paginator-current {
+        font-size: 12px;
+        color: $fontcolor;
+    }
+    .p-fieldset .p-fieldset-legend {
+        font-size: $fs13;
+        font-weight: $fw500;
+        border: 0px;
+        padding-left: 1rem;
+        background: $white;
+
+    }
+    .p-fieldset {
+        padding: 0px;
+        border: none;
+        color: $fontcolor;
+    }
+    .p-inputtext {
+        width: 12rem;
+        height: 2.1rem !important;
+    }
+    .p-fieldset.p-fieldset-toggleable .p-fieldset-legend a {
+        color: $primaryblue;
+        border: none;
+        background-color: $white;
+        padding: 0px;
+    }
+    .p-fieldset .p-fieldset-content {
+        padding: 0 0 0 3.5rem
+    }
+    .p-button.p-button-info,
+    .p-buttonset.p-button-info>.p-button,
+    .p-splitbutton.p-button-info>.p-button {
+        background: $primaryblue;
+        border: 1px solid $primaryblue;
+    }
+    
+    .p-button.p-button-icon-only {
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    .p-datatable .p-datatable-thead>tr>th,
+    .p-datatable .p-datatable-tbody>tr>th {
+        text-align: center;
+        padding: 5px;
+    }
+    .lg\:col-3 {
+        padding: 0rem !important;
+    }
+    .p-panel .p-panel-header .p-panel-title {
+        color: $primaryblue;
+        font-size: $fs14;
+        font-weight: $fw500;
+    }
+    .panel-styling>.p-panel.p-panel-toggleable .p-panel-header{
+        padding: 0.3rem 1.2rem;
+    }
+    .panel-styling>.p-panel .p-panel-icons-end {
+        margin-bottom: -5px;
+    }
+    .p-picklist-filter-input {
+        width: 100%;
+    }
+    .p-picklist-list {
+        font-size: 12px;
+        font-weight: 550;
+    }
+    .p-button-danger{
+        background: $white;
+        border: 1px solid $primaryblue;
+        color: $primaryblue;
+    }
+    .p-button.p-button-danger:enabled:focus {
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #9dc1fb, 0 1px 2px 0 rgb(0, 0, 0);
+    }
+    .p-panel .p-panel-header .p-panel-header-icon {
+        top: -0.3rem;
+    }
+    .p-dialog .p-dialog-header .p-dialog-header-icon {
+        height: 2.5rem;
+        width: 1.5rem;
+    }
+}
+
+div.commentsTextAreaDiv>textarea {
+    height: 5rem !important;
+}
+.emptyMsg{
+    text-align: left !important;
+}
+.iconsOverlayPanel span,
+.iconsOverlayPanel i {
+    // color: $white;
+    cursor: pointer;
+    font-size: $fs12;
+    font-weight: $fw600
+}
+.fontStyle{
+    font-family: "Inter var", sans-serif;
+}
+
+.pd-top-10 {
+    padding-top: 10px;
+}
+.mr {
+    margin-top: 1rem;
+    margin-bottom: 0.2rem;
+}
+.pd-00 {
+    padding: 0;
+}
+.pd-04 {
+    padding: 4px;
+}
+.fs-01 {
+    font-size: 16px;
+}
+.fs-02 {
+    font-size: 17px;
+}
+.fs-03 {
+    font-size: 18px;
+}
+.repoHeader{
+    position: absolute;
+    z-index: 1;
+    background: #fff;
+    margin-top: -1rem;
+    font-size: $fs16;
+    width: calc(100% - 3rem);
+}
+:host ::ng-deep .p-multiselect-clearable .p-multiselect-label-container{
+    padding: 0.2rem;
+}
+.reason-hold{
+    font-size: $fs13;
+    font-weight: $fw500;
+}
+.right {
+    float: right
+}
+:host ::ng-deep .tableView>.p-datatable-scrollable>.p-datatable-wrapper{
+    max-height: 61.3vh !important;
+}
+:host ::ng-deep .p-button.p-button-info {
+    font-size: 12px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+.column-sel-bt {
+    font-size: 12px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+textarea {
+    resize: none;
+}

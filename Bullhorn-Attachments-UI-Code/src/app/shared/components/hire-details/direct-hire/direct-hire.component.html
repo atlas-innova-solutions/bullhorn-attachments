@@ -1,0 +1,32 @@
+<form [formGroup]="hireFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_dhpfp">{{ 'directHireLabel.directHirePer' | translate }}</label
+            ><br />
+            <input type="text" TwoDigitDecimalNumber  id="_dhpfp" [formControl]="directHirePlacementFeePercentageFormControl" class="inputMargin" pInputText (change)="onFormChange('directHirePlacementFeePercentage')" />
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_dhpfa">{{ 'directHireLabel.directHireAmt' | translate }}</label
+            ><br />
+            <input type="text" TwoDigitDecimalNumber id="_dhpfa" [formControl]="directHirePlacementFeeAmountFormControl" class="inputMargin" pInputText (change)="onFormChange('directHirePlacementFeeAmount')" />
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_guterm">{{ 'directHireLabel.guaranteeTerms' | translate }}<span class="text-danger">*</span></label
+            ><br />
+            <p-dropdown id="_guterm" [formControl]="guaranteeTermsDaysFormControl" [options]="guaranteeTermsDaysList" optionLabel="name" optionValue="id" (onChange)="onFormChange('guaranteeTermsDays')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('guaranteeTermsDays')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <label for="_invterm">{{ 'directHireLabel.invoiceTerms' | translate }}<span class="text-danger">*</span></label
+            ><br />
+            <input type="text" id="_invterm" [formControl]="invoiceTermsSpreadIntervalsFormControl" class="inputMargin" pInputText (change)="onFormChange('invoiceTermsSpreadIntervals')"/>
+            <small class="p-error block" *ngIf="isValid('invoiceTermsSpreadIntervals')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4 invoiceTermsNotesTextAreaDiv" >
+            <label for="_internotes">{{ 'directHireLabel.invoiceTermsNotes' | translate }}<span class="text-danger">*</span></label
+            ><br />
+            <textarea rows="10" cols="50" maxlength="250" id="_internotes" pInputText class="inputMargin" area [formControl]="invoiceTermsNotesFormControl" (change)="onFormChange('invoiceTermsNotes')"></textarea>
+            <small class="p-error block" *ngIf="isValid('invoiceTermsNotes')">{{ errorMessages.mandatory }}</small>
+        </div>
+    </div>
+</form>

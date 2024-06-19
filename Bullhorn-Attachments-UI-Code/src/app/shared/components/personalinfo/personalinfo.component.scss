@@ -1,0 +1,17 @@
+@import 'all';
+
+:host ::ng-deep {
+    .p-fieldset .p-fieldset-legend {
+        border: 0;
+        font-weight: 500;
+        background: #fff;
+    }
+}
+.text-danger {
+    color: red;
+}
+.p-input-icon-left, .p-input-icon-right {
+    padding-bottom: 1rem;
+}
+
+

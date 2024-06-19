@@ -1,0 +1,66 @@
+:host ::ng-deep{
+ .p-tabview-title {
+    font-size: 13px;
+    font-weight: 600;
+}
+.p-fieldset-legend-text{
+    font-size: 13px;
+    font-weight: 600;
+}
+.p-tabview .p-tabview-nav li {
+    border-right: 1px solid #ddd;
+}
+.p-tabview .p-tabview-nav {
+    background: #f2f2f2;
+    border-color: #ddd;
+    font-size: 12px;
+    border-width: 1px;
+    
+}
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    background: #11479f;
+    border-color: #11479f;
+    color: #fff;
+}
+.p-fieldset-legend{
+    background: none;
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 7px 10px;
+}
+.p-tabview.p-component{
+    margin: 15px;
+}
+.p-fieldset.p-component{
+    height: 150px;
+}
+.p-fieldset-legend-text {
+    line-height: 1.5;
+}
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    padding: 1rem;
+    border-radius: 0px;
+    background: #f2f2f2;
+    color: #000;
+
+    // border-top-right-radius: 6px;
+    // border-top-left-radius: 6px;
+}
+}
+.labelTxt{
+font-size: 12px;
+font-weight: 600;
+color: #000;
+letter-spacing: 0.6px;
+}
+
+.value{font-size: 12px;
+    font-weight: 600;
+    color: #4b5563;
+    letter-spacing: 0.6px;
+    }
+    .card {
+        margin-top: 4px;
+        border:1px solid #ddd;
+        height: 330px;
+    }

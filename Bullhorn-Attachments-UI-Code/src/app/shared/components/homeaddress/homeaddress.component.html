@@ -1,0 +1,78 @@
+<form [formGroup]="homeAddressFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('homeAddressLine1')">
+            <label for="_hadd1">{{ 'homeAddressLabels.homeAddressLine1' | translate }}<span
+                    *ngIf="isFormControlRequired('homeAddressLine1')" class="text-danger">*</span></label><br>
+            <input type="text" id="_hadd1" [formControl]="homeAddressLine1FormControl" class="inputMargin" pInputText
+                maxlength="70" (change)="onFormChange('homeAddressLine1')" />
+            <small class="p-error block" *ngIf="isValid('homeAddressLine1')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('homeAddressLine2')">
+            <label for="_hadd2">{{ 'homeAddressLabels.homeAddressLine2' | translate }}<span
+                    *ngIf="isFormControlRequired('homeAddressLine2')" class="text-danger">*</span></label><br>
+            <input type="text" id="_hadd2" [formControl]="homeAddressLine2FormControl" class="inputMargin"
+                maxlength="70" pInputText (change)="onFormChange('homeAddressLine2')" />
+            <small class="p-error block" *ngIf="isValid('homeAddressLine2')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <!-- <div class="col-12 md:col-6 lg:col-4">
+            <label for="_hadd3">{{ 'homeAddressLabels.homeAddressLine3' | translate }}</label><br>
+            <input type="text" id="_hadd3" [formControl]="homeAddressLine3FormControl" class="inputMargin" maxlength="70" pInputText (change)="onFormChange('homeAddressLine3')"/>
+        </div> -->
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('homeCity')">
+            <label for="_hcity">{{ 'homeAddressLabels.city' | translate }}<span *ngIf="isFormControlRequired('homeCity')"
+                    class="text-danger">*</span></label><br>
+            <input type="text" id="_hcity" [formControl]="homeCityFormControl" maxlength="70" class="inputMargin"
+                pInputText (change)="onFormChange('homeCity')" />
+            <!-- <span class="disabledFields">{{ homeCityFormControl.value }}</span> -->
+            <small class="p-error block" *ngIf="isValid('homeCity')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('homeCounty')">
+            <label for="_hcounty">{{ 'homeAddressLabels.county' | translate }}<span
+                    *ngIf="isFormControlRequired('homeCounty')" class="text-danger">*</span></label><br>
+            <input type="text" id="_hcounty" [formControl]="homeCountyFormControl" maxlength="70" class="inputMargin"
+                pInputText (change)="onFormChange('homeCounty')" />
+            <small class="p-error block" *ngIf="isValid('homeCounty')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('homeCountry')">
+            <label for="_hcountry">{{ 'homeAddressLabels.country' | translate }}<span
+                    *ngIf="isFormControlRequired('homeCountry')" class="text-danger">*</span></label><br>
+            <p-dropdown id="_hcountry" [options]="homeCountryList" optionLabel="name" optionValue="id"
+                [formControl]="homeCountryFormControl" (onChange)="onFormChange('homeCountry')"
+                placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <small class="p-error block" *ngIf="isValid('homeCountry')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('homeStateProvince')">
+            <label for="_hstate">{{ 'homeAddressLabels.state/province' | translate }}<span
+                    *ngIf="isFormControlRequired('homeStateProvince')" class="text-danger">*</span></label><br>
+            <p-dropdown id="_hstate" [options]="homeStateProvinceConditionalList" optionLabel="stateName"
+                optionValue="stateCode" [formControl]="homeStateProvinceFormControl"
+                (onChange)="onFormChange('homeStateProvince')"
+                placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown>
+            <!-- <span class="disabledFields">{{ homeStateProvinceFormControl.value }}</span> -->
+            <small class="p-error block" *ngIf="isValid('homeStateProvince')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('homePostalCode')">
+            <label for="_hpostalcode">{{ 'homeAddressLabels.postalCode' | translate }}<span
+                    *ngIf="isFormControlRequired('homePostalCode')" class="text-danger">*</span></label><br>
+            <input type="text" id="_hpostalcode" [formControl]="homePostalCodeFormControl" class="inputMargin" pInputText
+                (change)="onFormChange('homePostalCode')" />
+            <small class="p-error block" *ngIf="isValid('homePostalCode')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" [hidden]="!OverrideReasonFlag">
+            <label for="_hoverridereason">{{ 'homeAddressLabels.overrideReason' | translate }}<span
+                    class="text-danger">*</span></label><br>
+            <input type="text" id="_hoverridereason" [formControl]="homeOverrideReasonFormControl" class="inputMargin"
+                pInputText (change)="onFormChange('homeOverrideReason')" />
+            <small class="p-error block" *ngIf="isValid('homeOverrideReason')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isSectionAvailable('Google Home Address')">
+            <button pButton pRipple type="button" [label]="googleButtonText" icon="pi pi-fw pi-check-circle"
+                class="p-button-success google-button" [class.google-button-notValidated]="!googleValidateCheck"
+                [disabled]="!disableGoogleValidate()" (click)="validateaddress('Home')"></button>
+        </div>
+    </div>
+</form>
+<app-address-validation-results *ngIf="visible" [enterdData]="googleAddress" [googleData]="validatedAddressList"
+    (selectGoogleAddress)="selectgoogleresults($event)" (selecEnteredAddress)="selectenteredaddress($event)"
+    (closePopUpValue)="closeAddressWindow($event)">
+</app-address-validation-results>

@@ -1,0 +1,68 @@
+<form [formGroup]="customerFormGroup">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('atsCustomerParentId')">
+            <label for="_atscIdp">{{ 'customerLabels.atsCustomerId(p)' | translate }}<span *ngIf="isFormControlRequired('atsCustomerParentId')" class="text-danger">*</span></label
+            ><br />
+            <!-- <input type="text" id="_atscIdp" [formControl]="atsCutomerIdPersonFormControl" class="inputMargin" pInputText /> -->
+            <span class="disabledFields">{{ atsCustomerParentIdFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('atsCustomerParentId')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('atsCustomerParentName')">
+            <label for="_atscnamep">{{ 'customerLabels.atsCustomerName(p)' | translate }}<span *ngIf="isFormControlRequired('atsCustomerParentName')" class="text-danger">*</span></label
+            ><br />
+            <!-- <input type="text" id="_atscnamep" [formControl]="atsCutomerNamePersonFormControl" class="inputMargin" pInputText /> -->
+            <span class="disabledFields">{{ atsCustomerParentNameFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('atsCustomerParentName')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('atsCustomerAccountId')">
+            <label for="_atscIdpa">{{ 'customerLabels.atsCustomerId(acc)' | translate }}<span *ngIf="isFormControlRequired('atsCustomerAccountId')" class="text-danger">*</span></label
+            ><br />
+            <!-- <input type="text" id="_atscIdpa" [formControl]="atsCustomerIdAccountFormControl" class="inputMargin" pInputText /> -->
+            <span class="disabledFields">{{ atsCustomerAccountIdFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('atsCustomerAccountId')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('atsCustomerAccountName')">
+            <label for="_atscnamea">{{ 'customerLabels.atsCustomerName(acc)' | translate }}<span *ngIf="isFormControlRequired('atsCustomerAccountName')" class="text-danger">*</span></label
+            ><br />
+            <!-- <input type="text" id="_atscnamea" [formControl]="atsCutomerNameAccountFormControl" class="inputMargin" pInputText /> -->
+            <span class="disabledFields">{{ atsCustomerAccountNameFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('atsCustomerAccountName')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('fusionCustomerAccountId')">
+            <label for="_fusIda">{{ 'customerLabels.fusionCustomerId(acc)' | translate }}<span *ngIf="isFormControlRequired('fusionCustomerAccountId')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ fusionCustomerAccountIdFormControl.value }}</span>
+            <!-- <p-dropdown  id="_fusIda" [formControl]="fusionCustomerAccountIdFormControl" [options]="fusionCustomerAccountIdList" optionLabel="id" optionValue="id" (onChange)="onFormChange('fusionCustomerAccountId')"  placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown> -->
+            <small class="p-error block" *ngIf="isValid('fusionCustomerAccountId')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('fusionCustomerAccountName')">
+            <label for="_fusnamea">{{ 'customerLabels.fusionCustomerName(acc)' | translate }}<span *ngIf="isFormControlRequired('fusionCustomerAccountName')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ fusionCustomerAccountNameFormControl.value }}</span>
+            <!-- <p-dropdown  id="_fusnamea" [formControl]="fusionCustomerAccountNameFormControl" [options]="fusionCustomerAccountNameList" optionLabel="name" optionValue="name" (onChange)="onFormChange('fusionCustomerAccountName')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown> -->
+            <small class="p-error block" *ngIf="isValid('fusionCustomerAccountName')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('fusionCustomerParentId')">
+            <label for="_fusIdp">{{ 'customerLabels.fusionCustomerId(p)' | translate }}<span *ngIf="isFormControlRequired('fusionCustomerParentId')" class="text-danger">*</span></label
+            ><br />
+            <span class="disabledFields">{{ fusionCustomerParentIdFormControl.value }}</span>
+            <!-- <p-dropdown  id="_fusIdp" [formControl]="fusionCustomerParentIdFormControl" [options]="fusionCustomerParentIdList" optionLabel="id" optionValue="id" (onChange)="onFormChange('fusionCustomerParentId')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown> -->
+            <small class="p-error block" *ngIf="isValid('fusionCustomerParentId')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('fusionCustomerParentName')">
+            <label for="_fusnamep">{{ 'customerLabels.fusionCustomerName(p)' | translate }}<span *ngIf="isFormControlRequired('fusionCustomerParentName')" class="text-danger">*</span></label
+            ><br />
+            <!-- <input type="text" id="_fusnamep" formControlName="fuscustomernamep" class="inputMargin" pInputText /> -->
+            <span class="disabledFields">{{ fusionCustomerParentNameFormControl.value }}</span>
+            <!-- <p-dropdown  id="_fusnamep" [formControl]="fusionCustomerParentNameFormControl" [options]="fusionCustomerParentNameList" optionLabel="name" optionValue="name" (onChange)="onFormChange('fusionCustomerParentName')" placeholder="{{ 'placeholders.select' | translate }}"></p-dropdown> -->
+            <small class="p-error block" *ngIf="isValid('fusionCustomerParentName')">{{ errorMessages.mandatory }}</small>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('customerSite')">
+            <label for="_csite">{{ 'customerLabels.customerSite(billingloc)' | translate }}<span *ngIf="isFormControlRequired('customerSite')" class="text-danger">*</span></label
+            ><br />
+            <!-- <input type="text" id="_csite" [formControl]="customerSiteBillingLocationFormControl" class="inputMargin" pInputText /> -->
+            <span class="disabledFields">{{ customerSiteFormControl.value }}</span>
+            <small class="p-error block" *ngIf="isValid('customerSite')">{{ errorMessages.mandatory }}</small>
+        </div>
+    </div>
+</form>

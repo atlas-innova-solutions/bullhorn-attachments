@@ -1,0 +1,78 @@
+@import 'all';
+
+:host ::ng-deep {
+.iconshow .p-icon-wrapper{
+    padding-bottom: 1rem;
+    margin-top: -10px;
+    }
+    .p-inputtext{
+      color: #4b5563;
+     }
+.p-input-icon-left, .p-input-icon-right {
+    padding-bottom: 1rem;
+    
+
+    }
+.p-input-icon-left > i{
+  margin-top: -0.1rem !important;
+  color: #4b5563;
+
+}
+    .p-radiobutton .p-radiobutton-box{
+        width: 12px;
+        height: 12px;
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+    .p-radiobutton-label{
+        margin-top: 0px;
+        margin-left: 30px;
+    }
+    .p-radiobutton{
+        align-items: baseline;
+       
+    } 
+}
+.timeSetupTitle{
+    line-height: 90px;
+    color: #000;
+   // text-align: center;
+}
+.line{
+        margin-left: 10rem;
+        border: 1px solid lightgray;
+        margin-top: -45px;
+        width: 30px;    
+}
+label{
+  color: #000;
+}
+.field-radiobutton {
+    margin-top: $gutter5;
+    margin-bottom: $gutter5;
+    border:1px solid lightgray;
+    border-radius: 15px;
+    width: 120px;
+    height: 30px;
+
+  }
+  
+  .field-checkbox label,
+  .field-radiobutton label {
+    cursor: pointer;
+    margin-bottom: $gutter0;
+    font-weight: $fw500;
+  }
+  .radioGrid{
+    float: right;
+  }
+  .p-dynamic-container {
+    //min-height: 150px;
+    max-height: calc(100vh - 188px);
+    overflow-y: auto;
+    padding: $gutter15;
+  }
+  .radioMargin{
+    margin-right: 2rem;
+  }
+  

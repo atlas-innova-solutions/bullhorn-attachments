@@ -1,0 +1,41 @@
+<form [formGroup]="billChangeGroup">
+<div class="grid pt-2">
+  <!-- <div class="col-12 md:col-6 lg:col-4">
+    <label for="effectiveDate">{{ 'changeRequestMgmt.changeRequest.changeEffectDate' | translate }}<span
+        class="text-danger">*</span></label>
+    <p-calendar formControlName="effectiveDate" [showIcon]="true"></p-calendar>
+    <div
+      *ngIf="billChangeGroup.get('effectiveDate')!.invalid && (billChangeGroup.get('effectiveDate')!.dirty || billChangeGroup.get('effectiveDate')!.touched)">
+      <small class="text-danger">{{errorMessages.mandatory}}</small>
+    </div>
+  </div> -->
+  <!-- <div class="col-12 md:col-6 lg:col-8"></div> -->
+    <div class="col-12 md:col-6 lg:col-4">
+      <label for="billRate">{{'changeRequestMgmt.billChange.billRateStandard' | translate}}<span class="text-danger">*</span></label>
+        <input id="billRate" TwoDigitDecimalNumber type="text" class="inputMargin" name = "billRate" formControlName="billRate" pInputText />
+      <div
+        *ngIf="billChangeGroup.get('billRate')!.invalid && (billChangeGroup.get('billRate')!.dirty || billChangeGroup.get('billRate')!.touched )">
+        <small class="text-danger">{{errorMessages.mandatory}}</small>
+      </div>
+    </div>
+    <div class="col-12 md:col-6 lg:col-8"></div>
+  <div class="col-12 md:col-6 lg:col-4">
+    <label for="overTimeRate">{{'changeRequestMgmt.billChange.billRateOvertime' | translate}}<span class="text-danger">*</span></label>
+      <input id="email" type="text" TwoDigitDecimalNumber class="inputMargin" name = "comments" formControlName="overTimeRate" pInputText />
+      <div
+      *ngIf="billChangeGroup.get('overTimeRate')!.invalid && (billChangeGroup.get('overTimeRate')!.dirty || billChangeGroup.get('overTimeRate')!.touched)">
+      <small class="text-danger">{{errorMessages.mandatory}}</small>
+    </div>
+  </div>
+  <div class="col-12 md:col-6 lg:col-8"></div>
+  <div class="col-12 md:col-6 lg:col-4">
+    <label for=" doubleTime">{{'changeRequestMgmt.billChange.billRateDoubleTime' | translate}}<span class="text-danger">*</span></label>
+      <input id="doubleTime" TwoDigitDecimalNumber type="text" class="inputMargin" name = "doubleTime" formControlName="doubleTime" pInputText />
+      <div
+      *ngIf="billChangeGroup.get('doubleTime')!.invalid && (billChangeGroup.get('doubleTime')!.dirty || billChangeGroup.get('doubleTime')!.touched)">
+      <small class="text-danger">{{errorMessages.mandatory}}</small>
+    </div>
+  </div>
+  <div class="col-12 md:col-6 lg:col-6"></div>
+</div>
+</form>

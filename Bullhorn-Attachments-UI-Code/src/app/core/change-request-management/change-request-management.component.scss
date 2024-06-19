@@ -1,0 +1,249 @@
+@import 'all';
+
+@media only screen and (min-width: 1920px) and (max-width: 2305px) {
+    .submit-rquest {
+        margin-top: -2.4rem;
+    }
+}
+
+@media only screen and (min-width: 1706px) and (max-width: 1707px) {
+    .submit-rquest {
+        margin-top: -0.8rem;
+    }
+}
+
+.tab {
+    color: $inputBorderColorlightBlue;
+    font-weight: $fw500;
+}
+
+:host ::ng-deep {
+    .p-message .p-message-wrapper {
+        padding: 0.4rem 0.4rem;
+        color: #e24c4c;
+    }
+
+    .grid {
+        margin-top: -0.8rem;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        color: $fontcolor;
+    }
+
+    .p-inputtext {
+        width: 100%;
+        border-color: $inputBorderColorlightBlue;
+        font-size: $fs12;
+        font-weight: $fw500;
+    }
+
+    .p-dropdown {
+        width: 100%;
+        border-color: $inputBorderColorlightBlue;
+        height: $inputHeight;
+        margin-top: 0.5rem;
+    }
+
+    .p-dropdown .p-dropdown-trigger {
+        color: $inputBorderColorlightBlue;
+    }
+
+    .p-dropdown-panel .p-dropdown-items {
+        padding: 0;
+        font-size: 12px;
+    }
+
+    .p-button.p-button-icon-only {
+        padding: 0.6rem 0;
+    }
+
+    .submit-rquest {
+        position: absolute;
+        // bottom: 3.7px;
+        top: 91.5vh;
+        right: 25px;
+        background: $inputBorderColorlightBlue;
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+
+    .logout-popup {
+        border-radius: 20px;
+    }
+
+    .logout-text {
+        color: #0070cd;
+        font-size: 14px;
+    }
+
+    .dialogcontent {
+        color: #586c7d;
+        font-size: 12px;
+    }
+
+    .logout-popup .p-dialog-content:last-of-type {
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .p-button {
+        float: right;
+        font-size: 14px;
+        padding: 0.45rem 0.8rem;
+        background: $primaryblue;
+        border-color: $primaryblue;
+        width: 7rem;
+        justify-content: center;
+        font-weight: 700;
+        // min-width: 7%;
+        // justify-content: center;
+    }
+
+    div.textAreaDiv>textarea {
+        height: 5rem !important;
+    }
+
+    .p-calendar {
+        width: 100%;
+    }
+
+    .p-button-danger {
+        // background: #ef4444;
+        // border: 1px solid #ef4444;
+        margin-right: 2rem;
+        background: $white;
+        border: 1px solid $primaryblue;
+        color: $primaryblue;
+    }
+   
+    .p-button.p-button-danger:enabled:focus {
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #9dc1fb, 0 1px 2px 0 rgb(0, 0, 0);
+    }
+
+    .p-dialog .p-dialog-content {
+        font-size: 14px;
+    }
+
+    .p-dialog .p-dialog-header .p-dialog-title {
+        font-size: 1rem;
+    }
+}
+
+button.p-element.close-btn.p-button.p-component {
+    padding: 0.5rem 1.5rem;
+}
+
+button.p-element.close-btn.cancel-btn.p-button.p-component {
+    color: black;
+    background: white;
+}
+
+button.p-element.close-btn.p-button.p-component[_ngcontent-ng-c3449012658] {
+    padding: 0.5rem 1.5rem;
+}
+
+.header {
+    color: $primaryblue;
+    position: absolute;
+    background: white;
+    z-index: 1;
+    width: 97.3%;
+    top: 118px;
+
+}
+
+.box {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px 12px 10px;
+    width: 96%;
+    margin-top: 14px;
+    margin-left: -12px;
+    position: absolute;
+    z-index: 1;
+    background: $white;
+}
+
+.emp-info {
+    background: $primaryblue;
+    color: white;
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.empInfo {
+    margin-top: 9px;
+    color: $white !important;
+    font-size: 14px;
+    font-weight: $fw600;
+}
+
+.field {
+    // background: white;
+    width: calc(50% - 20px);
+    padding: 5px;
+    border: 1px solid lightgray;
+    margin: 0px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.field-name {
+    font-weight: 600;
+    font-size: 12px;
+    margin-left: 0.5rem;
+    color: $fontcolor;
+
+}
+
+.field-value {
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+.table {
+    padding: 0.5rem;
+    border: 1px solid #ededed;
+    width: 13rem !important;
+    font-size: 12px;
+    // font-weight: 500;
+    padding-left: 2rem;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+#myElement:first-letter {
+    text-transform: capitalize;
+}
+
+.crmFooter {
+    position: absolute;
+    top: 91vh;
+    left: 1rem;
+    z-index: 1;
+    background: $white;
+    padding-right: 1.5rem;
+}
+
+.pb {
+    padding-bottom: 5rem;
+}
+.text-danger{
+    color: #e24c4c;
+}
+
+@media only screen and (min-width: 1920px) and (max-width: 2305px){
+    .crmFooter {
+        margin-top: -2.4rem;
+    }}
+    @media only screen and (min-width: 1706px) and (max-width: 1707px){
+        .crmFooter {
+            margin-top: -0.8rem;
+        }}

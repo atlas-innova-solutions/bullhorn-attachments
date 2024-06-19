@@ -1,0 +1,8 @@
+:host ::ng-deep {
+    div.textAreaDiv > textarea {
+        height: 6rem !important;
+    }
+}
+.text-danger{
+    color: #e24c4c;
+}

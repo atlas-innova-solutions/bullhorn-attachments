@@ -1,0 +1,16 @@
+{
+    "Supplier": [
+        {
+            "name": "prakash",
+            "id": 1
+        },
+        {
+            "name": "Suresh",
+            "id": 2
+        },
+        {
+            "name": "tonpe",
+            "id": 3
+        }
+    ]
+}

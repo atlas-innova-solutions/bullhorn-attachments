@@ -1,0 +1,28 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="search mr-2 pd-00">
+            <label for="" class="lable-font header-color">View Custom Fields</label>
+        </div>
+    </div>
+</div>
+<form [formGroup]="form">
+    <div class="grid" *ngFor="let items of customFieldFieldData; let i = index">
+        <div class="col-12 md:col-6 lg:col-3">
+            <label class="lable-font" for="displayName">Lable Name</label>
+            <input pInputText formControlName="displayName{{i}}" placeholder="Lable Name" />
+        </div>
+        <div class="col-12 md:col-6 lg:col-3">
+            <label class="lable-font" for="fieldName">Field Name</label>
+            <input pInputText formControlName="fieldName{{i}}" placeholder="Field Name" />
+        </div>
+        <div class="col-12 md:col-6 lg:col-3">
+            <label for="" class="lable-font">Field Type</label>
+            <p-dropdown [options]="appFieldNames" formControlName="fieldType{{i}}" optionLabel="appFieldName"
+                placeholder="Field type">
+            </p-dropdown>
+        </div>
+        <div class="col-12 md:col-6 lg:col-3 center">
+            <p-inputSwitch formControlName="mandatory{{i}}"></p-inputSwitch>
+        </div>
+    </div>
+</form>

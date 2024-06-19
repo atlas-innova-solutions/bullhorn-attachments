@@ -1,0 +1,33 @@
+<div class="card">
+    <p-table [value]="candidateAttachmentList" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Candidate Id </th>
+                <th>Date Added</th>
+                <th>File Name</th>
+                <th>File Type</th>
+                <th>Distribution</th>
+                <th>File Size</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-list>
+            <tr>
+                <td>{{list.candidateId}}</td>
+                <td>{{list.bhDateAdded}}</td>
+                <td><a href="/bh/download/candidate/{{list.candidateId}}/{{list.bhFileName}}/{{list.sourceId}}">{{list.bhFileName}}</a></td>
+               
+              <!-- <td>{{list.bhFileName}}</td> -->
+                <td>{{list.bhFileType}}</td>
+                <td>{{list.bhDistribution}}</td>
+                <td>{{list.fileSize}}</td>                           
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td class="emptyMsg">No Data Found</td>
+            </tr>
+        </ng-template>
+    </p-table>
+       
+</div>
+

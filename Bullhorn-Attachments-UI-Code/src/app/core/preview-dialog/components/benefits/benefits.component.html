@@ -1,0 +1,26 @@
+<div class="grid">
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('tenurePremiumWorker')">
+        <label for="_tpw">{{ 'benefitLabel.tenurePremiumWorker' | translate }}</label><br>
+        <span class="disabledFields">{{ allReviewData?.person?.tenurePremiumWorker }}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('ptoPlan')">
+        <label for="_pto">{{ 'benefitLabel.ptoPlan' | translate }} </label><br>
+        <span class="disabledFields">{{ allReviewData?.person?.ptoPlan }}</span>
+    </div>
+    <!-- <div class="col-12 md:col-6 lg:col-4">
+        <label  for="_holiday">{{ 'benefitLabel.holiday' | translate }}</label><br>
+        <span class="disabledFields">{{ allReviewData?.person?.holidayPlan }}</span>
+    </div> -->
+    <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('sickPlan')">
+        <label  for="_sick">{{ 'benefitLabel.sickPlan' | translate }} </label><br>
+        <span class="disabledFields">{{ allReviewData?.person?.sickPlan }}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('holidayPlanType')">
+        <label  for="_sick">{{ 'benefitLabel.holidayPlanType' | translate }} </label><br>
+        <span class="disabledFields">{{ allReviewData?.assignmentTeamAddr?.holidayPlanTypeName }}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('vacation')">
+        <label  for="_sick">{{ 'benefitLabel.vacation' | translate }} </label><br>
+        <span class="disabledFields">{{ allReviewData?.assignment?.vacationCode  }}</span>
+    </div>
+</div> 

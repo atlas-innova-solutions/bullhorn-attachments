@@ -1,0 +1,47 @@
+@import 'all';
+:host ::ng-deep {
+    .p-inputgroup-addon {
+        padding: 0;
+    }
+    .p-dropdown {
+        height: 2.5rem;;
+        width: 22rem;
+    }
+    .p-inputtext {
+        width: 22rem;
+    }
+}
+
+.center {
+    margin: auto;
+    padding: 10px;
+    height: 2.5rem;
+  }
+
+.bd-radius {  
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+}
+
+.pd-00 {
+    padding: 0;
+}
+.pd-01 {
+    padding: 1rem;
+}
+.lable-font {
+    font-size: 12px;
+    font-weight: 600;
+}
+.lable-radio {
+    font-size: 12px;
+}
+.checkbox-font {
+    font-size: 12px;
+}
+.header-color {
+    color: $primaryblue;
+}
+.left {
+    justify-content: left !important;
+}

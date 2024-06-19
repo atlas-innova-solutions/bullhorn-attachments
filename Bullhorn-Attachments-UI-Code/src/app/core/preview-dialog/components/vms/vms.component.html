@@ -1,0 +1,14 @@
+<div class="grid">
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('vmsName')">
+        <label for="_vmsname">{{ 'vmsLabels.vmsName' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.vmsName}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('vmsWorkOrderNumber')">
+        <label  for="_vmswork">{{ 'vmsLabels.vmsWorkOrderNum' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.vmsWorkOrderNumber}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4"  *ngIf="isFormControlFieldDisplay('vmsWorkerId')">
+        <label  for="_vmsworkerid">{{ 'vmsLabels.vmsWorkerId' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.assignment?.vmsWorkerId}}</span>
+    </div>
+</div>

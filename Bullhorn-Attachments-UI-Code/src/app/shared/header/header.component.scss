@@ -1,0 +1,186 @@
+@import 'all';
+
+:host ::ng-deep {
+    .cursor-pointer {
+        cursor: pointer;
+    }
+    .p-button {
+        background: $primaryblue;
+        border: 1px solid $primaryblue;
+    }
+    .layout-topbar {
+        position: fixed;
+        top: 0;
+        width: $w100;
+        z-index: 2;
+        left: 0;
+    }
+
+    .menu-items-btn {
+        background: $primaryblue;
+        color: $white;
+    }
+
+    .layout-topbar .p-menubar {
+        background: $headercolor;
+        color: $white;
+        border: none;
+        border-radius: 0;
+        padding: $gutter0 $gutter10;
+        height: 4.7rem;
+    }
+    .app-name {
+        font-size: $fs24;
+        border-left: 1px solid hsla(0, 0%, 100%, 0.3);
+        padding: $gutter15;
+        font-weight: 500;
+
+        @include for-size(phone-only) {
+            width: $w100;
+        }
+    }
+
+    .p-menu {
+        width: auto;
+    }
+
+    .setup-header-menubar-top-right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-direction: column-reverse;
+        margin-right: 5rem;
+    }
+
+    .last-login-log {
+        letter-spacing: 1.1px;
+        line-height: 20px;
+        color: $white;
+        font-size: $fs10;
+        white-space: nowrap;
+        margin: -5px 0px 10px 0px;
+        font-weight: 800;
+    }
+
+    .style-logout {
+        display: flex;
+    }
+
+    .tooltipContent{
+        color: white !important;
+    }
+
+    .avatar-name {
+        background: #a6b0c0;
+    }
+
+    .logout-sign {
+        color: $white;
+        padding-left: 1.5rem;
+        font-size: 1.25rem;
+    }
+
+    .notification-bell {
+        color: $white;
+        padding-left: 1.2rem;
+    }
+
+    .layout-topbar-logo {
+        padding: 4px 15px 4px 0;
+    }
+
+    .layout-topbar-logo img {
+        height: 40px;
+    }
+
+    p-menubarsub {
+        display: flex;
+        justify-content: flex-end;
+
+        .p-element:hover {
+            background-color: inherit !important;
+        }
+
+        @media only screen and (max-width: 641px) {
+            width: 0;
+        }
+    }
+
+    .p-menubar .p-menubar-root-list .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text,
+    .p-menubar .p-menubar-root-list .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
+        color: $white;
+    }
+
+    .p-menubar-start {
+        display: flex;
+        align-items: center;
+        font-size: 21px;
+
+        @include for-size(phone-only) {
+            width: $w100;
+        }
+    }
+
+    .p-menubar .p-menubar-root-list .p-menuitem .p-menuitem-link .p-menuitem-icon {
+        color: $white;
+        font-size: 13px;
+        display: block;
+
+        @media only screen and (max-width: 900px) {
+            color: $colorGray;
+        }
+    }
+
+    .p-menubar .p-menubar-root-list .p-menuitem .p-menuitem-link .p-menuitem-text {
+        color: $white;
+        font-size: 13px;
+        display: block;
+    }
+    @media screen and (max-width: 960px) {
+        .p-menubar .p-menubar-root-list .p-menuitem .p-menuitem-link .p-menuitem-text,
+        .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon,
+        .p-menubar .p-menubar-root-list .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text,
+        .p-menubar .p-menubar-root-list .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
+            color: $colorGray;
+        }
+    }
+
+    .p-menubar .p-menubar-root-list .p-menuitem .p-menuitem-link:focus {
+        box-shadow: none;
+    }
+
+    .p-menubar-end {
+        // display: none;
+        margin-left: auto;
+        align-self: center;
+
+        @include for-size(phone-only) {
+            margin-left: inherit !important;
+        }
+    }
+
+    .p-menubar .p-menubar-button {
+        @include for-size(phone-only) {
+            margin-left: auto !important;
+            background-color: $primaryblue;
+            color: $white;
+            box-shadow: none;
+        }
+
+        @include for-size(tablet-portrait-up) {
+            margin-left: auto !important;
+            color: $white;
+            background-color: $primaryblue;
+            box-shadow: none;
+        }
+    }
+
+    .layout-topbar .p-menubar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .tootip-icons-size {
+        font-size: 1rem;
+    }
+}

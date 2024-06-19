@@ -1,0 +1,34 @@
+<div class="grid">
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('homeAddressLine1')">
+        <label for="_hadd1">{{ 'homeAddressLabels.homeAddressLine1' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.person?.homeAddressLine1}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('homeAddressLine2')">
+        <label for="_hadd2">{{ 'homeAddressLabels.homeAddressLine2' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.person?.homeAddressLine2}}</span>
+    </div>
+    <!-- <div class="col-12 md:col-6 lg:col-4">
+        <label for="_hadd3">{{ 'homeAddressLabels.homeAddressLine3' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.person?.homeAddressLine3}}</span>
+    </div> -->
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('homeCity')">
+        <label for="_city">{{ 'homeAddressLabels.city' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.person?.homeCity}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('homeCounty')">
+        <label for="_county">{{ 'homeAddressLabels.county' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.person?.homeCounty}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('homeCountry')">
+        <label for="_country">{{ 'homeAddressLabels.country' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.person?.homeCountry}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('homeStateProvince')">
+        <label for="_state">{{ 'homeAddressLabels.state/province' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.person?.homeStateProvince}}</span>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4" *ngIf="isFormControlFieldDisplay('homePostalCode')">
+        <label for="_postalcode">{{ 'homeAddressLabels.postalCode' | translate }}</label><br>
+        <span class="disabledFields">{{allReviewData?.person?.homePostalCode}}</span>
+    </div>
+</div>

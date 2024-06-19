@@ -1,0 +1,367 @@
+    <div class="p-dynamic-container">
+        <div class="grid timeElements">
+            <div class="col-12 md:col-6 lg:col-6 mb-0">
+                <label class="timeHeader" *ngIf="!billSectionAvailable">{{'placementReviewLevel.specialPayRates' | translate}}</label>
+                <label class="timeHeader" *ngIf="billSectionAvailable">{{'placementReviewLevel.specialBillRates' | translate}}</label>
+    
+            </div>
+          <div class="col-12 md:col-6 lg:col-6 mb-0">
+            <div class="flex">
+              <div class="field-radiobutton" (click)="selectedSection('Pay')"  [ngClass]="selectedValue=='Pay' ? 'active':''">
+                <div class="divHeader">{{ 'payBillLabels.pay' | translate }}</div>
+              </div>
+              <div class="field-radiobutton" (click)="selectedSection('Bill')" [ngClass]="selectedValue=='Bill' ? 'active':''">
+                <div class="divHeader">{{ 'payBillLabels.bill' | translate }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div> 
+        <div class="grid timeElementsGrid" *ngIf="!billSectionAvailable">
+            <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+                <label for="_nightDifferentialPay">{{'timeElementsAndRatesLabels.nightDifferentialPay' | translate }}</label>
+                <div class="line"></div>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_nightDifferentialStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payNigtDiffrlStd}}</span>                
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_nightDifferentialOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payNigtDiffrlOt}}</span>               
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_nightDifferentialDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payNigtDiffrlDt}}</span>               
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_nightDifferentialEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payNigtDiffrlEffDateFrom}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2">
+                <label for="_nightDifferentialEffectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payNigtDiffrlEffDateEnd}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+                <label for="_mealPremiumPay">{{'timeElementsAndRatesLabels.mealPremiumPay' | translate }}</label>
+                <div class="line"></div>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_mealPremiumStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payMealPremiumStd}}</span>                
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_mealPremiumOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payMealPremiumOt}}</span>               
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_mealPremiumDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payMealPremiumDt}}</span>                
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_mealPremiumEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payMealPremiumEffDateFrom}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_mealPremiumEffectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payMealPremiumEffDateEnd}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+                <label for="_onCallOrPagerPay">{{ 'timeElementsAndRatesLabels.onCallOrPagerPay' | translate }}</label>
+                <div class="line"></div>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_onCallStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payOnCallPagerStd}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_onCallOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payOnCallPagerOt}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_onCallDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payOnCallPagerDt}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_onCallEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payOnCallPagerEffDateFrom}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2">
+                <label for="_onCallEffectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payOnCallPagerEffDateEnd}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+                <label for="_healthAndWelfarePay">{{ 'timeElementsAndRatesLabels.healthAndWelfarePay' | translate }}</label>
+                <div class="line"></div>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_healthWelfareStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payHealthWelfareStd}}</span>                
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth ">
+                <label for="_healthWelfareOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payHealthWelfareOt}}</span>                
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_healthWelfareDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payHealthWelfareDt}}</span>                
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_healthWelfareEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payHealthWelfEffDateFrom}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2">
+                <label for="_effectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payHealthWelfEffDateEnd}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+                <label for="_vacationBillablePay">{{ 'timeElementsAndRatesLabels.vacationBillablePay' | translate }}</label>
+                <div class="line"></div>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_vacationBillableStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payVacBillableStd}}</span>                
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_vacationBillableOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payVacBillableOt}}</span>               
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_vacationBillableDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payVacBillableDt}}</span>               
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_vacationBillableEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payVacBillableEffDateFrom}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2">
+                <label for="_vacationBillableEffectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payVacBillableEffDateEnd}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+                <label for="_mileagePay">{{ 'timeElementsAndRatesLabels.mileagePay' | translate }}</label>
+                <div class="line"></div>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_mileageStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payMileageStd}}</span>                
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_mileageOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payMileageOt}}</span>                
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_mileageDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payMileageDt}}</span>               
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_mileageEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payMileageEffDateFrom}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2">
+                <label for="_mileageEffectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payMileageEffDateEnd}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+                <label for="_sickPayBillablePay">{{ 'timeElementsAndRatesLabels.sickPayBillablePay' | translate }}</label>
+                <div class="line"></div>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_sickStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.paySickStd}}</span>               
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_sickOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.paySickOt}}</span>                
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_sickDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.paySickDt}}</span>               
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_sickEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.paySickEffDateFrom}}</span>
+             </div>
+            <div class="col-12 md:col-2 lg:col-2">
+                <label for="_sickEffectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.paySickEffDateEnd}}</span>
+
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+                <label for="_sickPayNonBillablePay">{{ 'timeElementsAndRatesLabels.sickPayNonBillablePay' | translate }}</label>
+                <div class="line"></div>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_sickNonBillableStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.paySickNonBillStd}}</span>               
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_sickNonBillableOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.paySickNonBillOt}}</span>                
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_sickNonBillableDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.paySickNonBillDt}}</span>               
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_sickNonBillableEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.paySickNonBillEffDateFrom}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2">
+                <label for="_sickNonBillableEffectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.paySickNonBillEffDateEnd}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 timeSetupTitle">
+                <label for="_holidayPay">{{ 'timeElementsAndRatesLabels.holidayPay' | translate }}</label>
+                <div class="line"></div>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_holidayStandardPay">{{ 'timeElementsAndRatesLabels.standard' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payHolidayStd}}</span>               
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_holidayOverTimePay">{{ 'timeElementsAndRatesLabels.overTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payHolidayOt}}</span>                
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_holidayDoubleTimePay">{{ 'timeElementsAndRatesLabels.doubleTime' | translate }}</label
+                ><br />
+                <!-- <div class="p-input-icon-left">
+                    <i class="pi pi-dollar"></i>
+                </div> -->
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payHolidayDt}}</span>                
+            </div>
+            <div class="col-12 md:col-2 lg:col-2 divWidth">
+                <label for="_holidayEffectiveDate">{{ 'timeElementsAndRatesLabels.effectiveDate' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payHolidayEffDateFrom}}</span>
+            </div>
+            <div class="col-12 md:col-2 lg:col-2">
+                <label for="_holidayEffectiveEnd">{{ 'timeElementsAndRatesLabels.effectiveEnd' | translate }}</label
+                ><br />
+                <span class="disabledFields">{{allReviewData?.timeElementsRates?.payHolidayEffDateEnd}}</span>
+            </div>
+        </div>
+    <app-time-elements-bill-rates *ngIf="billSectionAvailable && allReviewData" [reviewData]="allReviewData"></app-time-elements-bill-rates>
+
+    
