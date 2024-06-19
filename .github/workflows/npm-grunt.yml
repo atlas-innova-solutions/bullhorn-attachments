@@ -21,7 +21,9 @@ jobs:
       working-directory: Bullhorn-Attachments-UI-Code
       run: |
           ls -la
-          cd bullhorn-attachments/bullhorn-attachments-ui-code
+          cd ..
+          ls -la
+          cd bullhorn-attachments-ui-code
           ls -la
           
 
