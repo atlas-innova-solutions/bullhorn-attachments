@@ -23,7 +23,7 @@ jobs:
           ls -la
           cd ..
           ls -la
-          cd bullhorn-attachments-ui-code
+          cd Bullhorn-Attachments-UI-Code
           ls -la
           
 
