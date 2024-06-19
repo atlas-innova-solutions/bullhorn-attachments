@@ -36,5 +36,7 @@ jobs:
 
     - name: Build
       run: |
+        ls -la
+        cd Bullhorn-Attachments-UI-Code
         npm install
         grunt
