@@ -18,9 +18,8 @@ jobs:
     - uses: actions/checkout@v4
     
     - name: Open Web Client Directory
+      working-directory: ./Bullhorn-Attachments-UI-Code
       run: |
-          ls -la
-          cd ./bullhorn-attachments-ui-code
           ls -la
 
     - name: Use Node.js ${{ matrix.node-version }}
