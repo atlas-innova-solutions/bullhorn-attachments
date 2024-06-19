@@ -1,0 +1,42 @@
+name: NodeJS with Grunt
+
+on:
+  push:
+    branches: [ "main", "develop-sit", "all", "*" ]
+  pull_request:
+    branches: [ "main", "develop-sit", "all", "*" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Open Web Client Directory
+      working-directory: Bullhorn-Attachments-UI-Code
+      run: |
+          ls -la
+          ls -la
+          
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3 
+      with:
+        node-version: ${{ matrix.node-version }}
+        working-directory: Bullhorn-Attachments-UI-Code
+        run: |
+          ls -la
+          cd Bullhorn-Attachments-UI-Code
+          ls -la
+
+    - name: Build
+      run: |
+        ls -la
+        cd Bullhorn-Attachments-UI-Code
+        npm install
+        npm run ng build
