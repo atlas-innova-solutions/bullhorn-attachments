@@ -39,4 +39,4 @@ jobs:
         ls -la
         cd Bullhorn-Attachments-UI-Code
         npm install
-        npm build
+        npm run ng build
