@@ -20,7 +20,7 @@ jobs:
     - name: Open Web Client Directory
       run: |
           ls -la
-          cd /Bullhorn-Attachments-UI-Code/
+          cd ../Bullhorn-Attachments-UI-Code/
           ls -la
 
     - name: Use Node.js ${{ matrix.node-version }}
