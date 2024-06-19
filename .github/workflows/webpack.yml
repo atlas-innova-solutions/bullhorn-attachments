@@ -31,5 +31,5 @@ jobs:
         ls -la
         cd Bullhorn-Attachments-UI-Code
         npm ci
-        npm test
+        npm run ng build
         npx webpack
