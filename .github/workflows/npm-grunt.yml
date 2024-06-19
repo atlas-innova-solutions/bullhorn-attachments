@@ -21,6 +21,8 @@ jobs:
       working-directory: Bullhorn-Attachments-UI-Code
       run: |
           ls -la
+          cd Bullhorn-Attachments-UI-Code
+          la -la
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
